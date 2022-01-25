@@ -98,6 +98,7 @@ export class BuildingFoundation extends Entity {
 
          log(index)
          const ent = new Entity()
+         
          //const element = foundation.building[buildingIndex].blockData[index];
                      
                     //  element.x,

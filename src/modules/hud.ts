@@ -4,8 +4,6 @@ import { ModelIconManager, iconAttributesArray, iconBackground} from 'src/modelI
 import { ModelManager } from 'src/modelManager'
 import {default as foundation} from "./foundations.json"
 import { BuildingFoundation } from "./buildingFoundation";
-//import { Model3D,currentModelId, models, modelData, ModelData } from 'src/model'
-//import { foundationData } from './buildingFoundation'
 
 
 //import { BlockId } from './baseGrid'
@@ -239,6 +237,7 @@ export class HUD {
   private fileContainer: UIContainerRect
   private foundationContainer: UIContainerRect
   private foundationIcon: UIImage
+  private saveContainer: UIContainerRect
   private save_icon: UIImage
 
     /////////////////////////
@@ -2105,9 +2104,10 @@ this.col3_icon.onClick = new OnPointerDown(()=>{
 this.fileContainer = new UIContainerRect(canvas)
 this.fileContainer.width = 85
 this.fileContainer.height = 120
-this.fileContainer.positionX = 375
+this.fileContainer.positionX = 442
 this.fileContainer.positionY = 0
 this.fileContainer.color = Color4.Black()
+this.fileContainer.vAlign = 'bottom'
 this.fileContainer.hAlign = 'center'
 this.fileContainer.opacity = 0.8
 
@@ -2117,16 +2117,32 @@ this.foundationContainer = new UIContainerRect(this.fileContainer)
 this.foundationContainer.width = 35
 this.foundationContainer.height = 35
 this.foundationContainer.positionX = -20
-this.foundationContainer.positionY = 0
+this.foundationContainer.positionY = 40
 this.foundationContainer.color = Color4.Black()
 this.foundationContainer.hAlign = 'center'
 this.foundationContainer.opacity = 0.8
 
+
+
+
+//TODO add multiple foundation icons for each different foundation they have and hide containers
+// that do not have a foundation
+const f1Icon:Texture = resources.images.foundationIcon
+
 if (foundation.building[0]) {
 
-this.foundationIcon = new UIImage(this.foundationContainer, resources.images.foundationIcon)
-this.foundationIcon.sourceWidth = 35
-this.foundationIcon.sourceHeight = 35
+  const f1Icon = resources.images.foundationIcon
+
+} else {
+
+  const f1Icon = resources.images.foundationIcon
+}
+
+
+
+this.foundationIcon = new UIImage(this.foundationContainer, f1Icon)
+this.foundationIcon.sourceWidth = 60
+this.foundationIcon.sourceHeight = 60
 this.foundationIcon.width = 25
 this.foundationIcon.height = 27 
 this.foundationIcon.isPointerBlocker = true
@@ -2136,9 +2152,20 @@ this.foundationIcon.onClick = new OnPointerDown(()=>{
   
   this.addFoundation(0)
 })
-}
 
-this.save_icon = new UIImage(this.fileContainer, resources.images.saveIcon)
+
+
+this.saveContainer = new UIContainerRect(this.fileContainer)
+this.saveContainer.width = 35
+this.saveContainer.height = 35
+this.saveContainer.positionX = 20
+this.saveContainer.positionY = 40
+this.saveContainer.color = Color4.Black()
+this.saveContainer.hAlign = 'center'
+this.saveContainer.opacity = 0.8
+
+
+this.save_icon = new UIImage(this.saveContainer, resources.images.saveIcon)
 this.save_icon.sourceWidth = 182
 this.save_icon.sourceHeight = 176
 this.save_icon.width = 25
@@ -2148,6 +2175,9 @@ this.save_icon.visible = true
 this.save_icon.onClick = new OnPointerDown(()=>{
   //this.displayModels()
   log("saved! ")
+
+
+
 })
 
 }

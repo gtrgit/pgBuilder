@@ -194,9 +194,9 @@ sceneMessageBus.on('editModel', (e) => {
 
   //const bPos:blockPosition = {x,y}
 
-  // const md:blockData = {x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+   const md:blockData = {x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
   
 
-  //  modelData.push(md)
+   modelData.push(md)
   //changeModels()
 })
