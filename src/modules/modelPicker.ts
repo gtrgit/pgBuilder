@@ -66,32 +66,38 @@ export class ModelSystem implements ISystem {
             if (raycastHitEntity.entity.meshName != 'Cube_collider') {
 
             
+
             if (engine.entities[selectorUUID].uuid != raycastHitEntity.entity.entityId){
               
               pickedModelID = raycastHitEntity.entity.entityId
+              engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
               engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
-           
+             
             }
 
-              
-              // //TODO add blockData to selector
-            if (engine.entities[pickedModelID].getComponent(Transform))
-            {
-                if (engine.entities[pickedModelID].getComponent(Transform).scale){
-                  engine.entities[selectorUUID].getComponent(Transform).scale.x = (engine.entities[pickedModelID].getComponent(Transform).scale.x * 1.00001)
-                  engine.entities[selectorUUID].getComponent(Transform).scale.y = (engine.entities[pickedModelID].getComponent(Transform).scale.y * 1.00001)
-                  engine.entities[selectorUUID].getComponent(Transform).scale.z = (engine.entities[pickedModelID].getComponent(Transform).scale.z * 1.00001)
+            //TODO Test if pickedModel has been deleted
+
+
+            //   // //TODO add blockData to selector
+            // if (engine.entities[pickedModelID].getComponent(Transform))
+            // {
+            //     if (engine.entities[pickedModelID].getComponent(Transform).scale){
+            //       // engine.entities[selectorUUID].getComponent(Transform).scale.x = (engine.entities[pickedModelID].getComponent(Transform).scale.x * 1)
+            //       // engine.entities[selectorUUID].getComponent(Transform).scale.y = (engine.entities[pickedModelID].getComponent(Transform).scale.y * 1)
+            //       // engine.entities[selectorUUID].getComponent(Transform).scale.z = (engine.entities[pickedModelID].getComponent(Transform).scale.z * 1)
                   
-                  // TODO rotation need a modifier to account for incorrect rotation on new block
-                  // engine.entities[selectorUUID].getComponent(Transform).rotation.x = (engine.entities[pickedModelID].getComponent(Transform).rotation.x)
-                  // engine.entities[selectorUUID].getComponent(Transform).rotation.y = (engine.entities[pickedModelID].getComponent(Transform).rotation.y)
-                  // engine.entities[selectorUUID].getComponent(Transform).rotation.z = (engine.entities[pickedModelID].getComponent(Transform).rotation.z)
-                  // engine.entities[selectorUUID].getComponent(Transform).rotation.w = (engine.entities[pickedModelID].getComponent(Transform).rotation.w)
+            //       // TODO rotation need a modifier to account for incorrect rotation on new block
+            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.x = (engine.entities[pickedModelID].getComponent(Transform).rotation.x)
+            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.y = (engine.entities[pickedModelID].getComponent(Transform).rotation.y)
+            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.z = (engine.entities[pickedModelID].getComponent(Transform).rotation.z)
+            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.w = (engine.entities[pickedModelID].getComponent(Transform).rotation.w)
                 
                 
-                }
+            //     }
 
-            }
+            // }
+
+            
 
           }
 

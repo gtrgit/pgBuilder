@@ -2,7 +2,7 @@ import { colourArray } from "../colourSetArray"
 import * as utils from '@dcl/ecs-scene-utils'
 import { Manager, Mode } from "src/manager"
 import { ModelManager } from "src/modelManager"
-//import { BlockType } from "./selector"
+
 
 
 //will be used to save and output data in json format
@@ -11,9 +11,9 @@ export const modelData:blockData[] = []
 export const sceneMessageBus = new MessageBus()
 
 
-@Component("blockType")
-export class BlockType {
-    blockType: string = 'block'
+@Component("blockComponentData")
+export class BlockComponentData {
+    blockArrayPos: number
 }
 
 
@@ -37,14 +37,17 @@ export type blockData = {
 
 //is need to retaind the uuid of the give model
 export let currentModelId:string
-
+export let deletedFlag: boolean
+export let arrayPos: number
 
 //Class to read json create 3d object from json and create new buildingData type and store it in modelData
 export class BuildingBlocks extends Entity {
-  private static blockArrayId:number
+  public static blockArrayId:number
+  public static deleted:boolean
+
     constructor(
-      blockArrayId: number,
-      deleted: boolean,
+      blockArrayId: number = modelData.length,
+      deleted: boolean = false,
       posX: number,
       posY: number,
       posZ: number,
@@ -57,10 +60,17 @@ export class BuildingBlocks extends Entity {
       scaleZ: number,
       block_id: number,
       colour_id: number
+
+      
     )
     {
       super()
       
+      //add component
+      this.addComponent(new BlockComponentData())
+      this.getComponent(BlockComponentData).blockArrayPos = modelData.length
+
+
       engine.addEntity(this)
       const blockShape = colourArray[colour_id][block_id]
       
@@ -87,6 +97,7 @@ export class BuildingBlocks extends Entity {
       
       if (modelData) {
         blockArrayId = modelData.length
+        
       }
 
       this.addComponent(
@@ -94,7 +105,7 @@ export class BuildingBlocks extends Entity {
           (e) => {
             
             if (blockArrayId){
-              log('blockArrayId '+blockArrayId)
+              log('blockArrayId '+blockArrayId+' deleted? '+deleted)
             } else { log('no blockArrayId')}
             //log(' block_id '+block_id+'  colour_id '+colour_id+ ' parent uuid' +this.uuid)
           },
@@ -109,10 +120,14 @@ export class BuildingBlocks extends Entity {
        
       currentModelId = this.uuid
       
+      deletedFlag = false
+      arrayPos = blockArrayId
 
     }
      
-    
+    subtractModel(blockArrayId:number){
+      log('subtract function '+blockArrayId)
+    }
 
       // Edit a voxel depending on what mode the user is in
       editModel(blockArrayId:number,deleted:boolean, block_id: number, colour_id: number,x: number, y: number, z: number,rx: number,
@@ -123,11 +138,8 @@ export class BuildingBlocks extends Entity {
          switch (mode) 
           {
               case Mode.blockAdd:
-                
-                //log('Model added index '+ModelManager.modelIndex)
-              
-                //engine.entities["selector"].getComponent(Transform).scale.setAll(5)
-                //engine.entities[selectorId].getComponent(Transform).scale.setAll(1)
+                log('case add')
+ 
 
                 Manager.playAddModelSound()
                
@@ -145,9 +157,11 @@ export class BuildingBlocks extends Entity {
               //newBlock.addComponent(materials[color])
               break
               case Mode.Subtract:
-                this.subtractModel()
+               //not being used becaues the selector is clicked not the block
+                this.subtractModel(blockArrayId)
                 break
               case Mode.EyeDrop:
+                log('case eyedrop')
                 this.eyeDropModel()
                 break
               // case Mode.Swap:

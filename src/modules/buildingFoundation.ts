@@ -1,9 +1,9 @@
 import { colourArray } from "../colourSetArray"
 import * as utils from '@dcl/ecs-scene-utils'
-import { BuildingBlocks, blockData } from "./buildingBlock"
+import { BuildingBlocks, blockData, modelData } from "./buildingBlock"
 
 //will be used to save and output data in json format
-export const ModelData = []
+//export const ModelData = []
 
 //new type to be stored in ModelData array
 export type foundationData = {
@@ -13,7 +13,7 @@ export type foundationData = {
   creatorEthAdress: string,
   totalMinted?: number,
   buildingImage?: string
-  blockData:blockData[]
+  foundationBlockData:blockData[]
 }
 
 
@@ -57,7 +57,7 @@ export class BuildingFoundation extends Entity {
       scaleZ: number,
       block_id: number,
       colour_id: number,
-      blockData:any[]
+      foundationBlockData:any[]
     )
     {
       super()
@@ -92,43 +92,41 @@ export class BuildingFoundation extends Entity {
       )
      
 
-      for (let index = 0; index < blockData.length; index++) {
+      for (let index = 0; index < foundationBlockData.length; index++) {
         // new utils.Delay(10000, () => {
-         const element = blockData[index];
+         const element = foundationBlockData[index];
 
          log(index)
          const ent = new Entity()
          
-         //const element = foundation.building[buildingIndex].blockData[index];
-                     
-                    //  element.x,
-                    //  element.y,
-                    //  element.z,
-                    //  element.rx,
-                    //  element.ry,
-                    //  element.rz,
-                    //  element.rw,
-                    //  element.sx,
-                    //  element.sy,
-                    //  element.sz,
-                    //  element.block_id,
-                    //  element.colour_id
+        
+         let blockArrayId = element.blockArrayId
+         let deleted = element.deleted
+         let x = element.x
+         let y = element.y
+         let z = element.z
+         let rx = element.rx
+         let ry = element.ry
+         let rz = element.rz
+         let rw = element.rw
+         let sx = element.sx
+         let sy =  element.sy
+         let sz = element.sz
+         let block_id = element.block_id
+         let colour_id = element.colour_id
+         
+         const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+         log(md.x+' y'+md.y)
+       
+          modelData.push(md)
 
-               log(element.x+' - ' +element.y)
+        // Dont add deleted blocks
+        if (element.deleted = true){
 
+          const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
 
-          const newBlock = new BuildingBlocks(element.x,
-            element.y,
-            element.z,
-            element.rx,
-            element.ry,
-            element.rz,
-            element.rw,
-            element.sx,
-            element.sy,
-            element.sz,
-            element.block_id,
-            element.colour_id)
+          }
+
           //  //create 3d object     
           //  const shape = colourArray[element.colour_id][element.block_id]
           //  const newBlockTrans = new Transform({
@@ -162,58 +160,58 @@ export class BuildingFoundation extends Entity {
       }
 
       
-      addBlocks(blockData:any,id:string){
-        log('blockData')
+      // addBlocks(blockData:any,id:string){
+      //   log('blockData')
        
-          for (let index = 0; index < blockData.length; index++) {
-           // new utils.Delay(10000, () => {
-            const element = blockData[index];
+      //     for (let index = 0; index < blockData.length; index++) {
+      //      // new utils.Delay(10000, () => {
+      //       const element = blockData[index];
 
-            const model = new BuildingBlocks(
-                        element.x,
-                        element.y,
-                        element.z,
-                        element.rx,
-                        element.ry,
-                        element.rz,
-                        element.rw,
-                        element.sx,
-                        element.sy,
-                        element.sz,
-                        element.block_id,
-                        element.colour_id)
+      //       const model = new BuildingBlocks(
+      //                   element.x,
+      //                   element.y,
+      //                   element.z,
+      //                   element.rx,
+      //                   element.ry,
+      //                   element.rz,
+      //                   element.rw,
+      //                   element.sx,
+      //                   element.sy,
+      //                   element.sz,
+      //                   element.block_id,
+      //                   element.colour_id)
 
-                  log(element.x+' - ' +element.y)
+      //             log(element.x+' - ' +element.y)
 
 
-                  // //create 3d object     
-                  // const shape = colourArray[element.colour_id][element.block_id]
-                  // const newBlockTrans = new Transform({
-                  // position: new Vector3(element.x,element.y,element.x),
-                  // rotation: new Quaternion(element.rx,element.ry,element.rz,element.rw),
-                  // scale: new Vector3(element.sx,element.sy,element.sx)
-                  // })
+      //             // //create 3d object     
+      //             // const shape = colourArray[element.colour_id][element.block_id]
+      //             // const newBlockTrans = new Transform({
+      //             // position: new Vector3(element.x,element.y,element.x),
+      //             // rotation: new Quaternion(element.rx,element.ry,element.rz,element.rw),
+      //             // scale: new Vector3(element.sx,element.sy,element.sx)
+      //             // })
 
-                  // ent.addComponent(shape)
-                  // ent.addComponent(newBlockTrans)
-                  // ent.addComponent(
-                  //   new OnPointerDown(
-                  //     (e) => {
+      //             // ent.addComponent(shape)
+      //             // ent.addComponent(newBlockTrans)
+      //             // ent.addComponent(
+      //             //   new OnPointerDown(
+      //             //     (e) => {
                         
-                  //       log('index i ----  '+ index)
-                  //     },
-                  //     {
-                  //       button: ActionButton.POINTER,
-                  //       showFeedback: false,
-                  //     }
-                  //   )
-                  // )
-                  // ent.setParent(engine.entities[id])
-                  // engine.addEntity(ent)
+      //             //       log('index i ----  '+ index)
+      //             //     },
+      //             //     {
+      //             //       button: ActionButton.POINTER,
+      //             //       showFeedback: false,
+      //             //     }
+      //             //   )
+      //             // )
+      //             // ent.setParent(engine.entities[id])
+      //             // engine.addEntity(ent)
 
-          }
+      //     }
      
-      }
+      // }
 
 
 }

@@ -54,20 +54,6 @@ for (let buildingIndex = 0; buildingIndex < foundation.building.length; building
   //const bb = new BuildingBlocks(foundation.building[buildingIndex].blockData[0].x)
   // stages of a buildingFoundation load existing, create New, remove from scene,
 
-  if(foundation.building[0]){
-    log('f.b 0 = true')
-  }
-
-  
-  if(foundation.building[1]){
-    log('f.b 1 = true')
-  }
-  
-  if(foundation.building[2]){
-    log('f.b 2 = true')
-  } else {
-    log('f.b 2 = false')
-  }
 
   // const newBox = new BuildingFoundation(
   //   foundation.building[buildingIndex].building_id,
