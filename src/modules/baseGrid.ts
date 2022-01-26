@@ -7,7 +7,7 @@ import { ModelManager, modelArray } from 'src/modelManager'
 import { colourIndex } from './hud'
 //import { BlockData } from './oldblockData'
 import { BuildingFoundation } from './buildingFoundation'
-import { BuildingBlocks } from './buildingBlock'
+import { BuildingBlocks, modelData } from './buildingBlock'
 //import { BlockSelector } from './selector'
 
 // @Component("selectBlockName")
@@ -39,15 +39,17 @@ export const selectorMessageBus = new MessageBus()
 // engine.addEntity(newEntity)
 
 
+// let baseGridScale = 1 / 32
 
-// Base grid
-const baseGrid = new Entity()
-baseGrid.addComponent(resources.models.baseGrid)
-baseGrid.addComponent(
-    new Transform({
-    position: new Vector3(0, 0, 0),
-  })
-)
+// // Base grid
+ const baseGrid = new Entity()
+// baseGrid.addComponent(resources.models.colours.colour_1.r6c1)
+// baseGrid.addComponent(
+//     new Transform({
+//     position: new Vector3(7, 0, 7)
+//     //scale: new Vector3(baseGridScale,baseGridScale,baseGridScale)
+//   })
+// )
 
 
 //TODO seperate the selector function into a new class and pass the uuid to that new class.
@@ -58,12 +60,15 @@ function addBaseModel(x: number, y: number, z: number,
                       block_id:number,colour_id:number,) {
 
 
-                        log('Voxel added..')
+                        log('block added to baseGrid')
                         Manager.playAddModelSound()
 
   let modelId = ModelManager.modelIndex
 
-  const model = new BuildingBlocks(x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
+  let modelArrayId:number = modelData.length
+  let deleted:boolean = false
+
+  const model = new BuildingBlocks(modelArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
   
   
   //engine.addEntity(model)
@@ -77,10 +82,14 @@ baseGrid.addComponent(
   new OnPointerDown(
     (e) => {
       if (Manager.activeMode == Mode.blockAdd) {
+
         let transform = picker.getComponent(Transform)
+        log('----')
+        log(transform)
         addBaseModel(
           transform.position.x,
-          MODEL_SIZE / 2 + 0.7 + transform.position.y, // Offset voxel based on grid thickness (0.1m) and height 
+          // MODEL_SIZE / 2 + 0.7 + transform.position.y, // Offset voxel based on grid thickness (0.1m) and height 
+          MODEL_SIZE  / 2 - transform.position.y, // Offset voxel based on grid thickness (0.1m) and height 
           transform.position.z,
           transform.rotation.x,
           transform.rotation.y,

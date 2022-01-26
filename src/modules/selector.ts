@@ -92,8 +92,10 @@ selectorEntity.addComponent(
          
           let sbName = selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID
           
-           engine.removeEntity(engine.entities[sbName])
+          engine.entities[sbName].deleted = true
 
+           engine.removeEntity(engine.entities[sbName])
+          log(engine.entities[sbName].deleted)
          }
   
         //

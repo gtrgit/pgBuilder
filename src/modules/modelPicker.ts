@@ -78,9 +78,9 @@ export class ModelSystem implements ISystem {
             if (engine.entities[pickedModelID].getComponent(Transform))
             {
                 if (engine.entities[pickedModelID].getComponent(Transform).scale){
-                  engine.entities[selectorUUID].getComponent(Transform).scale.x = (engine.entities[pickedModelID].getComponent(Transform).scale.x * 1.01)
-                  engine.entities[selectorUUID].getComponent(Transform).scale.y = (engine.entities[pickedModelID].getComponent(Transform).scale.y * 1.01)
-                  engine.entities[selectorUUID].getComponent(Transform).scale.z = (engine.entities[pickedModelID].getComponent(Transform).scale.z * 1.01)
+                  engine.entities[selectorUUID].getComponent(Transform).scale.x = (engine.entities[pickedModelID].getComponent(Transform).scale.x * 1.00001)
+                  engine.entities[selectorUUID].getComponent(Transform).scale.y = (engine.entities[pickedModelID].getComponent(Transform).scale.y * 1.00001)
+                  engine.entities[selectorUUID].getComponent(Transform).scale.z = (engine.entities[pickedModelID].getComponent(Transform).scale.z * 1.00001)
                   
                   // TODO rotation need a modifier to account for incorrect rotation on new block
                   // engine.entities[selectorUUID].getComponent(Transform).rotation.x = (engine.entities[pickedModelID].getComponent(Transform).rotation.x)

@@ -5,12 +5,10 @@ import { ModelManager } from "src/modelManager"
 //import { BlockType } from "./selector"
 
 
-
 //will be used to save and output data in json format
 export const modelData:blockData[] = []
 
 export const sceneMessageBus = new MessageBus()
-
 
 
 @Component("blockType")
@@ -19,10 +17,10 @@ export class BlockType {
 }
 
 
-
-
 //new type to be stored in ModelData array
 export type blockData = {
+  blockArrayId:number
+  deleted:boolean
   x: number 
   y: number
   z: number
@@ -43,8 +41,10 @@ export let currentModelId:string
 
 //Class to read json create 3d object from json and create new buildingData type and store it in modelData
 export class BuildingBlocks extends Entity {
- 
+  private static blockArrayId:number
     constructor(
+      blockArrayId: number,
+      deleted: boolean,
       posX: number,
       posY: number,
       posZ: number,
@@ -85,10 +85,17 @@ export class BuildingBlocks extends Entity {
       // newEnt.addComponent(blockShape)
       // newEnt.addComponent(newBlock)
       
+      if (modelData) {
+        blockArrayId = modelData.length
+      }
+
       this.addComponent(
         new OnPointerDown(
           (e) => {
-            log('uuid '+ this.uuid)
+            
+            if (blockArrayId){
+              log('blockArrayId '+blockArrayId)
+            } else { log('no blockArrayId')}
             //log(' block_id '+block_id+'  colour_id '+colour_id+ ' parent uuid' +this.uuid)
           },
           {
@@ -99,7 +106,7 @@ export class BuildingBlocks extends Entity {
       )
 
       //newEnt.addComponent(new BlockType())
-
+       
       currentModelId = this.uuid
       
 
@@ -108,7 +115,7 @@ export class BuildingBlocks extends Entity {
     
 
       // Edit a voxel depending on what mode the user is in
-      editModel(block_id: number, colour_id: number,x: number, y: number, z: number,rx: number,
+      editModel(blockArrayId:number,deleted:boolean, block_id: number, colour_id: number,x: number, y: number, z: number,rx: number,
         ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode)
         {
           log('editModel')
@@ -117,14 +124,14 @@ export class BuildingBlocks extends Entity {
           {
               case Mode.blockAdd:
                 
-                log('Model added index '+ModelManager.modelIndex)
+                //log('Model added index '+ModelManager.modelIndex)
               
                 //engine.entities["selector"].getComponent(Transform).scale.setAll(5)
                 //engine.entities[selectorId].getComponent(Transform).scale.setAll(1)
 
                 Manager.playAddModelSound()
                
-                const newBlock = new BuildingBlocks(x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
+                const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
                 
                 //modelData.push(newBlock)
 
@@ -176,26 +183,31 @@ sceneMessageBus.on('editModel', (e) => {
   let sz = e.scale.z
   let block_id = e.modelArrayIndex
   let colour_id = e.colourArrayIndex
-  log('editing Model...'+block_id+ ' col '+ colour_id)
-  log(e.position)
-  log(e.rotation)
-  log(e.scale)
-  log(e.normal)
-  log('model '+ e.model)
-  log('mode  '+ e.mode)
+
+  // log('editing Model...'+block_id+ ' col '+ colour_id)
+  // log(e.position)
+  // log(e.rotation)
+  // log(e.scale)
+  // log(e.normal)
+  // log('model '+ e.model)
+  // log('mode  '+ e.mode)
 
 
   // ' rot '+rw+' rx'+ rx +' ry '+ry+ 'rz'+rz+
   // 'x '+ x + ' y '+y+ ' z '+z +
   // ' sx '+sx +' model '+ e.model +' mode ' +  e.mode)
   
-  engine.entities[e.model].editModel(block_id,colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode)
+  let blockArrayId: number = modelData.length
+  let deleted:boolean = false
+  log(' baId '+ blockArrayId)
+
+  engine.entities[e.model].editModel(blockArrayId,deleted,block_id,colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode)
   //log('editing Model...'+e.modelArrayIndex+ ' col '+ e.colourArrayIndex+' rot '+rw+' rx'+ rx +' ry '+ry+ 'rz'+rz)
 
   //const bPos:blockPosition = {x,y}
 
-   const md:blockData = {x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
-  
+   const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+  log(md.x+' y'+md.y)
 
    modelData.push(md)
   //changeModels()

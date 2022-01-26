@@ -15,6 +15,25 @@ const canvas = new UICanvas()
 const hud = new HUD(canvas)
 // const blkSel = new BlockSelector()
 
+//add new baseBlock
+const blockArrayId:number = 0
+
+const deleted: boolean = false
+const x: number = 8
+const y: number = 0
+const z: number = 8
+const rx: number = 0
+const ry: number = 0
+const rz: number = 0
+const rw: number = 1
+const sx: number = 1 
+const sy: number = 1
+const sz: number = 1
+const block_id: number = 33
+const colour_id: number = 0
+const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
+
+
 // export let selectorUUID = blkSel.uuid
 //log('uuid '+ blkSel.name)
 //log('selectedBlockName  '+engine.entities[blkSelUuid].getComponent(SelectedBlockName).selectedBlockName)// = blkSel.uuid

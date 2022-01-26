@@ -4,7 +4,7 @@ import { ModelIconManager, iconAttributesArray, iconBackground} from 'src/modelI
 import { ModelManager } from 'src/modelManager'
 import {default as foundation} from "./foundations.json"
 import { BuildingFoundation } from "./buildingFoundation";
-
+import { blockData, modelData } from './buildingBlock'
 
 //import { BlockId } from './baseGrid'
 
@@ -2176,9 +2176,13 @@ this.save_icon.onClick = new OnPointerDown(()=>{
   //this.displayModels()
   log("saved! ")
 
+  this.logJSON(modelData)
 
 
 })
+
+
+
 
 }
 
@@ -2201,6 +2205,17 @@ this.save_icon.onClick = new OnPointerDown(()=>{
    
     
   // }
+
+  public logJSON(arr: blockData[] ){
+
+    log(JSON.stringify(modelData))
+    // log('show JSON' + modelData.length)
+    // for (let index = 0; index < modelData.length; index++) {
+    //   const element = modelData[index];
+    //   log(element)
+    // }
+    
+  }
 
   public switchModeIcon(mode: Mode): void {
     switch (mode) {
