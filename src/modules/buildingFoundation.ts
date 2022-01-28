@@ -116,7 +116,7 @@ export class BuildingFoundation extends Entity {
          let colour_id = element.colour_id
          
          const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
-         log(md.x+' y'+md.y)
+         log('block array '+ element.blockArrayId +' deleted ' +md.deleted)
        
           modelData.push(md)
 

@@ -71,7 +71,7 @@ selectorEntity.addComponent(
         log('rot  '+ selectorEntity.getComponent(Transform).rotation)
         log('pos  '+ selectorEntity.getComponent(Transform).position)
         log('scale  '+ selectorEntity.getComponent(Transform).scale)
-        
+        log('currentModelId '+ currentModelId+ '  ')
         //
         
         if (Manager.activeMode == Mode.blockAdd)   {
@@ -85,22 +85,33 @@ selectorEntity.addComponent(
             rotation: selectorEntity.getComponent(Transform).rotation,
             scale: new Vector3(1,1,1),//selectorEntity.getComponent(Transform).scale,
             normal: e.hit?.normal,//e.hit.normal,
-            model: currentModelId,//thisModel.uuid, r1c2Id
+            model: selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID,//thisModel.uuid, r1c2Id
             mode: Manager.activeMode
           })
         }
   
         
         if (Manager.activeMode == Mode.Subtract) {
+
+          log('subtract '+ selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID)
          
           let sbName = selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID
+
+          if (engine.entities[sbName]){
+            
+          log('block Arr Pos '+ engine.entities[sbName].getComponent(BlockComponentData).blockArrayPos)
          
-
+         //TODO the code breaks either here or modelPicker
+         
            //Update Array data
+           //debugger
           let arrayPos = engine.entities[sbName].getComponent(BlockComponentData).blockArrayPos
+          
           let element = modelData[arrayPos]
-
+         
+          
           let blockArrayId = element.blockArrayId
+          
           let deleted = true
           let x = element.x
           let y = element.y
@@ -119,12 +130,18 @@ selectorEntity.addComponent(
           
           
           modelData.splice(arrayPos,1,updateBlock)
+         
 
+          
+          engine.removeEntity(engine.entities[sbName])
+       
+
+          }
+          log('subtract')
+         
           //filter pos return blockData
           // splice blockData deleted = true
 
-          engine.removeEntity(engine.entities[sbName])
-         
          }
   
         //

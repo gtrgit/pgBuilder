@@ -46,8 +46,8 @@ export class BuildingBlocks extends Entity {
   public static deleted:boolean
 
     constructor(
-      blockArrayId: number = modelData.length,
-      deleted: boolean = false,
+      blockArrayId: number, 
+      deleted: boolean,
       posX: number,
       posY: number,
       posZ: number,
@@ -66,22 +66,28 @@ export class BuildingBlocks extends Entity {
     {
       super()
       
-      //add component
-      this.addComponent(new BlockComponentData())
-      this.getComponent(BlockComponentData).blockArrayPos = modelData.length
+      //do not create a deleted block
+      if (deleted != true){
+       
+            
+            //add component
+            this.addComponent(new BlockComponentData())
 
+            this.getComponent(BlockComponentData).blockArrayPos = blockArrayId
+            log('this should be populated on load: blockArrayPos : '+this.getComponent(BlockComponentData).blockArrayPos)
 
-      engine.addEntity(this)
-      const blockShape = colourArray[colour_id][block_id]
-      
-      const blockTransform = new Transform({
-          position: new Vector3(posX,posY,posZ),
-          rotation: new Quaternion(rotX,rotY,rotZ,rotW),
-          scale: new Vector3(scaleX,scaleY,scaleZ)
-          })
-      this.addComponent(blockShape)
-      this.addComponent(blockTransform)
+            engine.addEntity(this)
+            const blockShape = colourArray[colour_id][block_id]
+            
+            const blockTransform = new Transform({
+                position: new Vector3(posX,posY,posZ),
+                rotation: new Quaternion(rotX,rotY,rotZ,rotW),
+                scale: new Vector3(scaleX,scaleY,scaleZ)
+                })
+            this.addComponent(blockShape)
+            this.addComponent(blockTransform)
 
+      }
       // //Create 3d object
       // const newEnt:Entity = new Entity()
       // const blockShape = colourArray[colour_id][block_id]
@@ -95,17 +101,14 @@ export class BuildingBlocks extends Entity {
       // newEnt.addComponent(blockShape)
       // newEnt.addComponent(newBlock)
       
-      if (modelData) {
-        blockArrayId = modelData.length
-        
-      }
+      
 
       this.addComponent(
         new OnPointerDown(
           (e) => {
             
             if (blockArrayId){
-              log('blockArrayId '+blockArrayId+' deleted? '+deleted)
+              log('blockArrayId '+blockArrayId+' deleted? '+deleted+ ' uuid '+this.uuid )
             } else { log('no blockArrayId')}
             //log(' block_id '+block_id+'  colour_id '+colour_id+ ' parent uuid' +this.uuid)
           },
@@ -120,7 +123,7 @@ export class BuildingBlocks extends Entity {
        
       currentModelId = this.uuid
       
-      deletedFlag = false
+      //deletedFlag = false
       arrayPos = blockArrayId
 
     }
@@ -131,8 +134,9 @@ export class BuildingBlocks extends Entity {
 
       // Edit a voxel depending on what mode the user is in
       editModel(blockArrayId:number,deleted:boolean, block_id: number, colour_id: number,x: number, y: number, z: number,rx: number,
-        ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode)
+        ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode) 
         {
+          
           log('editModel')
         //log('Model added???? modelArrayIndex ' + block_id + ' col index '+ colour_id)
          switch (mode) 
@@ -143,6 +147,7 @@ export class BuildingBlocks extends Entity {
 
                 Manager.playAddModelSound()
                
+                
                 const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
                 
                 //modelData.push(newBlock)
@@ -207,22 +212,34 @@ sceneMessageBus.on('editModel', (e) => {
   // log('mode  '+ e.mode)
 
 
-  // ' rot '+rw+' rx'+ rx +' ry '+ry+ 'rz'+rz+
-  // 'x '+ x + ' y '+y+ ' z '+z +
-  // ' sx '+sx +' model '+ e.model +' mode ' +  e.mode)
-  
-  let blockArrayId: number = modelData.length
-  let deleted:boolean = false
-  log(' baId '+ blockArrayId)
+//  log( ' rot '+rw+' rx'+ rx +' ry '+ry+ 'rz'+rz+
+//    'x '+ x + ' y '+y+ ' z '+z +
+//    ' sx '+sx +' model '+ e.model +' mode ' +  e.mode)
+let blockArrayId: number
 
+
+   blockArrayId = modelData.length
+
+   //deleted is initialized to false
+   let deleted:boolean = false
+
+//  if (e.mode = 1){
+//    deleted = false
+//  }
+
+  //the uuid is Undefined!!!
+  log(' baId '+ blockArrayId+ ' del '+deleted+ ' model uuid '+e.uuid)
+  
+  if (engine.entities[e.model]) {
+    
   engine.entities[e.model].editModel(blockArrayId,deleted,block_id,colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode)
   //log('editing Model...'+e.modelArrayIndex+ ' col '+ e.colourArrayIndex+' rot '+rw+' rx'+ rx +' ry '+ry+ 'rz'+rz)
-
+  }
   //const bPos:blockPosition = {x,y}
 
    const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
   log(md.x+' y'+md.y)
-
+  
    modelData.push(md)
   //changeModels()
 })

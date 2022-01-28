@@ -5,7 +5,7 @@ import resources from 'src/resources_2'
 //import { BuildingFoundation } from './buildingFoundation'
 
 //import { SelectedBlockName } from './baseGrid' //selectorId
-import { BlockType, SelectedBlockUUID, selectorUUID } from './selector'
+import { SelectedBlockUUID, selectorUUID } from './selector'
 //import resources from 'src/resources'
 //import { ModelEnt } from 'src/modelEntity'
 //import { modelArray, ModelManager } from 'src/modelManager'
@@ -56,6 +56,7 @@ export class ModelSystem implements ISystem {
 
     // For the camera ray, we cast a hit all
     PhysicsCast.instance.hitFirst(rayFromCamera, (raycastHitEntity) => {
+
       if (raycastHitEntity.didHit) {
         // Check entity exists i.e. not been deleted
         if (engine.entities[raycastHitEntity.entity.entityId]) {
@@ -70,9 +71,11 @@ export class ModelSystem implements ISystem {
             if (engine.entities[selectorUUID].uuid != raycastHitEntity.entity.entityId){
               
               pickedModelID = raycastHitEntity.entity.entityId
-              engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
-              engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
-             
+              log('pickedModelID ' + pickedModelID)
+              if (engine.entities[pickedModelID]){
+                  engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
+                  engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
+              }
             }
 
             //TODO Test if pickedModel has been deleted
@@ -105,12 +108,14 @@ export class ModelSystem implements ISystem {
             // // 'y' + engine.entities[selectorId].getComponent(Transform).position.y +
             // // 'z' + engine.entities[selectorId].getComponent(Transform).position.z)
 
-       
+            if (engine.entities[pickedModelID]){
             engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID = pickedModelID
 
+            log('selector uuid updated to: '+engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID)
             // log('selector UUID '+ selectorUUID+ ' pickedUUID '+ pickedModelID)
-
-            pickerFace(engine.entities[pickedModelID], raycastHitEntity)
+          
+              pickerFace(engine.entities[pickedModelID], raycastHitEntity)  
+          }
         
           } else {
             pickerBase(raycastHitEntity)

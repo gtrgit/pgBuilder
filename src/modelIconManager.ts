@@ -61,7 +61,7 @@ export const iconAttributesArray  = [
 
     public static setModel(id:number): number {
       ModelIconManager.modelIndex = id
-      log("setModel model index = "+ ModelIconManager.modelIndex)
+      //log("setModel model index = "+ ModelIconManager.modelIndex)
 
       //       //turns off highligth
       // for (let index = 0; index < iconBackground.length; index++) {
@@ -76,7 +76,7 @@ export const iconAttributesArray  = [
     }
   
     public static nextModel(): number {
-      log("next model index = "+ ModelIconManager.modelIndex)
+      //log("next model index = "+ ModelIconManager.modelIndex)
       ModelIconManager.modelIndex < iconAttributesArray.length - 1
         ? ModelIconManager.modelIndex++
         : (ModelIconManager.modelIndex = 0)
