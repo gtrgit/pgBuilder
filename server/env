@@ -1,0 +1,8 @@
+# Ticket: Connection
+# Rename this file to .env after filling in your MFLIX_DB_URI and your SECRET_KEY
+# Do not surround the URI with quotes
+SECRET_KEY=super_secret_key_you_should_change
+DB_CONN_STRING=mongodb+srv://Aetheria:Aetheria@aetheria.d5gai.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+DB_NAME=Aetheria_Test
+GAMES_COLLECTION_NAME="Polygon_Model_Test"
+PORT=8080

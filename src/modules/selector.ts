@@ -67,16 +67,9 @@ selectorEntity.addComponent(
     new OnPointerDown(
       (e) => {
         
-        //log(Manager.activeMode)
-        log('rot  '+ selectorEntity.getComponent(Transform).rotation)
-        log('pos  '+ selectorEntity.getComponent(Transform).position)
-        log('scale  '+ selectorEntity.getComponent(Transform).scale)
-        log('currentModelId '+ currentModelId+ '  ')
-        //
         
         if (Manager.activeMode == Mode.blockAdd)   {
-           // log(selectorEntity.getComponent(Transform).position)
-          //selectorEntityClicked = true
+    
           selectorEntity.getComponent(GLTFShape).visible = true
           selectorMessageBus.emit('editModel', {
             modelArrayIndex: ModelManager.modelIndex,
@@ -93,18 +86,10 @@ selectorEntity.addComponent(
         
         if (Manager.activeMode == Mode.Subtract) {
 
-          log('subtract '+ selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID)
-         
           let sbName = selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID
 
           if (engine.entities[sbName]){
-            
-          log('block Arr Pos '+ engine.entities[sbName].getComponent(BlockComponentData).blockArrayPos)
-         
-         //TODO the code breaks either here or modelPicker
-         
-           //Update Array data
-           //debugger
+
           let arrayPos = engine.entities[sbName].getComponent(BlockComponentData).blockArrayPos
           
           let element = modelData[arrayPos]
@@ -137,10 +122,7 @@ selectorEntity.addComponent(
        
 
           }
-          log('subtract')
-         
-          //filter pos return blockData
-          // splice blockData deleted = true
+       
 
          }
   
@@ -232,10 +214,7 @@ selectorEntity.addComponent(
 
             //Update Array data
             let arrayPos = engine.entities[sbName].getComponent(BlockComponentData).blockArrayPos
-            log('array pos '+ arrayPos)
             let element = modelData[arrayPos]
-
-            log(element)
 
             let newRotation = engine.entities[sbName].getComponent(Transform).rotation
 
