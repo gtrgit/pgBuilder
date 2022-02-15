@@ -1,9 +1,10 @@
 import { colourArray } from "../colourSetArray"
+import {default as modelTypes} from "src/modelTypeColour.json"
 import * as utils from '@dcl/ecs-scene-utils'
 import { Manager, Mode } from "src/manager"
 import { ModelManager } from "src/modelManager"
-
-
+import { test } from "../../models/seperated_blocks/test"
+import { default as models } from "src/modelPath"
 
 //will be used to save and output data in json format
 export const modelData:blockData[] = []
@@ -13,7 +14,12 @@ export const sceneMessageBus = new MessageBus()
 
 @Component("blockComponentData")
 export class BlockComponentData {
-    blockArrayPos: number
+    blockArrayPos: number = 0
+    body_colour_id: number = 0
+    face_colour_id: number = 0
+    highlight_colour_id: number = 0
+    block_type: number = 0
+
 }
 
 
@@ -32,7 +38,30 @@ export type blockData = {
   sy: number
   sz: number
   block_id: number
-  colour_id: number
+  body_colour_id: number
+  face_colour_id: number
+  highlight_colour_id: number
+  block_type: number
+}
+
+export type planeData = {
+  deleted:boolean
+  x: number 
+  y: number
+  z: number
+  rx: number
+  ry: number
+  rz: number
+  rw: number
+  sx: number
+  sy: number
+  sz: number
+  image_id: number
+  offsetX: number
+  offsetY: number
+  offsetZ: number
+  emission: boolean
+  emissionColour: string
 }
 
 //is need to retaind the uuid of the give model
@@ -59,8 +88,10 @@ export class BuildingBlocks extends Entity {
       scaleY: number,
       scaleZ: number,
       block_id: number,
-      colour_id: number
-
+      body_colour_id: number,
+      face_colour_id: number,
+      highlight_colour_id: number,
+      block_type: number
       
     )
     {
@@ -74,11 +105,18 @@ export class BuildingBlocks extends Entity {
             this.addComponent(new BlockComponentData())
 
             this.getComponent(BlockComponentData).blockArrayPos = blockArrayId
-            log('this should be populated on load: blockArrayPos : '+this.getComponent(BlockComponentData).blockArrayPos)
-
-            engine.addEntity(this)
-            const blockShape = colourArray[colour_id][block_id]
+            this.getComponent(BlockComponentData).body_colour_id = body_colour_id
+            this.getComponent(BlockComponentData).face_colour_id = face_colour_id
+            this.getComponent(BlockComponentData).block_type = block_type
             
+        //log('../../models/seperated_blocks/'+modelTypes.models[blockArrayId].modelTypes[block_type].colour[colour_id].modelColour+'.gltf')
+        const modelPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[body_colour_id].modelColour
+           
+        //body
+            engine.addEntity(this)
+            const blockShape = new GLTFShape(modelPath)
+
+
             const blockTransform = new Transform({
                 position: new Vector3(posX,posY,posZ),
                 rotation: new Quaternion(rotX,rotY,rotZ,rotW),
@@ -87,20 +125,38 @@ export class BuildingBlocks extends Entity {
             this.addComponent(blockShape)
             this.addComponent(blockTransform)
 
-      }
-      // //Create 3d object
-      // const newEnt:Entity = new Entity()
-      // const blockShape = colourArray[colour_id][block_id]
-      // const newBlock = new Transform({
-      // position: new Vector3(posX,posY,posZ),
-      // rotation: new Quaternion(rotX,rotY,rotZ,rotW),
-      // scale: new Vector3(scaleX,scaleY,scaleZ)
-      // })
+            // collider
+            const colliderPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[body_colour_id].collider
+              const colliderEnt = new Entity()
+              const colliderShape = new GLTFShape(colliderPath)
+              colliderEnt.addComponent(colliderShape)
+              colliderEnt.addComponent(blockTransform)
+              engine.addEntity(colliderEnt)
+            //face
+            if (modelTypes.models[block_id].modelTypes[block_type].colour[face_colour_id].faceColour){
+              const facePath:string = modelTypes.models[block_id].modelTypes[block_type].colour[face_colour_id].faceColour
+              const faceEnt = new Entity()
+              const faceShape = new GLTFShape(facePath)
+              faceEnt.addComponent(faceShape)
+              faceEnt.addComponent(blockTransform)
+              engine.addEntity(faceEnt)
+            }
+            //highlight
+            if (modelTypes.models[block_id].modelTypes[block_type].colour[highlight_colour_id].highlightColour){
+              const highLightPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[highlight_colour_id].highlightColour
+              log(highlight_colour_id)
+           
+              const highLightEnt = new Entity()
+              const highlightShape = new GLTFShape(highLightPath)
+              highLightEnt.addComponent(highlightShape)
+              highLightEnt.addComponent(blockTransform)
+              
+              engine.addEntity(highLightEnt)
+              
+            }
 
-      // engine.addEntity(newEnt)
-      // newEnt.addComponent(blockShape)
-      // newEnt.addComponent(newBlock)
-      
+
+      }
       
 
       this.addComponent(
@@ -108,9 +164,9 @@ export class BuildingBlocks extends Entity {
           (e) => {
             
             if (blockArrayId){
-              log('blockArrayId '+blockArrayId+' deleted? '+deleted+ ' uuid '+this.uuid )
+             
             } else { log('no blockArrayId')}
-            //log(' block_id '+block_id+'  colour_id '+colour_id+ ' parent uuid' +this.uuid)
+           
           },
           {
             button: ActionButton.POINTER,
@@ -133,22 +189,23 @@ export class BuildingBlocks extends Entity {
     }
 
       // Edit a voxel depending on what mode the user is in
-      editModel(blockArrayId:number,deleted:boolean, block_id: number, colour_id: number,x: number, y: number, z: number,rx: number,
-        ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode) 
+      editModel(blockArrayId:number,deleted:boolean, block_id: number, body_colour_id: number,face_colour_id: number,highlight_colour_id:number,x: number, y: number, z: number,rx: number,
+        ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode,block_type: number) 
         {
           
           log('editModel')
-        //log('Model added???? modelArrayIndex ' + block_id + ' col index '+ colour_id)
+        
          switch (mode) 
           {
               case Mode.blockAdd:
-                log('case add')
+              
  
 
                 Manager.playAddModelSound()
                
                 
-                const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
+                const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw
+                  ,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type)
                 
                 //modelData.push(newBlock)
 
@@ -170,7 +227,7 @@ export class BuildingBlocks extends Entity {
                 this.eyeDropModel()
                 break
               // case Mode.Swap:
-              //   log('Swapped')
+              
               //   this.swapModel()
               //   break
               case Mode.Yrotate:
@@ -201,20 +258,10 @@ sceneMessageBus.on('editModel', (e) => {
   let sy = e.scale.y
   let sz = e.scale.z
   let block_id = e.modelArrayIndex
-  let colour_id = e.colourArrayIndex
-
-  // log('editing Model...'+block_id+ ' col '+ colour_id)
-  // log(e.position)
-  // log(e.rotation)
-  // log(e.scale)
-  // log(e.normal)
-  // log('model '+ e.model)
-  // log('mode  '+ e.mode)
-
-
-//  log( ' rot '+rw+' rx'+ rx +' ry '+ry+ 'rz'+rz+
-//    'x '+ x + ' y '+y+ ' z '+z +
-//    ' sx '+sx +' model '+ e.model +' mode ' +  e.mode)
+  let body_colour_id = e.colourArrayIndex
+  let face_colour_id = e.colourArrayIndex
+  let highlight_colour_id = e.highlight_colour_id
+  let block_type = e.block_type
 let blockArrayId: number
 
 
@@ -223,23 +270,17 @@ let blockArrayId: number
    //deleted is initialized to false
    let deleted:boolean = false
 
-//  if (e.mode = 1){
-//    deleted = false
-//  }
-
-  //the uuid is Undefined!!!
   log(' baId '+ blockArrayId+ ' del '+deleted+ ' model uuid '+e.uuid)
   
   if (engine.entities[e.model]) {
     
-  engine.entities[e.model].editModel(blockArrayId,deleted,block_id,colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode)
-  //log('editing Model...'+e.modelArrayIndex+ ' col '+ e.colourArrayIndex+' rot '+rw+' rx'+ rx +' ry '+ry+ 'rz'+rz)
+  engine.entities[e.model].editModel(blockArrayId,deleted,block_id,body_colour_id,face_colour_id,highlight_colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode)
+  
   }
-  //const bPos:blockPosition = {x,y}
-
-   const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+  
+   const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id}
   log(md.x+' y'+md.y)
   
    modelData.push(md)
-  //changeModels()
+
 })

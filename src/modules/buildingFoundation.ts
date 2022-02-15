@@ -1,4 +1,5 @@
 import { colourArray } from "../colourSetArray"
+import {default as modelTypes} from "src/modelTypeColour.json"
 import * as utils from '@dcl/ecs-scene-utils'
 import { BuildingBlocks, blockData, modelData } from "./buildingBlock"
 
@@ -56,22 +57,26 @@ export class BuildingFoundation extends Entity {
       scaleY: number,
       scaleZ: number,
       block_id: number,
-      colour_id: number,
+      block_type: number,
+      body_colour_id : number,
+      face_colour_id : number,
+      highlight_colour_id : number,
       foundationBlockData:any[]
     )
     {
       super()
       
+      //log(modelTypes.models[block_id].modelTypes[block_type].colour[0].modelColour)
       //Create 3d object
       const foundationEnt = new Entity()
-      const foundationShape = colourArray[colour_id][block_id]
+      //const foundationShape = new GLTFShape(modelTypes.models[block_id].modelTypes[block_type].colour[0].modelColour) //colourArray[colour_id][block_id]
       const newBlock = new Transform({
         position: new Vector3(posX,posY,posZ),
         rotation: new Quaternion(rotX,rotY,rotZ,rotW),
         scale: new Vector3(scaleX,scaleY,scaleZ)
       })
 
-      foundationEnt.addComponent(foundationShape)
+      //foundationEnt.addComponent(foundationShape)
       //this.addComponent(foundationShape)
       foundationEnt.addComponent(newBlock)
 
@@ -82,7 +87,7 @@ export class BuildingFoundation extends Entity {
         new OnPointerDown(
           (e) => {
       //      this.addBlocks(blockData,this.uuid)
-            log('bid ----  '+ building_id+ ' block_id '+block_id+'  colour_id '+colour_id+ ' block arr lenght' )
+            
           },
           {
             button: ActionButton.POINTER,
@@ -96,7 +101,6 @@ export class BuildingFoundation extends Entity {
         // new utils.Delay(10000, () => {
          const element = foundationBlockData[index];
 
-         log(index)
          const ent = new Entity()
          
         
@@ -113,44 +117,23 @@ export class BuildingFoundation extends Entity {
          let sy =  element.sy
          let sz = element.sz
          let block_id = element.block_id
-         let colour_id = element.colour_id
-         
-         const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
-         log('block array '+ element.blockArrayId +' deleted ' +md.deleted)
+         let body_colour_id = element.body_colour_id
+         let face_colour_id = element.face_colour_id
+         let highlight_colour_id = element.highlight_colour_id
+         let block_type = element.block_type
+
+         const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
+       
        
           modelData.push(md)
 
-        // Dont add deleted blocks
+        // Dont add deleted blocks// todo write why = true
         if (element.deleted = true){
 
-          const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
+          const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type)
 
           }
 
-          //  //create 3d object     
-          //  const shape = colourArray[element.colour_id][element.block_id]
-          //  const newBlockTrans = new Transform({
-          //  position: new Vector3(element.x,element.y,element.x),
-          //  rotation: new Quaternion(element.rx,element.ry,element.rz,element.rw),
-          //  scale: new Vector3(element.sx,element.sy,element.sx)
-          //  })
-
-          //  ent.addComponent(shape)
-          //  ent.addComponent(newBlockTrans)
-          //  ent.addComponent(
-          //    new OnPointerDown(
-          //      (e) => {
-                 
-          //        log('index i ----  '+ index+ 'uuid '+this.uuid)
-          //      },
-          //      {
-          //        button: ActionButton.POINTER,
-          //        showFeedback: false,
-          //      }
-          //    )
-          //  )
-          //  //ent.setParent(this)
-          //  engine.addEntity(ent)
 
        }
   
@@ -158,60 +141,6 @@ export class BuildingFoundation extends Entity {
 
 
       }
-
-      
-      // addBlocks(blockData:any,id:string){
-      //   log('blockData')
-       
-      //     for (let index = 0; index < blockData.length; index++) {
-      //      // new utils.Delay(10000, () => {
-      //       const element = blockData[index];
-
-      //       const model = new BuildingBlocks(
-      //                   element.x,
-      //                   element.y,
-      //                   element.z,
-      //                   element.rx,
-      //                   element.ry,
-      //                   element.rz,
-      //                   element.rw,
-      //                   element.sx,
-      //                   element.sy,
-      //                   element.sz,
-      //                   element.block_id,
-      //                   element.colour_id)
-
-      //             log(element.x+' - ' +element.y)
-
-
-      //             // //create 3d object     
-      //             // const shape = colourArray[element.colour_id][element.block_id]
-      //             // const newBlockTrans = new Transform({
-      //             // position: new Vector3(element.x,element.y,element.x),
-      //             // rotation: new Quaternion(element.rx,element.ry,element.rz,element.rw),
-      //             // scale: new Vector3(element.sx,element.sy,element.sx)
-      //             // })
-
-      //             // ent.addComponent(shape)
-      //             // ent.addComponent(newBlockTrans)
-      //             // ent.addComponent(
-      //             //   new OnPointerDown(
-      //             //     (e) => {
-                        
-      //             //       log('index i ----  '+ index)
-      //             //     },
-      //             //     {
-      //             //       button: ActionButton.POINTER,
-      //             //       showFeedback: false,
-      //             //     }
-      //             //   )
-      //             // )
-      //             // ent.setParent(engine.entities[id])
-      //             // engine.addEntity(ent)
-
-      //     }
-     
-      // }
 
 
 }

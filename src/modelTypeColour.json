@@ -1,0 +1,647 @@
+{"models": [
+    {"model": "r1c1", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r1c1_body_black.gltf","faceColour": "models/seperated_blocks/r1c1_face_black.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_black.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_blue.gltf","faceColour": "models/seperated_blocks/r1c1_face_blue.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_blue.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_brown.gltf","faceColour": "models/seperated_blocks/r1c1_face_brown.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_brown.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_green.gltf","faceColour": "models/seperated_blocks/r1c1_face_green.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_green.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_grey.gltf","faceColour": "models/seperated_blocks/r1c1_face_grey.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_grey.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_light_grey.gltf","faceColour": "models/seperated_blocks/r1c1_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_light_grey.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_orange.gltf","faceColour": "models/seperated_blocks/r1c1_face_orange.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_orange.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_pink.gltf","faceColour": "models/seperated_blocks/r1c1_face_pink.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_pink.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_red.gltf","faceColour": "models/seperated_blocks/r1c1_face_red.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_red.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_white.gltf","faceColour": "models/seperated_blocks/r1c1_face_white.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_white.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c1_body_yellow.gltf","faceColour": "models/seperated_blocks/r1c1_face_yellow.gltf","highlightColour": "models/seperated_blocks/r1c1_highlight_yellow.gltf","collider": "models/seperated_blocks/r1c1_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r1c2", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r1c2_body_black.gltf","faceColour": "models/seperated_blocks/r1c2_face_black.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_black.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_blue.gltf","faceColour": "models/seperated_blocks/r1c2_face_blue.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_blue.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_brown.gltf","faceColour": "models/seperated_blocks/r1c2_face_brown.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_brown.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_green.gltf","faceColour": "models/seperated_blocks/r1c2_face_green.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_green.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_grey.gltf","faceColour": "models/seperated_blocks/r1c2_face_grey.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_grey.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_light_grey.gltf","faceColour": "models/seperated_blocks/r1c2_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_light_grey.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_orange.gltf","faceColour": "models/seperated_blocks/r1c2_face_orange.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_orange.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_pink.gltf","faceColour": "models/seperated_blocks/r1c2_face_pink.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_pink.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_red.gltf","faceColour": "models/seperated_blocks/r1c2_face_red.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_red.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_white.gltf","faceColour": "models/seperated_blocks/r1c2_face_white.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_white.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c2_body_yellow.gltf","faceColour": "models/seperated_blocks/r1c2_face_yellow.gltf","highlightColour": "models/seperated_blocks/r1c2_highlight_yellow.gltf","collider": "models/seperated_blocks/r1c2_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r1c3", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r1c3_body_black.gltf","faceColour": "models/seperated_blocks/r1c3_face_black.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_black.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_blue.gltf","faceColour": "models/seperated_blocks/r1c3_face_blue.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_blue.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_brown.gltf","faceColour": "models/seperated_blocks/r1c3_face_brown.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_brown.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_green.gltf","faceColour": "models/seperated_blocks/r1c3_face_green.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_green.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_grey.gltf","faceColour": "models/seperated_blocks/r1c3_face_grey.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_grey.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_light_grey.gltf","faceColour": "models/seperated_blocks/r1c3_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_light_grey.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_orange.gltf","faceColour": "models/seperated_blocks/r1c3_face_orange.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_orange.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_pink.gltf","faceColour": "models/seperated_blocks/r1c3_face_pink.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_pink.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_red.gltf","faceColour": "models/seperated_blocks/r1c3_face_red.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_red.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_white.gltf","faceColour": "models/seperated_blocks/r1c3_face_white.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_white.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c3_body_yellow.gltf","faceColour": "models/seperated_blocks/r1c3_face_yellow.gltf","highlightColour": "models/seperated_blocks/r1c3_highlight_yellow.gltf","collider": "models/seperated_blocks/r1c3_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r1c4", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r1c4_body_black.gltf","faceColour": "models/seperated_blocks/r1c4_face_black.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_black.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_blue.gltf","faceColour": "models/seperated_blocks/r1c4_face_blue.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_blue.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_brown.gltf","faceColour": "models/seperated_blocks/r1c4_face_brown.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_brown.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_green.gltf","faceColour": "models/seperated_blocks/r1c4_face_green.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_green.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_grey.gltf","faceColour": "models/seperated_blocks/r1c4_face_grey.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_grey.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_light_grey.gltf","faceColour": "models/seperated_blocks/r1c4_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_light_grey.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_orange.gltf","faceColour": "models/seperated_blocks/r1c4_face_orange.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_orange.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_pink.gltf","faceColour": "models/seperated_blocks/r1c4_face_pink.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_pink.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_red.gltf","faceColour": "models/seperated_blocks/r1c4_face_red.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_red.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_white.gltf","faceColour": "models/seperated_blocks/r1c4_face_white.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_white.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c4_body_yellow.gltf","faceColour": "models/seperated_blocks/r1c4_face_yellow.gltf","highlightColour": "models/seperated_blocks/r1c4_highlight_yellow.gltf","collider": "models/seperated_blocks/r1c4_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r1c5", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r1c5_body_black.gltf","faceColour": "models/seperated_blocks/r1c5_face_black.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_black.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_blue.gltf","faceColour": "models/seperated_blocks/r1c5_face_blue.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_blue.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_brown.gltf","faceColour": "models/seperated_blocks/r1c5_face_brown.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_brown.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_green.gltf","faceColour": "models/seperated_blocks/r1c5_face_green.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_green.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_grey.gltf","faceColour": "models/seperated_blocks/r1c5_face_grey.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_grey.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_light_grey.gltf","faceColour": "models/seperated_blocks/r1c5_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_light_grey.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_orange.gltf","faceColour": "models/seperated_blocks/r1c5_face_orange.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_orange.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_pink.gltf","faceColour": "models/seperated_blocks/r1c5_face_pink.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_pink.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_red.gltf","faceColour": "models/seperated_blocks/r1c5_face_red.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_red.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_white.gltf","faceColour": "models/seperated_blocks/r1c5_face_white.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_white.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c5_body_yellow.gltf","faceColour": "models/seperated_blocks/r1c5_face_yellow.gltf","highlightColour": "models/seperated_blocks/r1c5_highlight_yellow.gltf","collider": "models/seperated_blocks/r1c5_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r1c6", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r1c6_body_black.gltf","faceColour": "models/seperated_blocks/r1c6_face_black.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_black.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_blue.gltf","faceColour": "models/seperated_blocks/r1c6_face_blue.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_blue.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_brown.gltf","faceColour": "models/seperated_blocks/r1c6_face_brown.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_brown.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_green.gltf","faceColour": "models/seperated_blocks/r1c6_face_green.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_green.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_grey.gltf","faceColour": "models/seperated_blocks/r1c6_face_grey.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_grey.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_light_grey.gltf","faceColour": "models/seperated_blocks/r1c6_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_light_grey.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_orange.gltf","faceColour": "models/seperated_blocks/r1c6_face_orange.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_orange.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_pink.gltf","faceColour": "models/seperated_blocks/r1c6_face_pink.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_pink.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_red.gltf","faceColour": "models/seperated_blocks/r1c6_face_red.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_red.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_white.gltf","faceColour": "models/seperated_blocks/r1c6_face_white.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_white.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r1c6_body_yellow.gltf","faceColour": "models/seperated_blocks/r1c6_face_yellow.gltf","highlightColour": "models/seperated_blocks/r1c6_highlight_yellow.gltf","collider": "models/seperated_blocks/r1c6_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r2c1", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r2c1_body_black.gltf","faceColour": "models/seperated_blocks/r2c1_face_black.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_black.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_blue.gltf","faceColour": "models/seperated_blocks/r2c1_face_blue.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_blue.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_brown.gltf","faceColour": "models/seperated_blocks/r2c1_face_brown.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_brown.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_green.gltf","faceColour": "models/seperated_blocks/r2c1_face_green.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_green.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_grey.gltf","faceColour": "models/seperated_blocks/r2c1_face_grey.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_grey.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_light_grey.gltf","faceColour": "models/seperated_blocks/r2c1_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_light_grey.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_orange.gltf","faceColour": "models/seperated_blocks/r2c1_face_orange.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_orange.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_pink.gltf","faceColour": "models/seperated_blocks/r2c1_face_pink.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_pink.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_red.gltf","faceColour": "models/seperated_blocks/r2c1_face_red.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_red.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_white.gltf","faceColour": "models/seperated_blocks/r2c1_face_white.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_white.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c1_body_yellow.gltf","faceColour": "models/seperated_blocks/r2c1_face_yellow.gltf","highlightColour": "models/seperated_blocks/r2c1_highlight_yellow.gltf","collider": "models/seperated_blocks/r2c1_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r2c2", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r2c2_body_black.gltf","faceColour": "models/seperated_blocks/r2c2_face_black.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_black.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_blue.gltf","faceColour": "models/seperated_blocks/r2c2_face_blue.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_blue.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_brown.gltf","faceColour": "models/seperated_blocks/r2c2_face_brown.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_brown.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_green.gltf","faceColour": "models/seperated_blocks/r2c2_face_green.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_green.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_grey.gltf","faceColour": "models/seperated_blocks/r2c2_face_grey.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_grey.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_light_grey.gltf","faceColour": "models/seperated_blocks/r2c2_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_light_grey.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_orange.gltf","faceColour": "models/seperated_blocks/r2c2_face_orange.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_orange.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_pink.gltf","faceColour": "models/seperated_blocks/r2c2_face_pink.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_pink.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_red.gltf","faceColour": "models/seperated_blocks/r2c2_face_red.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_red.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_white.gltf","faceColour": "models/seperated_blocks/r2c2_face_white.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_white.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c2_body_yellow.gltf","faceColour": "models/seperated_blocks/r2c2_face_yellow.gltf","highlightColour": "models/seperated_blocks/r2c2_highlight_yellow.gltf","collider": "models/seperated_blocks/r2c2_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r2c3", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r2c3_body_black.gltf","faceColour": "models/seperated_blocks/r2c3_face_black.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_black.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_blue.gltf","faceColour": "models/seperated_blocks/r2c3_face_blue.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_blue.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_brown.gltf","faceColour": "models/seperated_blocks/r2c3_face_brown.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_brown.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_green.gltf","faceColour": "models/seperated_blocks/r2c3_face_green.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_green.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_grey.gltf","faceColour": "models/seperated_blocks/r2c3_face_grey.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_grey.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_light_grey.gltf","faceColour": "models/seperated_blocks/r2c3_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_light_grey.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_orange.gltf","faceColour": "models/seperated_blocks/r2c3_face_orange.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_orange.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_pink.gltf","faceColour": "models/seperated_blocks/r2c3_face_pink.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_pink.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_red.gltf","faceColour": "models/seperated_blocks/r2c3_face_red.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_red.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_white.gltf","faceColour": "models/seperated_blocks/r2c3_face_white.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_white.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c3_body_yellow.gltf","faceColour": "models/seperated_blocks/r2c3_face_yellow.gltf","highlightColour": "models/seperated_blocks/r2c3_highlight_yellow.gltf","collider": "models/seperated_blocks/r2c3_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r2c4", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r2c4_body_black.gltf","faceColour": "models/seperated_blocks/r2c4_face_black.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_black.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_blue.gltf","faceColour": "models/seperated_blocks/r2c4_face_blue.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_blue.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_brown.gltf","faceColour": "models/seperated_blocks/r2c4_face_brown.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_brown.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_green.gltf","faceColour": "models/seperated_blocks/r2c4_face_green.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_green.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_grey.gltf","faceColour": "models/seperated_blocks/r2c4_face_grey.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_grey.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_light_grey.gltf","faceColour": "models/seperated_blocks/r2c4_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_light_grey.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_orange.gltf","faceColour": "models/seperated_blocks/r2c4_face_orange.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_orange.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_pink.gltf","faceColour": "models/seperated_blocks/r2c4_face_pink.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_pink.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_red.gltf","faceColour": "models/seperated_blocks/r2c4_face_red.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_red.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_white.gltf","faceColour": "models/seperated_blocks/r2c4_face_white.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_white.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c4_body_yellow.gltf","faceColour": "models/seperated_blocks/r2c4_face_yellow.gltf","highlightColour": "models/seperated_blocks/r2c4_highlight_yellow.gltf","collider": "models/seperated_blocks/r2c4_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r2c5", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r2c5_body_black.gltf","faceColour": "models/seperated_blocks/r2c5_face_black.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_black.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_blue.gltf","faceColour": "models/seperated_blocks/r2c5_face_blue.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_blue.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_brown.gltf","faceColour": "models/seperated_blocks/r2c5_face_brown.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_brown.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_green.gltf","faceColour": "models/seperated_blocks/r2c5_face_green.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_green.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_grey.gltf","faceColour": "models/seperated_blocks/r2c5_face_grey.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_grey.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_light_grey.gltf","faceColour": "models/seperated_blocks/r2c5_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_light_grey.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_orange.gltf","faceColour": "models/seperated_blocks/r2c5_face_orange.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_orange.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_pink.gltf","faceColour": "models/seperated_blocks/r2c5_face_pink.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_pink.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_red.gltf","faceColour": "models/seperated_blocks/r2c5_face_red.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_red.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_white.gltf","faceColour": "models/seperated_blocks/r2c5_face_white.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_white.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c5_body_yellow.gltf","faceColour": "models/seperated_blocks/r2c5_face_yellow.gltf","highlightColour": "models/seperated_blocks/r2c5_highlight_yellow.gltf","collider": "models/seperated_blocks/r2c5_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r2c6", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r2c6_body_black.gltf","faceColour": "models/seperated_blocks/r2c6_face_black.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_black.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_blue.gltf","faceColour": "models/seperated_blocks/r2c6_face_blue.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_blue.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_brown.gltf","faceColour": "models/seperated_blocks/r2c6_face_brown.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_brown.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_green.gltf","faceColour": "models/seperated_blocks/r2c6_face_green.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_green.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_grey.gltf","faceColour": "models/seperated_blocks/r2c6_face_grey.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_grey.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_light_grey.gltf","faceColour": "models/seperated_blocks/r2c6_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_light_grey.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_orange.gltf","faceColour": "models/seperated_blocks/r2c6_face_orange.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_orange.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_pink.gltf","faceColour": "models/seperated_blocks/r2c6_face_pink.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_pink.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_red.gltf","faceColour": "models/seperated_blocks/r2c6_face_red.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_red.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_white.gltf","faceColour": "models/seperated_blocks/r2c6_face_white.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_white.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c6_body_yellow.gltf","faceColour": "models/seperated_blocks/r2c6_face_yellow.gltf","highlightColour": "models/seperated_blocks/r2c6_highlight_yellow.gltf","collider": "models/seperated_blocks/r2c6_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r2c7", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r2c7_body_black.gltf","faceColour": "models/seperated_blocks/r2c7_face_black.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_black.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_blue.gltf","faceColour": "models/seperated_blocks/r2c7_face_blue.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_blue.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_brown.gltf","faceColour": "models/seperated_blocks/r2c7_face_brown.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_brown.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_green.gltf","faceColour": "models/seperated_blocks/r2c7_face_green.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_green.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_grey.gltf","faceColour": "models/seperated_blocks/r2c7_face_grey.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_grey.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_light_grey.gltf","faceColour": "models/seperated_blocks/r2c7_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_light_grey.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_orange.gltf","faceColour": "models/seperated_blocks/r2c7_face_orange.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_orange.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_pink.gltf","faceColour": "models/seperated_blocks/r2c7_face_pink.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_pink.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_red.gltf","faceColour": "models/seperated_blocks/r2c7_face_red.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_red.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_white.gltf","faceColour": "models/seperated_blocks/r2c7_face_white.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_white.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r2c7_body_yellow.gltf","faceColour": "models/seperated_blocks/r2c7_face_yellow.gltf","highlightColour": "models/seperated_blocks/r2c7_highlight_yellow.gltf","collider": "models/seperated_blocks/r2c7_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c1", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c1_body_black.gltf","faceColour": "models/seperated_blocks/r3c1_face_black.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_black.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_blue.gltf","faceColour": "models/seperated_blocks/r3c1_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_blue.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_brown.gltf","faceColour": "models/seperated_blocks/r3c1_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_brown.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_green.gltf","faceColour": "models/seperated_blocks/r3c1_face_green.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_green.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_grey.gltf","faceColour": "models/seperated_blocks/r3c1_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_grey.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c1_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_orange.gltf","faceColour": "models/seperated_blocks/r3c1_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_orange.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_pink.gltf","faceColour": "models/seperated_blocks/r3c1_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_pink.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_red.gltf","faceColour": "models/seperated_blocks/r3c1_face_red.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_red.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_white.gltf","faceColour": "models/seperated_blocks/r3c1_face_white.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_white.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c1_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c1_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c1_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c1_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c2", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c2_body_black.gltf","faceColour": "models/seperated_blocks/r3c2_face_black.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_black.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_blue.gltf","faceColour": "models/seperated_blocks/r3c2_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_blue.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_brown.gltf","faceColour": "models/seperated_blocks/r3c2_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_brown.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_green.gltf","faceColour": "models/seperated_blocks/r3c2_face_green.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_green.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_grey.gltf","faceColour": "models/seperated_blocks/r3c2_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_grey.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c2_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_orange.gltf","faceColour": "models/seperated_blocks/r3c2_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_orange.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_pink.gltf","faceColour": "models/seperated_blocks/r3c2_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_pink.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_red.gltf","faceColour": "models/seperated_blocks/r3c2_face_red.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_red.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_white.gltf","faceColour": "models/seperated_blocks/r3c2_face_white.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_white.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c2_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c2_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c2_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c2_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c3", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c3_body_black.gltf","faceColour": "models/seperated_blocks/r3c3_face_black.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_black.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_blue.gltf","faceColour": "models/seperated_blocks/r3c3_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_blue.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_brown.gltf","faceColour": "models/seperated_blocks/r3c3_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_brown.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_green.gltf","faceColour": "models/seperated_blocks/r3c3_face_green.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_green.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_grey.gltf","faceColour": "models/seperated_blocks/r3c3_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_grey.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c3_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_orange.gltf","faceColour": "models/seperated_blocks/r3c3_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_orange.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_pink.gltf","faceColour": "models/seperated_blocks/r3c3_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_pink.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_red.gltf","faceColour": "models/seperated_blocks/r3c3_face_red.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_red.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_white.gltf","faceColour": "models/seperated_blocks/r3c3_face_white.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_white.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c3_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c3_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c3_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c3_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c4", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c4_body_black.gltf","faceColour": "models/seperated_blocks/r3c4_face_black.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_black.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_blue.gltf","faceColour": "models/seperated_blocks/r3c4_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_blue.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_brown.gltf","faceColour": "models/seperated_blocks/r3c4_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_brown.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_green.gltf","faceColour": "models/seperated_blocks/r3c4_face_green.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_green.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_grey.gltf","faceColour": "models/seperated_blocks/r3c4_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_grey.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c4_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_orange.gltf","faceColour": "models/seperated_blocks/r3c4_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_orange.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_pink.gltf","faceColour": "models/seperated_blocks/r3c4_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_pink.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_red.gltf","faceColour": "models/seperated_blocks/r3c4_face_red.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_red.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_white.gltf","faceColour": "models/seperated_blocks/r3c4_face_white.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_white.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c4_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c4_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c4_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c4_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c5", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c5_body_black.gltf","faceColour": "models/seperated_blocks/r3c5_face_black.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_black.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_blue.gltf","faceColour": "models/seperated_blocks/r3c5_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_blue.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_brown.gltf","faceColour": "models/seperated_blocks/r3c5_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_brown.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_green.gltf","faceColour": "models/seperated_blocks/r3c5_face_green.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_green.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_grey.gltf","faceColour": "models/seperated_blocks/r3c5_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_grey.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c5_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_orange.gltf","faceColour": "models/seperated_blocks/r3c5_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_orange.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_pink.gltf","faceColour": "models/seperated_blocks/r3c5_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_pink.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_red.gltf","faceColour": "models/seperated_blocks/r3c5_face_red.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_red.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_white.gltf","faceColour": "models/seperated_blocks/r3c5_face_white.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_white.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c5_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c5_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c5_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c5_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c6", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c6_body_black.gltf","faceColour": "models/seperated_blocks/r3c6_face_black.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_black.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_blue.gltf","faceColour": "models/seperated_blocks/r3c6_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_blue.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_brown.gltf","faceColour": "models/seperated_blocks/r3c6_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_brown.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_green.gltf","faceColour": "models/seperated_blocks/r3c6_face_green.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_green.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_grey.gltf","faceColour": "models/seperated_blocks/r3c6_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_grey.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c6_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_orange.gltf","faceColour": "models/seperated_blocks/r3c6_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_orange.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_pink.gltf","faceColour": "models/seperated_blocks/r3c6_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_pink.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_red.gltf","faceColour": "models/seperated_blocks/r3c6_face_red.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_red.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_white.gltf","faceColour": "models/seperated_blocks/r3c6_face_white.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_white.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c6_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c6_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c6_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c6_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c7", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c7_body_black.gltf","faceColour": "models/seperated_blocks/r3c7_face_black.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_black.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_blue.gltf","faceColour": "models/seperated_blocks/r3c7_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_blue.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_brown.gltf","faceColour": "models/seperated_blocks/r3c7_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_brown.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_green.gltf","faceColour": "models/seperated_blocks/r3c7_face_green.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_green.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_grey.gltf","faceColour": "models/seperated_blocks/r3c7_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_grey.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c7_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_orange.gltf","faceColour": "models/seperated_blocks/r3c7_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_orange.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_pink.gltf","faceColour": "models/seperated_blocks/r3c7_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_pink.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_red.gltf","faceColour": "models/seperated_blocks/r3c7_face_red.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_red.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_white.gltf","faceColour": "models/seperated_blocks/r3c7_face_white.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_white.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c7_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c7_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c7_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c7_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r3c8", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r3c8_body_black.gltf","faceColour": "models/seperated_blocks/r3c8_face_black.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_black.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_blue.gltf","faceColour": "models/seperated_blocks/r3c8_face_blue.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_blue.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_brown.gltf","faceColour": "models/seperated_blocks/r3c8_face_brown.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_brown.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_green.gltf","faceColour": "models/seperated_blocks/r3c8_face_green.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_green.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_grey.gltf","faceColour": "models/seperated_blocks/r3c8_face_grey.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_grey.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_light_grey.gltf","faceColour": "models/seperated_blocks/r3c8_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_light_grey.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_orange.gltf","faceColour": "models/seperated_blocks/r3c8_face_orange.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_orange.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_pink.gltf","faceColour": "models/seperated_blocks/r3c8_face_pink.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_pink.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_red.gltf","faceColour": "models/seperated_blocks/r3c8_face_red.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_red.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_white.gltf","faceColour": "models/seperated_blocks/r3c8_face_white.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_white.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r3c8_body_yellow.gltf","faceColour": "models/seperated_blocks/r3c8_face_yellow.gltf","highlightColour": "models/seperated_blocks/r3c8_highlight_yellow.gltf","collider": "models/seperated_blocks/r3c8_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r4c1", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r4c1_body_black.gltf","faceColour": "models/seperated_blocks/r4c1_face_black.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_black.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_blue.gltf","faceColour": "models/seperated_blocks/r4c1_face_blue.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_blue.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_brown.gltf","faceColour": "models/seperated_blocks/r4c1_face_brown.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_brown.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_green.gltf","faceColour": "models/seperated_blocks/r4c1_face_green.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_green.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_grey.gltf","faceColour": "models/seperated_blocks/r4c1_face_grey.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_grey.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_light_grey.gltf","faceColour": "models/seperated_blocks/r4c1_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_light_grey.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_orange.gltf","faceColour": "models/seperated_blocks/r4c1_face_orange.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_orange.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_pink.gltf","faceColour": "models/seperated_blocks/r4c1_face_pink.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_pink.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_red.gltf","faceColour": "models/seperated_blocks/r4c1_face_red.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_red.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_white.gltf","faceColour": "models/seperated_blocks/r4c1_face_white.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_white.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c1_body_yellow.gltf","faceColour": "models/seperated_blocks/r4c1_face_yellow.gltf","highlightColour": "models/seperated_blocks/r4c1_highlight_yellow.gltf","collider": "models/seperated_blocks/r4c1_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r4c2", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r4c2_body_black.gltf","faceColour": "models/seperated_blocks/r4c2_face_black.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_black.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_blue.gltf","faceColour": "models/seperated_blocks/r4c2_face_blue.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_blue.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_brown.gltf","faceColour": "models/seperated_blocks/r4c2_face_brown.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_brown.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_green.gltf","faceColour": "models/seperated_blocks/r4c2_face_green.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_green.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_grey.gltf","faceColour": "models/seperated_blocks/r4c2_face_grey.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_grey.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_light_grey.gltf","faceColour": "models/seperated_blocks/r4c2_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_light_grey.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_orange.gltf","faceColour": "models/seperated_blocks/r4c2_face_orange.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_orange.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_pink.gltf","faceColour": "models/seperated_blocks/r4c2_face_pink.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_pink.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_red.gltf","faceColour": "models/seperated_blocks/r4c2_face_red.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_red.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_white.gltf","faceColour": "models/seperated_blocks/r4c2_face_white.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_white.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c2_body_yellow.gltf","faceColour": "models/seperated_blocks/r4c2_face_yellow.gltf","highlightColour": "models/seperated_blocks/r4c2_highlight_yellow.gltf","collider": "models/seperated_blocks/r4c2_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r4c3", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r4c3_body_black.gltf","faceColour": "models/seperated_blocks/r4c3_face_black.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_black.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_blue.gltf","faceColour": "models/seperated_blocks/r4c3_face_blue.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_blue.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_brown.gltf","faceColour": "models/seperated_blocks/r4c3_face_brown.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_brown.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_green.gltf","faceColour": "models/seperated_blocks/r4c3_face_green.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_green.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_grey.gltf","faceColour": "models/seperated_blocks/r4c3_face_grey.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_grey.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_light_grey.gltf","faceColour": "models/seperated_blocks/r4c3_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_light_grey.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_orange.gltf","faceColour": "models/seperated_blocks/r4c3_face_orange.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_orange.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_pink.gltf","faceColour": "models/seperated_blocks/r4c3_face_pink.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_pink.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_red.gltf","faceColour": "models/seperated_blocks/r4c3_face_red.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_red.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_white.gltf","faceColour": "models/seperated_blocks/r4c3_face_white.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_white.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c3_body_yellow.gltf","faceColour": "models/seperated_blocks/r4c3_face_yellow.gltf","highlightColour": "models/seperated_blocks/r4c3_highlight_yellow.gltf","collider": "models/seperated_blocks/r4c3_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r4c4", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r4c4_body_black.gltf","faceColour": "models/seperated_blocks/r4c4_face_black.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_black.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_blue.gltf","faceColour": "models/seperated_blocks/r4c4_face_blue.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_blue.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_brown.gltf","faceColour": "models/seperated_blocks/r4c4_face_brown.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_brown.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_green.gltf","faceColour": "models/seperated_blocks/r4c4_face_green.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_green.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_grey.gltf","faceColour": "models/seperated_blocks/r4c4_face_grey.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_grey.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_light_grey.gltf","faceColour": "models/seperated_blocks/r4c4_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_light_grey.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_orange.gltf","faceColour": "models/seperated_blocks/r4c4_face_orange.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_orange.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_pink.gltf","faceColour": "models/seperated_blocks/r4c4_face_pink.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_pink.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_red.gltf","faceColour": "models/seperated_blocks/r4c4_face_red.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_red.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_white.gltf","faceColour": "models/seperated_blocks/r4c4_face_white.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_white.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r4c4_body_yellow.gltf","faceColour": "models/seperated_blocks/r4c4_face_yellow.gltf","highlightColour": "models/seperated_blocks/r4c4_highlight_yellow.gltf","collider": "models/seperated_blocks/r4c4_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c1", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c1_body_black.gltf","faceColour": "models/seperated_blocks/r5c1_face_black.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_black.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_blue.gltf","faceColour": "models/seperated_blocks/r5c1_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_blue.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_brown.gltf","faceColour": "models/seperated_blocks/r5c1_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_brown.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_green.gltf","faceColour": "models/seperated_blocks/r5c1_face_green.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_green.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_grey.gltf","faceColour": "models/seperated_blocks/r5c1_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_grey.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c1_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_orange.gltf","faceColour": "models/seperated_blocks/r5c1_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_orange.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_pink.gltf","faceColour": "models/seperated_blocks/r5c1_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_pink.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_red.gltf","faceColour": "models/seperated_blocks/r5c1_face_red.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_red.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_white.gltf","faceColour": "models/seperated_blocks/r5c1_face_white.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_white.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c1_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c1_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c1_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c1_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c2", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c2_body_black.gltf","faceColour": "models/seperated_blocks/r5c2_face_black.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_black.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_blue.gltf","faceColour": "models/seperated_blocks/r5c2_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_blue.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_brown.gltf","faceColour": "models/seperated_blocks/r5c2_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_brown.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_green.gltf","faceColour": "models/seperated_blocks/r5c2_face_green.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_green.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_grey.gltf","faceColour": "models/seperated_blocks/r5c2_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_grey.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c2_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_orange.gltf","faceColour": "models/seperated_blocks/r5c2_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_orange.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_pink.gltf","faceColour": "models/seperated_blocks/r5c2_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_pink.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_red.gltf","faceColour": "models/seperated_blocks/r5c2_face_red.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_red.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_white.gltf","faceColour": "models/seperated_blocks/r5c2_face_white.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_white.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c2_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c2_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c2_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c2_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c3", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c3_body_black.gltf","faceColour": "models/seperated_blocks/r5c3_face_black.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_black.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_blue.gltf","faceColour": "models/seperated_blocks/r5c3_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_blue.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_brown.gltf","faceColour": "models/seperated_blocks/r5c3_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_brown.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_green.gltf","faceColour": "models/seperated_blocks/r5c3_face_green.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_green.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_grey.gltf","faceColour": "models/seperated_blocks/r5c3_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_grey.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c3_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_orange.gltf","faceColour": "models/seperated_blocks/r5c3_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_orange.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_pink.gltf","faceColour": "models/seperated_blocks/r5c3_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_pink.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_red.gltf","faceColour": "models/seperated_blocks/r5c3_face_red.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_red.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_white.gltf","faceColour": "models/seperated_blocks/r5c3_face_white.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_white.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c3_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c3_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c3_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c3_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c4", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c4_body_black.gltf","faceColour": "models/seperated_blocks/r5c4_face_black.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_black.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_blue.gltf","faceColour": "models/seperated_blocks/r5c4_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_blue.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_brown.gltf","faceColour": "models/seperated_blocks/r5c4_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_brown.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_green.gltf","faceColour": "models/seperated_blocks/r5c4_face_green.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_green.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_grey.gltf","faceColour": "models/seperated_blocks/r5c4_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_grey.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c4_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_orange.gltf","faceColour": "models/seperated_blocks/r5c4_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_orange.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_pink.gltf","faceColour": "models/seperated_blocks/r5c4_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_pink.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_red.gltf","faceColour": "models/seperated_blocks/r5c4_face_red.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_red.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_white.gltf","faceColour": "models/seperated_blocks/r5c4_face_white.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_white.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c4_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c4_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c4_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c4_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c5", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c5_body_black.gltf","faceColour": "models/seperated_blocks/r5c5_face_black.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_black.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_blue.gltf","faceColour": "models/seperated_blocks/r5c5_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_blue.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_brown.gltf","faceColour": "models/seperated_blocks/r5c5_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_brown.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_green.gltf","faceColour": "models/seperated_blocks/r5c5_face_green.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_green.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_grey.gltf","faceColour": "models/seperated_blocks/r5c5_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_grey.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c5_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_orange.gltf","faceColour": "models/seperated_blocks/r5c5_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_orange.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_pink.gltf","faceColour": "models/seperated_blocks/r5c5_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_pink.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_red.gltf","faceColour": "models/seperated_blocks/r5c5_face_red.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_red.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_white.gltf","faceColour": "models/seperated_blocks/r5c5_face_white.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_white.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c5_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c5_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c5_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c5_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c6", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c6_body_black.gltf","faceColour": "models/seperated_blocks/r5c6_face_black.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_black.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_blue.gltf","faceColour": "models/seperated_blocks/r5c6_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_blue.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_brown.gltf","faceColour": "models/seperated_blocks/r5c6_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_brown.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_green.gltf","faceColour": "models/seperated_blocks/r5c6_face_green.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_green.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_grey.gltf","faceColour": "models/seperated_blocks/r5c6_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_grey.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c6_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_orange.gltf","faceColour": "models/seperated_blocks/r5c6_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_orange.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_pink.gltf","faceColour": "models/seperated_blocks/r5c6_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_pink.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_red.gltf","faceColour": "models/seperated_blocks/r5c6_face_red.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_red.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_white.gltf","faceColour": "models/seperated_blocks/r5c6_face_white.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_white.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c6_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c6_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c6_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c6_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c7", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c7_body_black.gltf","faceColour": "models/seperated_blocks/r5c7_face_black.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_black.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_blue.gltf","faceColour": "models/seperated_blocks/r5c7_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_blue.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_brown.gltf","faceColour": "models/seperated_blocks/r5c7_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_brown.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_green.gltf","faceColour": "models/seperated_blocks/r5c7_face_green.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_green.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_grey.gltf","faceColour": "models/seperated_blocks/r5c7_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_grey.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c7_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_orange.gltf","faceColour": "models/seperated_blocks/r5c7_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_orange.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_pink.gltf","faceColour": "models/seperated_blocks/r5c7_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_pink.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_red.gltf","faceColour": "models/seperated_blocks/r5c7_face_red.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_red.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_white.gltf","faceColour": "models/seperated_blocks/r5c7_face_white.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_white.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c7_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c7_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c7_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c7_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r5c8", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r5c8_body_black.gltf","faceColour": "models/seperated_blocks/r5c8_face_black.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_black.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_blue.gltf","faceColour": "models/seperated_blocks/r5c8_face_blue.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_blue.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_brown.gltf","faceColour": "models/seperated_blocks/r5c8_face_brown.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_brown.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_green.gltf","faceColour": "models/seperated_blocks/r5c8_face_green.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_green.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_grey.gltf","faceColour": "models/seperated_blocks/r5c8_face_grey.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_grey.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_light_grey.gltf","faceColour": "models/seperated_blocks/r5c8_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_light_grey.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_orange.gltf","faceColour": "models/seperated_blocks/r5c8_face_orange.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_orange.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_pink.gltf","faceColour": "models/seperated_blocks/r5c8_face_pink.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_pink.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_red.gltf","faceColour": "models/seperated_blocks/r5c8_face_red.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_red.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_white.gltf","faceColour": "models/seperated_blocks/r5c8_face_white.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_white.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r5c8_body_yellow.gltf","faceColour": "models/seperated_blocks/r5c8_face_yellow.gltf","highlightColour": "models/seperated_blocks/r5c8_highlight_yellow.gltf","collider": "models/seperated_blocks/r5c8_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c1", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c1_body_black.gltf","faceColour": "models/seperated_blocks/r6c1_face_black.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_black.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_blue.gltf","faceColour": "models/seperated_blocks/r6c1_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_blue.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_brown.gltf","faceColour": "models/seperated_blocks/r6c1_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_brown.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_green.gltf","faceColour": "models/seperated_blocks/r6c1_face_green.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_green.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_grey.gltf","faceColour": "models/seperated_blocks/r6c1_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_grey.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c1_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_orange.gltf","faceColour": "models/seperated_blocks/r6c1_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_orange.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_pink.gltf","faceColour": "models/seperated_blocks/r6c1_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_pink.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_red.gltf","faceColour": "models/seperated_blocks/r6c1_face_red.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_red.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_white.gltf","faceColour": "models/seperated_blocks/r6c1_face_white.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_white.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c1_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c1_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c1_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c1_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c2", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c2_body_black.gltf","faceColour": "models/seperated_blocks/r6c2_face_black.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_black.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_blue.gltf","faceColour": "models/seperated_blocks/r6c2_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_blue.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_brown.gltf","faceColour": "models/seperated_blocks/r6c2_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_brown.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_green.gltf","faceColour": "models/seperated_blocks/r6c2_face_green.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_green.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_grey.gltf","faceColour": "models/seperated_blocks/r6c2_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_grey.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c2_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_orange.gltf","faceColour": "models/seperated_blocks/r6c2_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_orange.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_pink.gltf","faceColour": "models/seperated_blocks/r6c2_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_pink.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_red.gltf","faceColour": "models/seperated_blocks/r6c2_face_red.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_red.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_white.gltf","faceColour": "models/seperated_blocks/r6c2_face_white.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_white.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c2_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c2_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c2_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c2_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c3", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c3_body_black.gltf","faceColour": "models/seperated_blocks/r6c3_face_black.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_black.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_blue.gltf","faceColour": "models/seperated_blocks/r6c3_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_blue.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_brown.gltf","faceColour": "models/seperated_blocks/r6c3_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_brown.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_green.gltf","faceColour": "models/seperated_blocks/r6c3_face_green.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_green.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_grey.gltf","faceColour": "models/seperated_blocks/r6c3_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_grey.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c3_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_orange.gltf","faceColour": "models/seperated_blocks/r6c3_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_orange.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_pink.gltf","faceColour": "models/seperated_blocks/r6c3_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_pink.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_red.gltf","faceColour": "models/seperated_blocks/r6c3_face_red.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_red.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_white.gltf","faceColour": "models/seperated_blocks/r6c3_face_white.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_white.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c3_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c3_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c3_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c3_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c4", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c4_body_black.gltf","faceColour": "models/seperated_blocks/r6c4_face_black.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_black.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_blue.gltf","faceColour": "models/seperated_blocks/r6c4_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_blue.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_brown.gltf","faceColour": "models/seperated_blocks/r6c4_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_brown.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_green.gltf","faceColour": "models/seperated_blocks/r6c4_face_green.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_green.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_grey.gltf","faceColour": "models/seperated_blocks/r6c4_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_grey.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c4_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_orange.gltf","faceColour": "models/seperated_blocks/r6c4_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_orange.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_pink.gltf","faceColour": "models/seperated_blocks/r6c4_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_pink.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_red.gltf","faceColour": "models/seperated_blocks/r6c4_face_red.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_red.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_white.gltf","faceColour": "models/seperated_blocks/r6c4_face_white.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_white.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c4_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c4_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c4_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c4_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c5", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c5_body_black.gltf","faceColour": "models/seperated_blocks/r6c5_face_black.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_black.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_blue.gltf","faceColour": "models/seperated_blocks/r6c5_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_blue.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_brown.gltf","faceColour": "models/seperated_blocks/r6c5_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_brown.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_green.gltf","faceColour": "models/seperated_blocks/r6c5_face_green.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_green.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_grey.gltf","faceColour": "models/seperated_blocks/r6c5_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_grey.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c5_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_orange.gltf","faceColour": "models/seperated_blocks/r6c5_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_orange.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_pink.gltf","faceColour": "models/seperated_blocks/r6c5_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_pink.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_red.gltf","faceColour": "models/seperated_blocks/r6c5_face_red.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_red.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_white.gltf","faceColour": "models/seperated_blocks/r6c5_face_white.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_white.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c5_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c5_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c5_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c5_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c6", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c6_body_black.gltf","faceColour": "models/seperated_blocks/r6c6_face_black.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_black.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_blue.gltf","faceColour": "models/seperated_blocks/r6c6_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_blue.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_brown.gltf","faceColour": "models/seperated_blocks/r6c6_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_brown.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_green.gltf","faceColour": "models/seperated_blocks/r6c6_face_green.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_green.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_grey.gltf","faceColour": "models/seperated_blocks/r6c6_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_grey.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c6_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_orange.gltf","faceColour": "models/seperated_blocks/r6c6_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_orange.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_pink.gltf","faceColour": "models/seperated_blocks/r6c6_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_pink.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_red.gltf","faceColour": "models/seperated_blocks/r6c6_face_red.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_red.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_white.gltf","faceColour": "models/seperated_blocks/r6c6_face_white.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_white.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c6_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c6_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c6_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c6_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c7", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c7_body_black.gltf","faceColour": "models/seperated_blocks/r6c7_face_black.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_black.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_blue.gltf","faceColour": "models/seperated_blocks/r6c7_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_blue.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_brown.gltf","faceColour": "models/seperated_blocks/r6c7_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_brown.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_green.gltf","faceColour": "models/seperated_blocks/r6c7_face_green.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_green.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_grey.gltf","faceColour": "models/seperated_blocks/r6c7_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_grey.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c7_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_orange.gltf","faceColour": "models/seperated_blocks/r6c7_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_orange.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_pink.gltf","faceColour": "models/seperated_blocks/r6c7_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_pink.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_red.gltf","faceColour": "models/seperated_blocks/r6c7_face_red.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_red.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_white.gltf","faceColour": "models/seperated_blocks/r6c7_face_white.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_white.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c7_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c7_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c7_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c7_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c8", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c8_body_black.gltf","faceColour": "models/seperated_blocks/r6c8_face_black.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_black.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_blue.gltf","faceColour": "models/seperated_blocks/r6c8_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_blue.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_brown.gltf","faceColour": "models/seperated_blocks/r6c8_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_brown.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_green.gltf","faceColour": "models/seperated_blocks/r6c8_face_green.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_green.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_grey.gltf","faceColour": "models/seperated_blocks/r6c8_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_grey.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c8_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_orange.gltf","faceColour": "models/seperated_blocks/r6c8_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_orange.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_pink.gltf","faceColour": "models/seperated_blocks/r6c8_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_pink.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_red.gltf","faceColour": "models/seperated_blocks/r6c8_face_red.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_red.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_white.gltf","faceColour": "models/seperated_blocks/r6c8_face_white.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_white.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c8_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c8_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c8_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c8_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c9", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c9_body_black.gltf","faceColour": "models/seperated_blocks/r6c9_face_black.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_black.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_blue.gltf","faceColour": "models/seperated_blocks/r6c9_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_blue.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_brown.gltf","faceColour": "models/seperated_blocks/r6c9_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_brown.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_green.gltf","faceColour": "models/seperated_blocks/r6c9_face_green.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_green.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_grey.gltf","faceColour": "models/seperated_blocks/r6c9_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_grey.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c9_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_orange.gltf","faceColour": "models/seperated_blocks/r6c9_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_orange.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_pink.gltf","faceColour": "models/seperated_blocks/r6c9_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_pink.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_red.gltf","faceColour": "models/seperated_blocks/r6c9_face_red.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_red.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_white.gltf","faceColour": "models/seperated_blocks/r6c9_face_white.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_white.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c9_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c9_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c9_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c9_collider.gltf"}
+     ]}
+    ]},
+    {"model": "r6c10", "modelTypes":  [
+     {"type": "body", "colour": [
+        {"modelColour": "models/seperated_blocks/r6c10_body_black.gltf","faceColour": "models/seperated_blocks/r6c10_face_black.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_black.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_blue.gltf","faceColour": "models/seperated_blocks/r6c10_face_blue.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_blue.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_brown.gltf","faceColour": "models/seperated_blocks/r6c10_face_brown.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_brown.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_green.gltf","faceColour": "models/seperated_blocks/r6c10_face_green.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_green.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_grey.gltf","faceColour": "models/seperated_blocks/r6c10_face_grey.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_grey.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_light_grey.gltf","faceColour": "models/seperated_blocks/r6c10_face_light_grey.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_light_grey.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_orange.gltf","faceColour": "models/seperated_blocks/r6c10_face_orange.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_orange.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_pink.gltf","faceColour": "models/seperated_blocks/r6c10_face_pink.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_pink.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_red.gltf","faceColour": "models/seperated_blocks/r6c10_face_red.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_red.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_white.gltf","faceColour": "models/seperated_blocks/r6c10_face_white.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_white.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"},
+        {"modelColour": "models/seperated_blocks/r6c10_body_yellow.gltf","faceColour": "models/seperated_blocks/r6c10_face_yellow.gltf","highlightColour": "models/seperated_blocks/r6c10_highlight_yellow.gltf","collider": "models/seperated_blocks/r6c10_collider.gltf"}
+     ]}
+    ]}
+ ]}

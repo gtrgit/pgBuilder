@@ -9,6 +9,7 @@ import { HUD } from "./modules/hud";
 import { Manager, Mode } from './manager'
 import { ModelManager } from "./modelManager";
 import { ModelIconManager } from "./modelIconManager";
+import { getVoxelJSON } from "./modules/serverHandler";
 
 // UI Elements
 const canvas = new UICanvas()
@@ -18,6 +19,15 @@ const hud = new HUD(canvas)
 //add new baseBlock
 const blockArrayId:number = 0
 
+
+// const url:string = 'http://localhost:8080/games'
+// const tmpJson = getVoxelJSON(url)
+// log('----')
+// log(tmpJson)
+// log('----')
+
+
+//Initial block
 const deleted: boolean = false
 const x: number = 8
 const y: number = 0
@@ -31,20 +41,25 @@ const sy: number = 1
 const sz: number = 1
 const block_id: number = 33
 const colour_id: number = 0
-const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
+const block_type: number = 0
+const body_colour_id: number = 0
+const face_colour_id: number = 0
+const highlight_colour_id: number = 0
+
+const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type)
 
 
 // export let selectorUUID = blkSel.uuid
 //log('uuid '+ blkSel.name)
 //log('selectedBlockName  '+engine.entities[blkSelUuid].getComponent(SelectedBlockName).selectedBlockName)// = blkSel.uuid
 
-for (const key in engine.entities) {
-  if (Object.prototype.hasOwnProperty.call(engine.entities, key)) {
-    const element = engine.entities[key];
+// for (const key in engine.entities) {
+//   if (Object.prototype.hasOwnProperty.call(engine.entities, key)) {
+//     const element = engine.entities[key];
     
-  //  log(element.uuid)
-  }
-}
+//   //  log(element.uuid)
+//   }
+// }
 
 
 for (let buildingIndex = 0; buildingIndex < foundation.building.length; buildingIndex++) {

@@ -1,6 +1,8 @@
 //import { RotateTransformComponent } from "@dcl/ecs-scene-utils"
 import resources from "./resources"
+import modelPath from "./modelPath"
 
+export const modelTypeColourArray: GLTFShape[] = []
 
 // Colors to cycle through (7 main colours)
 //based on paintColors
@@ -155,3 +157,5 @@ export const modelArray: GLTFShape[] = [
         : ModelManager.modelIndex--
     }
   }
+
+  //Manage Model Type

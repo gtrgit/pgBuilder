@@ -1,4 +1,5 @@
 import resources_2 from "src/resources_2"
+import modelPath from "src/modelPath"
 import { Manager, Mode } from "src/manager"
 import { ModelManager } from "src/modelManager"
 import { colourIndex } from "./hud"
@@ -60,6 +61,7 @@ selectorEntity.addComponent(selectorShape)
 selectorEntity.addComponent(transform)
 //selectorEntity.addComponent(new BlockType())
 selectorEntity.addComponent(new SelectedBlockUUID())
+
 engine.addEntity(selectorEntity)  
 
 
@@ -80,9 +82,13 @@ selectorEntity.addComponent(
             normal: e.hit?.normal,//e.hit.normal,
             model: selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID,//thisModel.uuid, r1c2Id
             mode: Manager.activeMode
+            // body_colour_id:
+            // face_colour_id:
+            // highlight_colour_id
+            // block_type: 
           })
         }
-  
+       
         
         if (Manager.activeMode == Mode.Subtract) {
 
@@ -109,9 +115,12 @@ selectorEntity.addComponent(
           let sy =  element.sy
           let sz = element.sz
           let block_id = element.block_id
-          let colour_id = element.colour_id
+          let body_colour_id = element.body_colour_id
+          let face_colour_id = element.face_colour_id
+          let highlight_colour_id = element.highlight_colour_id
+          let block_type = element.block_type
 
-          let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+          let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
           
           
           modelData.splice(arrayPos,1,updateBlock)
@@ -154,9 +163,13 @@ selectorEntity.addComponent(
            let sy =  element.sy
            let sz = element.sz
            let block_id = element.block_id
-           let colour_id = element.colour_id
+           let body_colour_id = element.body_colour_id
+           let face_colour_id = element.face_colour_id
+           let highlight_colour_id = element.highlight_colour_id
+           let block_type = element.block_type
+          
  
-           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
            
            
            modelData.splice(arrayPos,1,updateBlock)
@@ -190,9 +203,12 @@ selectorEntity.addComponent(
            let sy =  element.sy
            let sz = element.sz
            let block_id = element.block_id
-           let colour_id = element.colour_id
- 
-           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+           let body_colour_id = element.body_colour_id
+           let face_colour_id = element.face_colour_id
+           let highlight_colour_id = element.highlight_colour_id
+           let block_type = element.block_type
+          
+           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
            
            
            modelData.splice(arrayPos,1,updateBlock)
@@ -231,9 +247,12 @@ selectorEntity.addComponent(
             let sy =  element.sy
             let sz = element.sz
             let block_id = element.block_id
-            let colour_id = element.colour_id
-  
-            let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id}
+            let body_colour_id = element.body_colour_id
+           let face_colour_id = element.face_colour_id
+           let highlight_colour_id = element.highlight_colour_id
+            let block_type = element.block_type
+          
+            let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
             
             
             modelData.splice(arrayPos,1,updateBlock)

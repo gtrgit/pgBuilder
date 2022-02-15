@@ -60,7 +60,7 @@ function addBaseModel(x: number, y: number, z: number,
                       block_id:number,colour_id:number,) {
 
 
-                        log('block added to baseGrid')
+                      
                         Manager.playAddModelSound()
 
   let modelId = ModelManager.modelIndex
@@ -84,8 +84,8 @@ baseGrid.addComponent(
       if (Manager.activeMode == Mode.blockAdd) {
 
         let transform = picker.getComponent(Transform)
-        log('----')
-        log(transform)
+     
+       
         addBaseModel(
           transform.position.x,
           // MODEL_SIZE / 2 + 0.7 + transform.position.y, // Offset voxel based on grid thickness (0.1m) and height 

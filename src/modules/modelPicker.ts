@@ -25,9 +25,17 @@ picker.addComponent(
     scale: new Vector3(MODEL_SIZE*2, MODEL_SIZE*2, MODEL_SIZE*2),
   })
 )
-const addMaterial = new BasicMaterial()
+// const addMaterial = new BasicMaterial()
+const addMaterial = new Material()
 let addTexture = resources.images.addImage
-addMaterial.texture = addTexture 
+// addMaterial.albedoTexture = addTexture 
+addMaterial.alphaTexture = addTexture
+addMaterial.castShadows = false
+addMaterial.emissiveColor = Color3.Blue()
+
+addMaterial.emissiveIntensity = 20
+
+addMaterial.transparencyMode = 4
 picker.addComponent(addMaterial)
 
 picker.getComponent(PlaneShape).withCollisions = false
@@ -50,6 +58,7 @@ let prevVoxelId: string
 export class ModelSystem implements ISystem {
   update(dt: number) {
 
+    
 
     // Ray from camera
     const rayFromCamera: Ray = PhysicsCast.instance.getRayFromCamera(1000)
@@ -58,9 +67,11 @@ export class ModelSystem implements ISystem {
     PhysicsCast.instance.hitFirst(rayFromCamera, (raycastHitEntity) => {
 
       if (raycastHitEntity.didHit) {
+        
         // Check entity exists i.e. not been deleted
         if (engine.entities[raycastHitEntity.entity.entityId]) {
           
+         
           //if not the base
           if (raycastHitEntity.entity.meshName != 'base_collider') {
             
@@ -71,76 +82,33 @@ export class ModelSystem implements ISystem {
             if (engine.entities[selectorUUID].uuid != raycastHitEntity.entity.entityId){
               
               pickedModelID = raycastHitEntity.entity.entityId
-              log('pickedModelID ' + pickedModelID)
+             
               if (engine.entities[pickedModelID]){
                   engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
                   engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
               }
             }
 
-            //TODO Test if pickedModel has been deleted
-
-
-            //   // //TODO add blockData to selector
-            // if (engine.entities[pickedModelID].getComponent(Transform))
-            // {
-            //     if (engine.entities[pickedModelID].getComponent(Transform).scale){
-            //       // engine.entities[selectorUUID].getComponent(Transform).scale.x = (engine.entities[pickedModelID].getComponent(Transform).scale.x * 1)
-            //       // engine.entities[selectorUUID].getComponent(Transform).scale.y = (engine.entities[pickedModelID].getComponent(Transform).scale.y * 1)
-            //       // engine.entities[selectorUUID].getComponent(Transform).scale.z = (engine.entities[pickedModelID].getComponent(Transform).scale.z * 1)
-                  
-            //       // TODO rotation need a modifier to account for incorrect rotation on new block
-            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.x = (engine.entities[pickedModelID].getComponent(Transform).rotation.x)
-            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.y = (engine.entities[pickedModelID].getComponent(Transform).rotation.y)
-            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.z = (engine.entities[pickedModelID].getComponent(Transform).rotation.z)
-            //       // engine.entities[selectorUUID].getComponent(Transform).rotation.w = (engine.entities[pickedModelID].getComponent(Transform).rotation.w)
-                
-                
-            //     }
-
-            // }
-
+         
             
 
           }
-
-            // // let newBlockName = ('x' + engine.entities[selectorId].getComponent(Transform).position.x +
-            // // 'y' + engine.entities[selectorId].getComponent(Transform).position.y +
-            // // 'z' + engine.entities[selectorId].getComponent(Transform).position.z)
-
             if (engine.entities[pickedModelID]){
             engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID = pickedModelID
-
-            log('selector uuid updated to: '+engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID)
-            // log('selector UUID '+ selectorUUID+ ' pickedUUID '+ pickedModelID)
-          
+  
               pickerFace(engine.entities[pickedModelID], raycastHitEntity)  
           }
-        
+      
           } else {
             pickerBase(raycastHitEntity)
-            //pickedModelID = "null"
           } 
         }
       } else {
         //Hide Picker
         picker.getComponent(Transform).scale.setAll(0)
-        //pickedModelID = "null"
-
-        //Hide Selector on start
-      //  log('selector UUID '+ selectorUUID+ ' pickedUUID '+ pickedModelID)
-      //  if (raycastHitEntity.entity.meshName = 'Cube_collider') {
-
-      //         engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).scale.setAll(.5)
-       
-      //   }
       }
-
       if (prevVoxelId != pickedModelID){
-        //log('preId'+prevVoxelId + ' --=--- '+ raycastHitEntity.entity.entityId )
-             
       }
-      //log(raycastHitEntity.entity.entityId)
     })
 
   }
@@ -174,7 +142,7 @@ function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
   let pickerRotation = picker.getComponent(Transform).rotation
   if (raycastHitEntity.hitNormal.x != 0) {
     
-    //log('side')
+
     pickerRotation = Quaternion.Euler(0, 90, 0)
     
     raycastHitEntity.hitNormal.x > 0  
@@ -185,7 +153,7 @@ function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
   }
   if (raycastHitEntity.hitNormal.y != 0) {
     
-    //log('top')
+
     pickerRotation = Quaternion.Euler(90, 0, 0)
     raycastHitEntity.hitNormal.y > 0
       ? (picker.getComponent(Transform).position.y =
@@ -194,7 +162,7 @@ function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
           transform.y - MODEL_SIZE- .1)
   }
   if (raycastHitEntity.hitNormal.z != 0) {
-    //log('front')
+ 
     pickerRotation = Quaternion.Euler(0, 0, 90)
     raycastHitEntity.hitNormal.z > 0
       ? (picker.getComponent(Transform).position.z =
