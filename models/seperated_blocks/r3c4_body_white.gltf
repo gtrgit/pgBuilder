@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -8,7 +8,8 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
@@ -16,6 +17,10 @@
         {
             "mesh" : 0,
             "name" : "r3c4_body_white"
+        },
+        {
+            "mesh" : 1,
+            "name" : "r3c4_collider"
         }
     ],
     "materials" : [
@@ -45,6 +50,19 @@
                     "material" : 0
                 }
             ]
+        },
+        {
+            "name" : "Cube.005",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7
+                }
+            ]
         }
     ],
     "textures" : [
@@ -64,7 +82,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 20,
+            "count" : 32,
             "max" : [
                 1,
                 1,
@@ -80,42 +98,96 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 20,
+            "count" : 32,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 20,
+            "count" : 32,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 30,
+            "count" : 48,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                1,
+                1,
+                1
+            ],
+            "min" : [
+                -1,
+                -1,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 36,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 240,
+            "byteLength" : 384,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 240,
-            "byteOffset" : 240
+            "byteLength" : 384,
+            "byteOffset" : 384
         },
         {
             "buffer" : 0,
-            "byteLength" : 160,
-            "byteOffset" : 480
+            "byteLength" : 256,
+            "byteOffset" : 768
         },
         {
             "buffer" : 0,
-            "byteLength" : 60,
-            "byteOffset" : 640
+            "byteLength" : 96,
+            "byteOffset" : 1024
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 1120
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 1408
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 1696
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 1888
         }
     ],
     "samplers" : [
@@ -126,7 +198,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 700,
+            "byteLength" : 1960,
             "uri" : "r3c4_body_white.bin"
         }
     ]

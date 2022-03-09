@@ -9,7 +9,7 @@ import { HUD } from "./modules/hud";
 import { Manager, Mode } from './manager'
 import { ModelManager } from "./modelManager";
 import { ModelIconManager } from "./modelIconManager";
-import { getVoxelJSON } from "./modules/serverHandler";
+// import { getVoxelJSON } from "./modules/serverHandler";
 
 // UI Elements
 const canvas = new UICanvas()

@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -8,13 +8,18 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
     "nodes" : [
         {
             "mesh" : 0,
+            "name" : "r4c2_collider"
+        },
+        {
+            "mesh" : 1,
             "name" : "r4c2_body_red"
         }
     ],
@@ -33,7 +38,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Cube.549",
+            "name" : "Cube.087",
             "primitives" : [
                 {
                     "attributes" : {
@@ -41,7 +46,20 @@
                         "NORMAL" : 1,
                         "TEXCOORD_0" : 2
                     },
-                    "indices" : 3,
+                    "indices" : 3
+                }
+            ]
+        },
+        {
+            "name" : "Cube.549",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
                     "material" : 0
                 }
             ]
@@ -64,7 +82,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 270,
+            "count" : 629,
             "max" : [
                 0.9925232529640198,
                 1.002814531326294,
@@ -80,42 +98,96 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 270,
+            "count" : 629,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 270,
+            "count" : 629,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 342,
+            "count" : 708,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 634,
+            "max" : [
+                0.9925232529640198,
+                1.002814531326294,
+                1.0043060779571533
+            ],
+            "min" : [
+                -1.007477045059204,
+                -0.9971855878829956,
+                -0.9956941604614258
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 634,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 634,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 708,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 3240,
+            "byteLength" : 7548,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 3240,
-            "byteOffset" : 3240
+            "byteLength" : 7548,
+            "byteOffset" : 7548
         },
         {
             "buffer" : 0,
-            "byteLength" : 2160,
-            "byteOffset" : 6480
+            "byteLength" : 5032,
+            "byteOffset" : 15096
         },
         {
             "buffer" : 0,
-            "byteLength" : 684,
-            "byteOffset" : 8640
+            "byteLength" : 1416,
+            "byteOffset" : 20128
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 7608,
+            "byteOffset" : 21544
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 7608,
+            "byteOffset" : 29152
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5072,
+            "byteOffset" : 36760
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1416,
+            "byteOffset" : 41832
         }
     ],
     "samplers" : [
@@ -126,7 +198,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 9324,
+            "byteLength" : 43248,
             "uri" : "r4c2_body_red.bin"
         }
     ]

@@ -2,7 +2,7 @@ import resources_2 from "src/resources_2"
 import modelPath from "src/modelPath"
 import { Manager, Mode } from "src/manager"
 import { ModelManager } from "src/modelManager"
-import { colourIndex } from "./hud"
+import { colourIndex, bodyId, faceId, borderId } from "./hud"
 import { BuildingBlocks, currentModelId, deletedFlag, modelData ,blockData, BlockComponentData} from "./buildingBlock"
 
 
@@ -69,7 +69,7 @@ selectorEntity.addComponent(
     new OnPointerDown(
       (e) => {
         
-        
+        log('id check bodyId: '+bodyId+' faceId: '+faceId+ ' borderId: '+borderId)
         if (Manager.activeMode == Mode.blockAdd)   {
     
           selectorEntity.getComponent(GLTFShape).visible = true
@@ -81,15 +81,18 @@ selectorEntity.addComponent(
             scale: new Vector3(1,1,1),//selectorEntity.getComponent(Transform).scale,
             normal: e.hit?.normal,//e.hit.normal,
             model: selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID,//thisModel.uuid, r1c2Id
-            mode: Manager.activeMode
-            // body_colour_id:
-            // face_colour_id:
-            // highlight_colour_id
-            // block_type: 
+            mode: Manager.activeMode,
+            body_colour_id: bodyId,
+            face_colour_id: faceId,
+            border_colour_id: borderId,
+            block_type: 0
           })
         }
        
-        
+        // TODO: plug in colour id ^^
+
+
+
         if (Manager.activeMode == Mode.Subtract) {
 
           let sbName = selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID
@@ -115,12 +118,12 @@ selectorEntity.addComponent(
           let sy =  element.sy
           let sz = element.sz
           let block_id = element.block_id
-          let body_colour_id = element.body_colour_id
-          let face_colour_id = element.face_colour_id
-          let highlight_colour_id = element.highlight_colour_id
+          let body_colour_id = bodyId //element.body_colour_id
+          let face_colour_id = faceId //element.face_colour_id
+          let border_colour_id = borderId //element.border_colour_id
           let block_type = element.block_type
 
-          let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
+          let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
           
           
           modelData.splice(arrayPos,1,updateBlock)
@@ -165,11 +168,11 @@ selectorEntity.addComponent(
            let block_id = element.block_id
            let body_colour_id = element.body_colour_id
            let face_colour_id = element.face_colour_id
-           let highlight_colour_id = element.highlight_colour_id
+           let border_colour_id = element.border_colour_id
            let block_type = element.block_type
           
  
-           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
+           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
            
            
            modelData.splice(arrayPos,1,updateBlock)
@@ -205,15 +208,12 @@ selectorEntity.addComponent(
            let block_id = element.block_id
            let body_colour_id = element.body_colour_id
            let face_colour_id = element.face_colour_id
-           let highlight_colour_id = element.highlight_colour_id
+           let border_colour_id = element.border_colour_id
            let block_type = element.block_type
           
-           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
-           
+           let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
            
            modelData.splice(arrayPos,1,updateBlock)
-
-
 
          }
   
@@ -223,7 +223,7 @@ selectorEntity.addComponent(
       
 
           let sbName = selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID
-          
+          log('z rotation uuid '+sbName)
 
            //engine.removeEntity(engine.entities[sbName])
            engine.entities[sbName].getComponent(Transform).rotate(Vector3.Up(), 90)
@@ -248,11 +248,11 @@ selectorEntity.addComponent(
             let sz = element.sz
             let block_id = element.block_id
             let body_colour_id = element.body_colour_id
-           let face_colour_id = element.face_colour_id
-           let highlight_colour_id = element.highlight_colour_id
+            let face_colour_id = element.face_colour_id
+            let border_colour_id = element.border_colour_id
             let block_type = element.block_type
           
-            let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
+            let updateBlock:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
             
             
             modelData.splice(arrayPos,1,updateBlock)

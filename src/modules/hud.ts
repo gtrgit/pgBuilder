@@ -11,19 +11,42 @@ import { blockData, modelData } from './buildingBlock'
 
 
 export let colourIndex: number = 0 
+export let bodyId: number = 0
+export let faceId: number = 0
+export let borderId: number = 0
+
+//TODO add COLOUR IDENTIFIER
 
 export class HUD {
   
   private container: UIContainerRect
   private header: UIContainerRect
-  private selectionBodyColour: UIContainerRect
+  private uiOnOffRect: UIContainerRect
+  private uiMenuBackgroundRect : UIContainerRect
+  private uiModelMenu: UIContainerRect
+  // private selectionBodyColour: UIContainerRect
   private menuBodyColour: UIContainerRect
+  //private menuFaceColour: UIContainerRect
   //private colourSwatchs: UIContainerRect
   
   //private c2Container: UIContainerRect
   private modelIconContainer: UIContainerRect
   private headerLogo: UIImage
-  private bodyColourHeader:UIText
+  private uiOnOff: UIImage
+  private uiMenuOn: UIImage
+  private uiMenuOff: UIImage
+  private uiMenuBackground: UIImage
+  private uiModelMenuRect: UIImage
+  private uiModelBodyBtn: UIImage
+  private uiModelFaceBtn: UIImage
+  private uiModelBorderBtn: UIImage
+  private uiColourMenu: UIImage
+  private uiEdit: UIImage
+  private uiClose: UIImage
+  // private bodyColourHeader:UIText
+  private uiEditSelector:UIImage
+  private uiText:UIText
+  
 
   private selectedBodyNoSelection: UIImage
   private selectedBodyBlack: UIImage
@@ -37,6 +60,34 @@ export class HUD {
   private selectedBodyPink: UIImage
   private selectedBodyRed: UIImage
   private selectedBodyGreen: UIImage
+
+  private selectedFaceNoSelection: UIImage
+  private selectedFaceBlack: UIImage
+  private selectedFaceGrey: UIImage
+  private selectedFaceLightGrey: UIImage
+  private selectedFaceWhite: UIImage
+  private selectedFaceBlue: UIImage
+  private selectedFaceYellow: UIImage
+  private selectedFaceBrown: UIImage
+  private selectedFaceOrange: UIImage
+  private selectedFacePink: UIImage
+  private selectedFaceRed: UIImage
+  private selectedFaceGreen: UIImage
+
+
+  private selectedBorderNoSelection: UIImage
+  private selectedBorderBlack: UIImage
+  private selectedBorderGrey: UIImage
+  private selectedBorderLightGrey: UIImage
+  private selectedBorderWhite: UIImage
+  private selectedBorderBlue: UIImage
+  private selectedBorderYellow: UIImage
+  private selectedBorderBrown: UIImage
+  private selectedBorderOrange: UIImage
+  private selectedBorderPink: UIImage
+  private selectedBorderRed: UIImage
+  private selectedBorderGreen: UIImage
+
 
   private noSelection: UIImage
   private bodyBlack: UIImage
@@ -54,11 +105,11 @@ export class HUD {
   private addIcon: UIImage
   private subtractIcon: UIImage
   private eyeDropIcon: UIImage
-  private swapIcon:UIImage
+  // private swapIcon:UIImage
   private yrotateIcon:UIImage
   private xrotateIcon:UIImage
   private zrotateIcon:UIImage
-  private foundationAddIcon:UIImage
+  // private foundationAddIcon:UIImage
   private blockIcon:UIImage
 
   private fText:UIText
@@ -275,6 +326,9 @@ export class HUD {
   private saveContainer: UIContainerRect
   private save_icon: UIImage
 
+
+  private colourPart:string = ""
+
     /////////////////////////
 
     private iconArray = []
@@ -291,24 +345,147 @@ export class HUD {
       this.header = new UIContainerRect(canvas)
       this.header.visible = true
       this.header.isPointerBlocker = false
-      this.header.width = 400
-      this.header.height = 70
-      this.header.positionX = 110
-      this.header.positionY = 45
+      this.header.width = 0
+      this.header.height = 0
+      this.header.positionX = 165
+      this.header.positionY = 30
       this.header.hAlign = "left"
       this.header.vAlign = "top"
-      this.header.opacity = .3
+      this.header.opacity = 1
+      this.header.color = Color4.Black()
   
-      this.headerLogo = new UIImage(this.header, resources.images.pgHeader)
-      this.headerLogo.sourceHeight = 265
-      this.headerLogo.sourceWidth = 533      
-      this.headerLogo.width = 200
-      this.headerLogo.height = 100 // Compensate by 11.1% for aspect ratio issue
-      this.headerLogo.positionX = -45
+      this.headerLogo = new UIImage(this.header, resources.images.pgLogo)
+      this.headerLogo.sourceHeight = 245
+      this.headerLogo.sourceWidth = 1012      
+      this.headerLogo.width = 300
+      this.headerLogo.height = 60 // Compensate by 11.1% for aspect ratio issue
+      this.headerLogo.positionX = 0
       this.headerLogo.positionY = 0
       this.headerLogo.isPointerBlocker = false
 
+      
+      this.uiOnOffRect = new UIContainerRect(canvas)
+      this.uiOnOffRect.visible = true
+      this.uiOnOffRect.isPointerBlocker = true
+      this.uiOnOffRect.width = 0
+      this.uiOnOffRect.height = 0
+      this.uiOnOffRect.positionX = 415
+      this.uiOnOffRect.positionY = 30
+      this.uiOnOffRect.hAlign = "left"
+      this.uiOnOffRect.vAlign = "top"
+      this.uiOnOffRect.opacity = .8
+      this.uiOnOffRect.color = Color4.Black()
 
+      
+      this.uiText = new UIText(this.uiOnOffRect)
+      this.uiText.value = "UI On/Off"
+      this.uiText.fontSize = 8
+      this.uiText.height = 10
+      this.uiText.positionY = 15
+      this.uiText.positionX = 3
+      this.uiText.hAlign = "center"
+      this.uiText.vAlign = "top"
+      
+      this.uiOnOff = new UIImage(this.uiOnOffRect, resources.images.uiOnOff)
+      this.uiOnOff.sourceHeight = 189
+      this.uiOnOff.sourceWidth = 150      
+      this.uiOnOff.width = 42
+      this.uiOnOff.height = 42 // Compensate by 11.1% for aspect ratio issue
+      this.uiOnOff.positionX = 0
+      this.uiOnOff.positionY = 0
+      this.uiOnOff.isPointerBlocker = true
+
+
+
+      this.uiMenuOff = new UIImage(this.uiOnOffRect, resources.images.uiMenuOff)
+      this.uiMenuOff.sourceHeight = 57
+      this.uiMenuOff.sourceWidth = 112      
+      this.uiMenuOff.width = 30
+      this.uiMenuOff.height = 15 // Compensate by 11.1% for aspect ratio issue
+      this.uiMenuOff.positionX = 7
+      this.uiMenuOff.positionY = -5
+      this.uiMenuOff.isPointerBlocker = true
+      this.uiMenuOff.onClick = new OnPointerDown(()=>{
+        // log('off>on')
+        this.uiMenuOn.visible= true
+        this.uiMenuOff.visible = false
+        this.uiMenuBackgroundRect.visible = true
+        this.uiModelMenu.visible = true
+
+      })
+
+      this.uiMenuOn = new UIImage(this.uiOnOffRect, resources.images.uiMenuOn)
+      this.uiMenuOn.sourceHeight = 57
+      this.uiMenuOn.sourceWidth = 112      
+      this.uiMenuOn.width = 30
+      this.uiMenuOn.height = 15 // Compensate by 11.1% for aspect ratio issue
+      this.uiMenuOn.positionX = 7
+      this.uiMenuOn.positionY = -5
+      this.uiMenuOn.isPointerBlocker = true
+      this.uiMenuOn.visible = false
+      this.uiMenuOn.onClick = new OnPointerDown(()=>{
+        // log('on>off')
+
+        this.uiMenuOn.visible= false
+        this.uiMenuOff.visible = true
+        this.uiMenuBackgroundRect.visible = false
+        this.uiModelMenu.visible = false
+
+      })
+
+
+
+
+      this.uiMenuBackgroundRect = new UIContainerRect(canvas)
+      this.uiMenuBackgroundRect.visible = true
+      this.uiMenuBackgroundRect.isPointerBlocker = true
+      this.uiMenuBackgroundRect.width = 0
+      this.uiMenuBackgroundRect.height = 0
+      this.uiMenuBackgroundRect.positionX = 470
+      this.uiMenuBackgroundRect.positionY = 30
+      this.uiMenuBackgroundRect.hAlign = "left"
+      this.uiMenuBackgroundRect.vAlign = "top"
+      this.uiMenuBackgroundRect.opacity = 1
+      this.uiMenuBackgroundRect.color = Color4.Black()
+      this.uiMenuBackgroundRect.visible = false
+
+
+  
+      this.uiMenuBackground = new UIImage(this.uiMenuBackgroundRect, resources.images.uiMenuBackground)
+      this.uiMenuBackground.sourceHeight = 243
+      this.uiMenuBackground.sourceWidth = 1818      
+      this.uiMenuBackground.width = 515
+      this.uiMenuBackground.height = 60 // Compensate by 11.1% for aspect ratio issue
+      this.uiMenuBackground.positionX = 0
+      this.uiMenuBackground.positionY = 0
+      this.uiMenuBackground.isPointerBlocker = true
+
+
+      
+
+      this.uiEdit = new UIImage(this.uiMenuBackgroundRect, resources.images.uiEdit)
+      this.uiEdit.sourceHeight = 189
+      this.uiEdit.sourceWidth = 601      
+      this.uiEdit.width = 165
+      this.uiEdit.height = 50 // Compensate by 11.1% for aspect ratio issue
+      this.uiEdit.positionX = 10
+      this.uiEdit.positionY = 0
+      this.uiEdit.isPointerBlocker = true
+      this.uiEdit.opacity = .8
+
+
+      this.uiEditSelector = new UIImage(this.uiMenuBackgroundRect, resources.icons.uiEditSelector)
+      this.uiEditSelector.sourceHeight = 90
+      this.uiEditSelector.sourceWidth = 85      
+      this.uiEditSelector.width = 25
+      this.uiEditSelector.height = 25 // Compensate by 11.1% for aspect ratio issue
+      this.uiEditSelector.positionX = 16
+      this.uiEditSelector.positionY = -5
+      this.uiEditSelector.isPointerBlocker = true
+      this.uiEditSelector.opacity = .8
+
+
+      //TODO: Change switchModeIcon here
 
     this.container = new UIContainerRect(canvas)
     this.container.width = '100%'
@@ -318,631 +495,859 @@ export class HUD {
     this.container.isPointerBlocker = false
 
 
-    this.addIcon = new UIImage(this.container, resources.icons.add)
+    this.addIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.add)
     this.addIcon.sourceWidth = 50
     this.addIcon.sourceHeight = 50
     this.addIcon.width = 18
     this.addIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.addIcon.positionX = 0
-    this.addIcon.positionY = 15
-    this.addIcon.isPointerBlocker = false
+    this.addIcon.positionX = 20
+    this.addIcon.positionY = -5
+    this.addIcon.isPointerBlocker = true
+    this.addIcon.onClick = new OnPointerDown(() => {
+      log('add clicked')
+      Manager.activeMode = Mode.blockAdd
+      this.switchModeIcon(Mode.blockAdd)
+    })
    
-    this.subtractIcon = new UIImage(this.container, resources.icons.subtract)
+    this.subtractIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.subtract)
     this.subtractIcon.sourceWidth = 50
     this.subtractIcon.sourceHeight = 50
     this.subtractIcon.width = 18
     this.subtractIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.subtractIcon.positionX = 0
-    this.subtractIcon.positionY = 15
-    this.subtractIcon.isPointerBlocker = false
-    this.subtractIcon.visible = false
+    this.subtractIcon.positionX = 45
+    this.subtractIcon.positionY = -5
+    this.subtractIcon.isPointerBlocker = true
+    this.subtractIcon.visible = true
+    this.subtractIcon.onClick = new OnPointerDown(() => {
+      Manager.activeMode = Mode.Subtract
+      this.switchModeIcon(Mode.Subtract)
+    })
 
-    this.eyeDropIcon = new UIImage(this.container, resources.icons.eyeDrop)
+
+    this.eyeDropIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.eyeDrop)
     this.eyeDropIcon.sourceWidth = 50
     this.eyeDropIcon.sourceHeight = 50
     this.eyeDropIcon.width = 18
     this.eyeDropIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.eyeDropIcon.positionX = 0
-    this.eyeDropIcon.positionY = 15
-    this.eyeDropIcon.isPointerBlocker = false
-    this.eyeDropIcon.visible = false
+    this.eyeDropIcon.positionX = 70
+    this.eyeDropIcon.positionY = -5
+    this.eyeDropIcon.isPointerBlocker = true
+    this.eyeDropIcon.visible = true
+    this.eyeDropIcon.onClick = new OnPointerDown(() => {
+      Manager.activeMode = Mode.EyeDrop
+      this.switchModeIcon(Mode.EyeDrop)
+    })
 
-    this.swapIcon = new UIImage(this.container, resources.icons.swap)
-    this.swapIcon.sourceWidth = 50
-    this.swapIcon.sourceHeight = 50
-    this.swapIcon.width = 18
-    this.swapIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.swapIcon.positionX = 0
-    this.swapIcon.positionY = 15
-    this.swapIcon.isPointerBlocker = false
-    this.swapIcon.visible = false
   
-    this.yrotateIcon = new UIImage(this.container, resources.icons.yrotate)
+    this.yrotateIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.yrotate)
     this.yrotateIcon.sourceWidth = 50
     this.yrotateIcon.sourceHeight = 50
     this.yrotateIcon.width = 18
     this.yrotateIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.yrotateIcon.positionX = 0
-    this.yrotateIcon.positionY = 15
-    this.yrotateIcon.isPointerBlocker = false
-    this.yrotateIcon.visible = false
+    this.yrotateIcon.positionX = 95
+    this.yrotateIcon.positionY = -5
+    this.yrotateIcon.isPointerBlocker = true
+    this.yrotateIcon.visible = true
+    this.yrotateIcon.onClick = new OnPointerDown(()=>{
+      Manager.activeMode = Mode.Yrotate
+      this.switchModeIcon(Mode.Yrotate)
+    })
   
-    this.xrotateIcon = new UIImage(this.container, resources.icons.xrotate)
+    this.xrotateIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.xrotate)
     this.xrotateIcon.sourceWidth = 50
     this.xrotateIcon.sourceHeight = 50
     this.xrotateIcon.width = 18
     this.xrotateIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.xrotateIcon.positionX = 0
-    this.xrotateIcon.positionY = 15
-    this.xrotateIcon.isPointerBlocker = false
-    this.xrotateIcon.visible = false
+    this.xrotateIcon.positionX = 120
+    this.xrotateIcon.positionY = -5
+    this.xrotateIcon.isPointerBlocker = true
+    this.xrotateIcon.visible = true
+    this.xrotateIcon.onClick = new OnPointerDown(()=>{
+      Manager.activeMode = Mode.Xrotate
+      this.switchModeIcon(Mode.Xrotate)
+    })
 
-    this.zrotateIcon = new UIImage(this.container, resources.icons.zrotate)
+    this.zrotateIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.zrotate)
     this.zrotateIcon.sourceWidth = 50
     this.zrotateIcon.sourceHeight = 50
     this.zrotateIcon.width = 18
     this.zrotateIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.zrotateIcon.positionX = 0
-    this.zrotateIcon.positionY = 15
-    this.zrotateIcon.isPointerBlocker = false
-    this.zrotateIcon.visible = false
+    this.zrotateIcon.positionX = 145
+    this.zrotateIcon.positionY = -5
+    this.zrotateIcon.isPointerBlocker = true
+    this.zrotateIcon.visible = true
+    this.zrotateIcon.onClick = new OnPointerDown(()=>{
+      Manager.activeMode = Mode.Zrotate
+      this.switchModeIcon(Mode.Zrotate)
+    })
 
-    this.foundationAddIcon = new UIImage(this.container, resources.icons.foundationAdd)
-    this.foundationAddIcon.sourceWidth = 50
-    this.foundationAddIcon.sourceHeight = 50
-    this.foundationAddIcon.width = 18
-    this.foundationAddIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
-    this.foundationAddIcon.positionX = 0
-    this.foundationAddIcon.positionY = 15
-    this.foundationAddIcon.isPointerBlocker = false
-    this.foundationAddIcon.visible = false
+    // this.foundationAddIcon = new UIImage(this.container, resources.icons.foundationAdd)
+    // this.foundationAddIcon.sourceWidth = 50
+    // this.foundationAddIcon.sourceHeight = 50
+    // this.foundationAddIcon.width = 18
+    // this.foundationAddIcon.height = 19.98 // Compensate by 11.1% for aspect ratio issue
+    // this.foundationAddIcon.positionX = 0
+    // this.foundationAddIcon.positionY = 15
+    // this.foundationAddIcon.isPointerBlocker = false
+    // this.foundationAddIcon.visible = false
 
-    //block icon
-    this.blockIcon = new UIImage(this.container, resources.images.r1c1)
-    this.blockIcon.sourceWidth = 90
-    this.blockIcon.sourceHeight = 90
-    this.blockIcon.width = 40
-    this.blockIcon.height = 40 // Compensate by 11.1% for aspect ratio issue
-    this.blockIcon.positionX = 0
-    this.blockIcon.positionY = -50
-    this.blockIcon.isPointerBlocker = false
-    this.blockIcon.visible = true
 
     const rect = new UIContainerRect(canvas)
     rect.hAlign = 'right'
     rect.vAlign = 'top'
     rect.opacity = 0.8
+
     ///////////////////////////////////////////////////////////////////
     //Body colour menu
 
 
-    this.selectionBodyColour = new UIContainerRect(canvas)
-    this.selectionBodyColour.visible = true
-    this.selectionBodyColour.width = 45
-    this.selectionBodyColour.height = 35
-    this.selectionBodyColour.positionX = 375
-    this.selectionBodyColour.positionY = 60
-    this.selectionBodyColour.hAlign = "left"
-    this.selectionBodyColour.vAlign = "top"
-    this.selectionBodyColour.color = Color4.Black()
-    this.selectionBodyColour.opacity = .5
-    // this.SelectionBodyColour.thickness = 2
 
-
-    this.bodyColourHeader = new UIText(this.selectionBodyColour)
-    this.bodyColourHeader.value = "Body Colour"
-    this.bodyColourHeader.fontSize = 6
-    this.bodyColourHeader.height = 10
-    this.bodyColourHeader.positionY = -2
-    this.bodyColourHeader.positionX = 3
-    this.bodyColourHeader.hAlign = "center"
-    this.bodyColourHeader.vAlign = "top"
+    this.uiModelMenu = new UIContainerRect(canvas)
+    this.uiModelMenu.visible = true
+    this.uiModelMenu.isPointerBlocker = true
+    this.uiModelMenu.width = 0
+    this.uiModelMenu.height = 0
+    this.uiModelMenu.positionX = 650
+    this.uiModelMenu.positionY = 30
+    this.uiModelMenu.hAlign = "left"
+    this.uiModelMenu.vAlign = "top"
+    this.uiModelMenu.opacity = 1
+    this.uiModelMenu.color = Color4.Black()
+    this.uiModelMenu.visible = false
     
 
 
-    this.selectedBodyBlack = new UIImage(this.selectionBodyColour, resources.images.black)
+      this.uiModelMenuRect = new UIImage(this.uiModelMenu, resources.images.uiModelBackground)
+      this.uiModelMenuRect.sourceHeight = 189
+      this.uiModelMenuRect.sourceWidth = 545      
+      this.uiModelMenuRect.width = 165
+      this.uiModelMenuRect.height = 50 // Compensate by 11.1% for aspect ratio issue
+      this.uiModelMenuRect.positionX = 0
+      this.uiModelMenuRect.positionY = 0
+      this.uiModelMenuRect.isPointerBlocker = true
+      this.uiModelMenuRect.opacity = .8
+
+      
+    //block icon
+    this.blockIcon = new UIImage(this.uiModelMenu, resources.images.r1c1)
+    this.blockIcon.sourceWidth = 90
+    this.blockIcon.sourceHeight = 90
+    this.blockIcon.width = 40
+    this.blockIcon.height = 40 // Compensate by 11.1% for aspect ratio issue
+    this.blockIcon.positionX = 50
+    this.blockIcon.positionY = 0
+    this.blockIcon.isPointerBlocker = true
+    this.blockIcon.visible = true
+    this.blockIcon.onClick = new OnPointerDown(()=>{
+      this.modelIconContainer.visible = true
+    })
+
+      
+      this.uiModelBodyBtn = new UIImage(this.uiModelMenu, resources.images.uiModelBody)
+      this.uiModelBodyBtn.sourceHeight = 56
+      this.uiModelBodyBtn.sourceWidth = 190      
+      this.uiModelBodyBtn.width = 60
+      this.uiModelBodyBtn.height = 15 // Compensate by 11.1% for aspect ratio issue
+      this.uiModelBodyBtn.positionX = 100
+      this.uiModelBodyBtn.positionY = 14
+      this.uiModelBodyBtn.isPointerBlocker = true
+      this.uiModelBodyBtn.opacity = .8
+      this.uiModelBodyBtn.onClick =  new OnPointerDown(()=>{
+        this.menuBodyColour.visible = true
+        this.colourPart = "body"
+      })
+
+      
+      this.uiModelFaceBtn = new UIImage(this.uiModelMenu, resources.images.uiModelFace)
+      this.uiModelFaceBtn.sourceHeight = 56
+      this.uiModelFaceBtn.sourceWidth = 190      
+      this.uiModelFaceBtn.width = 60
+      this.uiModelFaceBtn.height = 15 
+      this.uiModelFaceBtn.positionX = 100
+      this.uiModelFaceBtn.positionY = 0
+      this.uiModelFaceBtn.isPointerBlocker = true
+      this.uiModelFaceBtn.opacity = .8
+      this.uiModelFaceBtn.onClick = new OnPointerDown(()=>{
+        log('face?')
+        this.menuBodyColour.visible = true
+        this.colourPart ="face"
+      })
+
+
+      this.uiModelBorderBtn = new UIImage(this.uiModelMenu, resources.images.uiModelBorder)
+      this.uiModelBorderBtn.sourceHeight = 56
+      this.uiModelBorderBtn.sourceWidth = 190      
+      this.uiModelBorderBtn.width = 60
+      this.uiModelBorderBtn.height = 15 
+      this.uiModelBorderBtn.positionX = 100
+      this.uiModelBorderBtn.positionY = -13
+      this.uiModelBorderBtn.isPointerBlocker = true
+      this.uiModelBorderBtn.opacity = .8
+      this.uiModelBorderBtn.onClick =  new OnPointerDown(()=>{
+        this.uiModelMenu.visible = true
+        this.colourPart = "border"
+      })
+
+
+    // this.selectionBodyColour = new UIContainerRect(canvas)
+    // this.selectionBodyColour.visible = true
+    // this.selectionBodyColour.width = 45
+    // this.selectionBodyColour.height = 35
+    // this.selectionBodyColour.positionX = 550
+    // this.selectionBodyColour.positionY = 60
+    // this.selectionBodyColour.hAlign = "left"
+    // this.selectionBodyColour.vAlign = "top"
+    // this.selectionBodyColour.color = Color4.Black()
+    // this.selectionBodyColour.opacity = .5
+    // // this.SelectionBodyColour.thickness = 2
+
+
+    // this.bodyColourHeader = new UIText(this.selectionBodyColour)
+    // this.bodyColourHeader.value = "Body Colour"
+    // this.bodyColourHeader.fontSize = 6
+    // this.bodyColourHeader.height = 10
+    // this.bodyColourHeader.positionY = -2
+    // this.bodyColourHeader.positionX = 3
+    // this.bodyColourHeader.hAlign = "center"
+    // this.bodyColourHeader.vAlign = "top"
+    
+
+    ////////////////////////////////////
+    //SELECTED COLOUR ICON: 
+
+    this.selectedBodyBlack = new UIImage(this.uiModelMenu, resources.images.black)
     this.selectedBodyBlack.sourceHeight = 20
     this.selectedBodyBlack.sourceWidth = 41      
-    this.selectedBodyBlack.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyBlack.height = 10 
     this.selectedBodyBlack.width = 25
-    this.selectedBodyBlack.positionX = 0
-    this.selectedBodyBlack.positionY = -3
+    this.selectedBodyBlack.positionX = 130
+    this.selectedBodyBlack.positionY = 14
     this.selectedBodyBlack.isPointerBlocker = true
     this.selectedBodyBlack.visible = true
     this.selectedBodyBlack.onClick = new OnPointerDown(()=>{
-      log('TODO Open menuBodyColour')
+      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
       
     })
 
     
-    this.selectedBodyBlue = new UIImage(this.selectionBodyColour, resources.images.blue)
+    this.selectedBodyBlue = new UIImage(this.uiModelMenu, resources.images.blue)
     this.selectedBodyBlue.sourceHeight = 20
     this.selectedBodyBlue.sourceWidth = 41      
-    this.selectedBodyBlue.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyBlue.height = 10
     this.selectedBodyBlue.width = 25
-    this.selectedBodyBlue.positionX = 0
-    this.selectedBodyBlue.positionY = -3
+    this.selectedBodyBlue.positionX = 130
+    this.selectedBodyBlue.positionY = 14
     this.selectedBodyBlue.isPointerBlocker = true
     this.selectedBodyBlue.visible = false
     this.selectedBodyBlue.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+   
+
     })
 
     
     
-    this.selectedBodyBrown = new UIImage(this.selectionBodyColour, resources.images.brown)
+    this.selectedBodyBrown = new UIImage(this.uiModelMenu, resources.images.brown)
     this.selectedBodyBrown.sourceHeight = 20
     this.selectedBodyBrown.sourceWidth = 41      
-    this.selectedBodyBrown.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyBrown.height = 10
     this.selectedBodyBrown.width = 25
-    this.selectedBodyBrown.positionX = 0
-    this.selectedBodyBrown.positionY = -3
+    this.selectedBodyBrown.positionX = 130
+    this.selectedBodyBrown.positionY = 14
     this.selectedBodyBrown.isPointerBlocker = true
     this.selectedBodyBrown.visible = false
     this.selectedBodyBrown.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
+
     })
 
     
     
-    this.selectedBodyGreen = new UIImage(this.selectionBodyColour, resources.images.green)
+    this.selectedBodyGreen = new UIImage(this.uiModelMenu, resources.images.green)
     this.selectedBodyGreen.sourceHeight = 20
     this.selectedBodyGreen.sourceWidth = 41      
-    this.selectedBodyGreen.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyGreen.height = 10
     this.selectedBodyGreen.width = 25
-    this.selectedBodyGreen.positionX = 0
-    this.selectedBodyGreen.positionY = -3
+    this.selectedBodyGreen.positionX = 130
+    this.selectedBodyGreen.positionY = 14
     this.selectedBodyGreen.isPointerBlocker = true
     this.selectedBodyGreen.visible = false
     this.selectedBodyGreen.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
+
     })
 
     
     
-    this.selectedBodyGrey= new UIImage(this.selectionBodyColour, resources.images.grey)
+    this.selectedBodyGrey= new UIImage(this.uiModelMenu, resources.images.grey)
     this.selectedBodyGrey.sourceHeight = 20
     this.selectedBodyGrey.sourceWidth = 41      
-    this.selectedBodyGrey.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyGrey.height = 10
     this.selectedBodyGrey.width = 25
-    this.selectedBodyGrey.positionX = 0
-    this.selectedBodyGrey.positionY = -3
+    this.selectedBodyGrey.positionX = 130
+    this.selectedBodyGrey.positionY = 14
     this.selectedBodyGrey.isPointerBlocker = true
     this.selectedBodyGrey.visible = false
     this.selectedBodyGrey.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+ 
+
     })
 
     
     
-    this.selectedBodyLightGrey= new UIImage(this.selectionBodyColour, resources.images.lightGrey)
+    this.selectedBodyLightGrey= new UIImage(this.uiModelMenu, resources.images.lightGrey)
     this.selectedBodyLightGrey.sourceHeight = 20
     this.selectedBodyLightGrey.sourceWidth = 41      
-    this.selectedBodyLightGrey.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyLightGrey.height = 10
     this.selectedBodyLightGrey.width = 25
-    this.selectedBodyLightGrey.positionX = 0
-    this.selectedBodyLightGrey.positionY = -3
+    this.selectedBodyLightGrey.positionX = 130
+    this.selectedBodyLightGrey.positionY = 14
     this.selectedBodyLightGrey.isPointerBlocker = true
     this.selectedBodyLightGrey.visible = false
     this.selectedBodyLightGrey.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+    
+
     })
 
 
     
-    this.selectedBodyOrange= new UIImage(this.selectionBodyColour, resources.images.orange)
+    this.selectedBodyOrange= new UIImage(this.uiModelMenu, resources.images.orange)
     this.selectedBodyOrange.sourceHeight = 20
     this.selectedBodyOrange.sourceWidth = 41      
-    this.selectedBodyOrange.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyOrange.height = 10
     this.selectedBodyOrange.width = 25
-    this.selectedBodyOrange.positionX = 0
-    this.selectedBodyOrange.positionY = -3
+    this.selectedBodyOrange.positionX = 130
+    this.selectedBodyOrange.positionY = 14
     this.selectedBodyOrange.isPointerBlocker = true
     this.selectedBodyOrange.visible = false
     this.selectedBodyOrange.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
     })
 
     
-    this.selectedBodyPink= new UIImage(this.selectionBodyColour, resources.images.pink)
+    this.selectedBodyPink= new UIImage(this.uiModelMenu, resources.images.pink)
     this.selectedBodyPink.sourceHeight = 20
     this.selectedBodyPink.sourceWidth = 41      
-    this.selectedBodyPink.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyPink.height = 10
     this.selectedBodyPink.width = 25
-    this.selectedBodyPink.positionX = 0
-    this.selectedBodyPink.positionY = -3
+    this.selectedBodyPink.positionX = 130
+    this.selectedBodyPink.positionY = 14
     this.selectedBodyPink.isPointerBlocker = true
     this.selectedBodyPink.visible = false
     this.selectedBodyPink.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
+
     })
 
     
-    this.selectedBodyRed= new UIImage(this.selectionBodyColour, resources.images.red)
+    this.selectedBodyRed= new UIImage(this.uiModelMenu, resources.images.red)
     this.selectedBodyRed.sourceHeight = 20
     this.selectedBodyRed.sourceWidth = 41      
-    this.selectedBodyRed.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyRed.height = 10
     this.selectedBodyRed.width = 25
-    this.selectedBodyRed.positionX = 0
-    this.selectedBodyRed.positionY = -3
+    this.selectedBodyRed.positionX = 130
+    this.selectedBodyRed.positionY = 14
     this.selectedBodyRed.isPointerBlocker = true
     this.selectedBodyRed.visible = false
     this.selectedBodyRed.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
+
     })
 
     
-    this.selectedBodyYellow= new UIImage(this.selectionBodyColour, resources.images.yellow)
+    this.selectedBodyYellow= new UIImage(this.uiModelMenu, resources.images.yellow)
     this.selectedBodyYellow.sourceHeight = 20
     this.selectedBodyYellow.sourceWidth = 41      
-    this.selectedBodyYellow.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyYellow.height = 10
     this.selectedBodyYellow.width = 25
-    this.selectedBodyYellow.positionX = 0
-    this.selectedBodyYellow.positionY = -3
+    this.selectedBodyYellow.positionX = 130
+    this.selectedBodyYellow.positionY = 14
     this.selectedBodyYellow.isPointerBlocker = true
     this.selectedBodyYellow.visible = false
     this.selectedBodyYellow.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
+
     })
     
-    this.selectedBodyWhite= new UIImage(this.selectionBodyColour, resources.images.white)
+    this.selectedBodyWhite= new UIImage(this.uiModelMenu, resources.images.white)
     this.selectedBodyWhite.sourceHeight = 20
     this.selectedBodyWhite.sourceWidth = 41      
-    this.selectedBodyWhite.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyWhite.height = 10
     this.selectedBodyWhite.width = 25
-    this.selectedBodyWhite.positionX = 0
-    this.selectedBodyWhite.positionY = -3
+    this.selectedBodyWhite.positionX = 130
+    this.selectedBodyWhite.positionY = 14
     this.selectedBodyWhite.isPointerBlocker = true
     this.selectedBodyWhite.visible = false
     this.selectedBodyWhite.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
     })
 
     
-    this.selectedBodyNoSelection= new UIImage(this.selectionBodyColour, resources.images.noSelection)
+    this.selectedBodyNoSelection= new UIImage(this.uiModelMenu, resources.images.noSelection)
     this.selectedBodyNoSelection.sourceHeight = 20
     this.selectedBodyNoSelection.sourceWidth = 41      
-    this.selectedBodyNoSelection.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.selectedBodyNoSelection.height = 10
     this.selectedBodyNoSelection.width = 25
-    this.selectedBodyNoSelection.positionX = 0
-    this.selectedBodyNoSelection.positionY = -3
+    this.selectedBodyNoSelection.positionX = 130
+    this.selectedBodyNoSelection.positionY = 14
     this.selectedBodyNoSelection.isPointerBlocker = true
     this.selectedBodyNoSelection.visible = false
     this.selectedBodyNoSelection.onClick = new OnPointerDown(()=>{
       log('TODO Open menuBodyColour')
+      this.menuBodyColour.visible = true
+      this.colourPart = "body"
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+    ////////////////////////////////////
+    //SELECTED COLOUR ICON: FACE
+
+    this.selectedFaceBlack = new UIImage(this.uiModelMenu, resources.images.black)
+    this.selectedFaceBlack.sourceHeight = 20
+    this.selectedFaceBlack.sourceWidth = 41      
+    this.selectedFaceBlack.height = 10 
+    this.selectedFaceBlack.width = 25
+    this.selectedFaceBlack.positionX = 130
+    this.selectedFaceBlack.positionY = 0
+    this.selectedFaceBlack.isPointerBlocker = true
+    this.selectedFaceBlack.visible = true
+    this.selectedFaceBlack.onClick = new OnPointerDown(()=>{
       
+      this.menuBodyColour.visible = true
+      this.colourPart = "face"
+
     })
 
     
-    //////////////////////////////////////////
-    this.menuBodyColour = new UIContainerRect(canvas)
-    this.menuBodyColour.visible = true
-    this.menuBodyColour.width = 35
-    this.menuBodyColour.height = 190
-    this.menuBodyColour.positionX = 380
-    this.menuBodyColour.positionY = 23
-    this.menuBodyColour.hAlign = "left"
-    this.menuBodyColour.vAlign = "top"
-    this.menuBodyColour.color = Color4.Black()
-    this.menuBodyColour.opacity = .7
+    this.selectedFaceBlue = new UIImage(this.uiModelMenu, resources.images.blue)
+    this.selectedFaceBlue.sourceHeight = 20
+    this.selectedFaceBlue.sourceWidth = 41      
+    this.selectedFaceBlue.height = 10
+    this.selectedFaceBlue.width = 25
+    this.selectedFaceBlue.positionX = 130
+    this.selectedFaceBlue.positionY = 0
+    this.selectedFaceBlue.isPointerBlocker = true
+    this.selectedFaceBlue.visible = false
+    this.selectedFaceBlue.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
 
-    this.noSelection = new UIImage(this.menuBodyColour, resources.images.noSelection)
-    this.noSelection.sourceHeight = 20
-    this.noSelection.sourceWidth = 41      
-    this.noSelection.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.noSelection.width = 25
-    this.noSelection.positionX = 0
-    this.noSelection.positionY = 80
-    this.noSelection.isPointerBlocker = true
-    this.noSelection.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = true
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
-    })
-     
-    this.bodyBlack = new UIImage(this.menuBodyColour, resources.images.black)
-    this.bodyBlack.sourceHeight = 20
-    this.bodyBlack.sourceWidth = 41      
-    this.bodyBlack.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyBlack.width = 25
-    this.bodyBlack.positionX = 0
-    this.bodyBlack.positionY = 65
-    this.bodyBlack.isPointerBlocker = true
-    this.bodyBlack.onClick = new OnPointerDown(()=>{
 
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = true
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
-    })
-     
-    this.bodyBlue = new UIImage(this.menuBodyColour, resources.images.blue)
-    this.bodyBlue.sourceHeight = 20
-    this.bodyBlue.sourceWidth = 41      
-    this.bodyBlue.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyBlue.width = 25
-    this.bodyBlue.positionX = 0
-    this.bodyBlue.positionY = 50
-    this.bodyBlue.isPointerBlocker = true
-    this.bodyBlue.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = true
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
     })
 
     
-    this.bodyBrown = new UIImage(this.menuBodyColour, resources.images.brown)
-    this.bodyBrown.sourceHeight = 20
-    this.bodyBrown.sourceWidth = 41      
-    this.bodyBrown.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyBrown.width = 25
-    this.bodyBrown.positionX = 0
-    this.bodyBrown.positionY = 35
-    this.bodyBrown.isPointerBlocker = true
-    this.bodyBrown.onClick = new OnPointerDown(()=>{
-
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = true
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
-    })
+    
+    this.selectedFaceBrown = new UIImage(this.uiModelMenu, resources.images.brown)
+    this.selectedFaceBrown.sourceHeight = 20
+    this.selectedFaceBrown.sourceWidth = 41      
+    this.selectedFaceBrown.height = 10
+    this.selectedFaceBrown.width = 25
+    this.selectedFaceBrown.positionX = 130
+    this.selectedFaceBrown.positionY = 0
+    this.selectedFaceBrown.isPointerBlocker = true
+    this.selectedFaceBrown.visible = false
+    this.selectedFaceBrown.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
 
 
-    this.bodyGreen = new UIImage(this.menuBodyColour, resources.images.green)
-    this.bodyGreen.sourceHeight = 20
-    this.bodyGreen.sourceWidth = 41      
-    this.bodyGreen.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyGreen.width = 25
-    this.bodyGreen.positionX = 0
-    this.bodyGreen.positionY = 20
-    this.bodyGreen.isPointerBlocker = true
-    this.bodyGreen.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = true
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
-    })
-
-
-    this.bodyGrey= new UIImage(this.menuBodyColour, resources.images.grey)
-    this.bodyGrey.sourceHeight = 20
-    this.bodyGrey.sourceWidth = 41      
-    this.bodyGrey.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyGrey.width = 25
-    this.bodyGrey.positionX = 0
-    this.bodyGrey.positionY = 5
-    this.bodyGrey.isPointerBlocker = true
-    this.bodyGrey.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = true
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
-    })
-
-
-    this.bodyLightGrey= new UIImage(this.menuBodyColour, resources.images.lightGrey)
-    this.bodyLightGrey.sourceHeight = 20
-    this.bodyLightGrey.sourceWidth = 41      
-    this.bodyLightGrey.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyLightGrey.width = 25
-    this.bodyLightGrey.positionX = 0
-    this.bodyLightGrey.positionY = -10
-    this.bodyLightGrey.isPointerBlocker = true
-    this.bodyLightGrey.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = true
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
     })
 
     
-    this.bodyOrange= new UIImage(this.menuBodyColour, resources.images.orange)
-    this.bodyOrange.sourceHeight = 20
-    this.bodyOrange.sourceWidth = 41      
-    this.bodyOrange.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyOrange.width = 25
-    this.bodyOrange.positionX = 0
-    this.bodyOrange.positionY = -25
-    this.bodyOrange.isPointerBlocker = true
-    this.bodyOrange.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = true
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
+    
+    this.selectedFaceGreen = new UIImage(this.uiModelMenu, resources.images.green)
+    this.selectedFaceGreen.sourceHeight = 20
+    this.selectedFaceGreen.sourceWidth = 41      
+    this.selectedFaceGreen.height = 10
+    this.selectedFaceGreen.width = 25
+    this.selectedFaceGreen.positionX = 130
+    this.selectedFaceGreen.positionY = 0
+    this.selectedFaceGreen.isPointerBlocker = true
+    this.selectedFaceGreen.visible = false
+    this.selectedFaceGreen.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
+
+
     })
 
-    this.bodyPink= new UIImage(this.menuBodyColour, resources.images.pink)
-    this.bodyPink.sourceHeight = 20
-    this.bodyPink.sourceWidth = 41      
-    this.bodyPink.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyPink.width = 25
-    this.bodyPink.positionX = 0
-    this.bodyPink.positionY = -40
-    this.bodyPink.isPointerBlocker = true
-    this.bodyPink.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = true
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
+    
+    
+    this.selectedFaceGrey= new UIImage(this.uiModelMenu, resources.images.grey)
+    this.selectedFaceGrey.sourceHeight = 20
+    this.selectedFaceGrey.sourceWidth = 41      
+    this.selectedFaceGrey.height = 10
+    this.selectedFaceGrey.width = 25
+    this.selectedFaceGrey.positionX = 130
+    this.selectedFaceGrey.positionY = 0
+    this.selectedFaceGrey.isPointerBlocker = true
+    this.selectedFaceGrey.visible = false
+    this.selectedFaceGrey.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
+  
+
     })
+
+    
+    
+    this.selectedFaceLightGrey= new UIImage(this.uiModelMenu, resources.images.lightGrey)
+    this.selectedFaceLightGrey.sourceHeight = 20
+    this.selectedFaceLightGrey.sourceWidth = 41      
+    this.selectedFaceLightGrey.height = 10
+    this.selectedFaceLightGrey.width = 25
+    this.selectedFaceLightGrey.positionX = 130
+    this.selectedFaceLightGrey.positionY = 0
+    this.selectedFaceLightGrey.isPointerBlocker = true
+    this.selectedFaceLightGrey.visible = false
+    this.selectedFaceLightGrey.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
+
+
+    })
+
+
+    
+    this.selectedFaceOrange= new UIImage(this.uiModelMenu, resources.images.orange)
+    this.selectedFaceOrange.sourceHeight = 20
+    this.selectedFaceOrange.sourceWidth = 41      
+    this.selectedFaceOrange.height = 10
+    this.selectedFaceOrange.width = 25
+    this.selectedFaceOrange.positionX = 130
+    this.selectedFaceOrange.positionY = 0
+    this.selectedFaceOrange.isPointerBlocker = true
+    this.selectedFaceOrange.visible = false
+    this.selectedFaceOrange.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
+
+
+    })
+
+    
+    this.selectedFacePink= new UIImage(this.uiModelMenu, resources.images.pink)
+    this.selectedFacePink.sourceHeight = 20
+    this.selectedFacePink.sourceWidth = 41      
+    this.selectedFacePink.height = 10
+    this.selectedFacePink.width = 25
+    this.selectedFacePink.positionX = 130
+    this.selectedFacePink.positionY = 0
+    this.selectedFacePink.isPointerBlocker = true
+    this.selectedFacePink.visible = false
+    this.selectedFacePink.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
+
+
+    })
+
+    
+    this.selectedFaceRed= new UIImage(this.uiModelMenu, resources.images.red)
+    this.selectedFaceRed.sourceHeight = 20
+    this.selectedFaceRed.sourceWidth = 41      
+    this.selectedFaceRed.height = 10
+    this.selectedFaceRed.width = 25
+    this.selectedFaceRed.positionX = 130
+    this.selectedFaceRed.positionY = 0
+    this.selectedFaceRed.isPointerBlocker = true
+    this.selectedFaceRed.visible = false
+    this.selectedFaceRed.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
+ 
+
+    })
+
+    
+    this.selectedFaceYellow= new UIImage(this.uiModelMenu, resources.images.yellow)
+    this.selectedFaceYellow.sourceHeight = 20
+    this.selectedFaceYellow.sourceWidth = 41      
+    this.selectedFaceYellow.height = 10
+    this.selectedFaceYellow.width = 25
+    this.selectedFaceYellow.positionX = 130
+    this.selectedFaceYellow.positionY = 0
+    this.selectedFaceYellow.isPointerBlocker = true
+    this.selectedFaceYellow.visible = false
+    this.selectedFaceYellow.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
     
 
-    this.bodyYellow= new UIImage(this.menuBodyColour, resources.images.yellow)
-    this.bodyYellow.sourceHeight = 20
-    this.bodyYellow.sourceWidth = 41      
-    this.bodyYellow.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyYellow.width = 25
-    this.bodyYellow.positionX = 0
-    this.bodyYellow.positionY = -55
-    this.bodyYellow.isPointerBlocker = true
-    this.bodyYellow.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = true
-      
     })
     
-    this.bodyRed= new UIImage(this.menuBodyColour, resources.images.red)
-    this.bodyRed.sourceHeight = 20
-    this.bodyRed.sourceWidth = 41      
-    this.bodyRed.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyRed.width = 25
-    this.bodyRed.positionX = 0
-    this.bodyRed.positionY = -70
-    this.bodyRed.isPointerBlocker = true
-    this.bodyRed.onClick = new OnPointerDown(()=>{
-      
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = true
-      this.selectedBodyWhite.visible = false
-      this.selectedBodyYellow.visible = false
-      
-    })
-    
+    this.selectedFaceWhite= new UIImage(this.uiModelMenu, resources.images.white)
+    this.selectedFaceWhite.sourceHeight = 20
+    this.selectedFaceWhite.sourceWidth = 41      
+    this.selectedFaceWhite.height = 10
+    this.selectedFaceWhite.width = 25
+    this.selectedFaceWhite.positionX = 130
+    this.selectedFaceWhite.positionY = 0
+    this.selectedFaceWhite.isPointerBlocker = true
+    this.selectedFaceWhite.visible = false
+    this.selectedFaceWhite.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
 
-    this.bodyWhite= new UIImage(this.menuBodyColour, resources.images.white)
-    this.bodyWhite.sourceHeight = 20
-    this.bodyWhite.sourceWidth = 41      
-    this.bodyWhite.height = 15 // Compensate by 11.1% for aspect ratio issue
-    this.bodyWhite.width = 25
-    this.bodyWhite.positionX = 0
-    this.bodyWhite.positionY = -85
-    this.bodyWhite.isPointerBlocker = true
-    this.bodyWhite.onClick = new OnPointerDown(()=>{
+
+    })
+
+    
+    this.selectedFaceNoSelection= new UIImage(this.uiModelMenu, resources.images.noSelection)
+    this.selectedFaceNoSelection.sourceHeight = 20
+    this.selectedFaceNoSelection.sourceWidth = 41      
+    this.selectedFaceNoSelection.height = 10
+    this.selectedFaceNoSelection.width = 25
+    this.selectedFaceNoSelection.positionX = 130
+    this.selectedFaceNoSelection.positionY = 0
+    this.selectedFaceNoSelection.isPointerBlocker = true
+    this.selectedFaceNoSelection.visible = false
+    this.selectedFaceNoSelection.onClick = new OnPointerDown(()=>{
+      this.colourPart = "face"
+      this.menuBodyColour.visible = true
+ 
+
+    })
+
+
+
+
+
+
+    ////////////////////////////////////
+    //SELECTED COLOUR ICON: Border
+
+    this.selectedBorderBlack = new UIImage(this.uiModelMenu, resources.images.black)
+    this.selectedBorderBlack.sourceHeight = 20
+    this.selectedBorderBlack.sourceWidth = 41      
+    this.selectedBorderBlack.height = 10 
+    this.selectedBorderBlack.width = 25
+    this.selectedBorderBlack.positionX = 130
+    this.selectedBorderBlack.positionY = -10
+    this.selectedBorderBlack.isPointerBlocker = true
+    this.selectedBorderBlack.visible = true
+    this.selectedBorderBlack.onClick = new OnPointerDown(()=>{
       
-      this.selectedBodyNoSelection.visible = false
-      this.selectedBodyBlack.visible = false
-      this.selectedBodyBlue.visible = false
-      this.selectedBodyBrown.visible = false
-      this.selectedBodyGreen.visible = false
-      this.selectedBodyGrey.visible = false
-      this.selectedBodyLightGrey.visible = false
-      this.selectedBodyOrange.visible = false
-      this.selectedBodyPink.visible = false
-      this.selectedBodyRed.visible = false
-      this.selectedBodyWhite.visible = true
-      this.selectedBodyYellow.visible = false
-      
+      this.menuBodyColour.visible = true
+      this.colourPart = "border"
+    })
+
+    
+    this.selectedBorderBlue = new UIImage(this.uiModelMenu, resources.images.blue)
+    this.selectedBorderBlue.sourceHeight = 20
+    this.selectedBorderBlue.sourceWidth = 41      
+    this.selectedBorderBlue.height = 10
+    this.selectedBorderBlue.width = 25
+    this.selectedBorderBlue.positionX = 130
+    this.selectedBorderBlue.positionY = -10
+    this.selectedBorderBlue.isPointerBlocker = true
+    this.selectedBorderBlue.visible = false
+    this.selectedBorderBlue.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    
+    this.selectedBorderBrown = new UIImage(this.uiModelMenu, resources.images.brown)
+    this.selectedBorderBrown.sourceHeight = 20
+    this.selectedBorderBrown.sourceWidth = 41      
+    this.selectedBorderBrown.height = 10
+    this.selectedBorderBrown.width = 25
+    this.selectedBorderBrown.positionX = 130
+    this.selectedBorderBrown.positionY = -10
+    this.selectedBorderBrown.isPointerBlocker = true
+    this.selectedBorderBrown.visible = false
+    this.selectedBorderBrown.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    
+    this.selectedBorderGreen = new UIImage(this.uiModelMenu, resources.images.green)
+    this.selectedBorderGreen.sourceHeight = 20
+    this.selectedBorderGreen.sourceWidth = 41      
+    this.selectedBorderGreen.height = 10
+    this.selectedBorderGreen.width = 25
+    this.selectedBorderGreen.positionX = 130
+    this.selectedBorderGreen.positionY = -10
+    this.selectedBorderGreen.isPointerBlocker = true
+    this.selectedBorderGreen.visible = false
+    this.selectedBorderGreen.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    
+    this.selectedBorderGrey= new UIImage(this.uiModelMenu, resources.images.grey)
+    this.selectedBorderGrey.sourceHeight = 20
+    this.selectedBorderGrey.sourceWidth = 41      
+    this.selectedBorderGrey.height = 10
+    this.selectedBorderGrey.width = 25
+    this.selectedBorderGrey.positionX = 130
+    this.selectedBorderGrey.positionY = -10
+    this.selectedBorderGrey.isPointerBlocker = true
+    this.selectedBorderGrey.visible = false
+    this.selectedBorderGrey.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    
+    this.selectedBorderLightGrey= new UIImage(this.uiModelMenu, resources.images.lightGrey)
+    this.selectedBorderLightGrey.sourceHeight = 20
+    this.selectedBorderLightGrey.sourceWidth = 41      
+    this.selectedBorderLightGrey.height = 10
+    this.selectedBorderLightGrey.width = 25
+    this.selectedBorderLightGrey.positionX = 130
+    this.selectedBorderLightGrey.positionY = -10
+    this.selectedBorderLightGrey.isPointerBlocker = true
+    this.selectedBorderLightGrey.visible = false
+    this.selectedBorderLightGrey.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+
+    
+    this.selectedBorderOrange= new UIImage(this.uiModelMenu, resources.images.orange)
+    this.selectedBorderOrange.sourceHeight = 20
+    this.selectedBorderOrange.sourceWidth = 41      
+    this.selectedBorderOrange.height = 10
+    this.selectedBorderOrange.width = 25
+    this.selectedBorderOrange.positionX = 130
+    this.selectedBorderOrange.positionY = -10
+    this.selectedBorderOrange.isPointerBlocker = true
+    this.selectedBorderOrange.visible = false
+    this.selectedBorderOrange.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    this.selectedBorderPink= new UIImage(this.uiModelMenu, resources.images.pink)
+    this.selectedBorderPink.sourceHeight = 20
+    this.selectedBorderPink.sourceWidth = 41      
+    this.selectedBorderPink.height = 10
+    this.selectedBorderPink.width = 25
+    this.selectedBorderPink.positionX = 130
+    this.selectedBorderPink.positionY = -10
+    this.selectedBorderPink.isPointerBlocker = true
+    this.selectedBorderPink.visible = false
+    this.selectedBorderPink.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    this.selectedBorderRed= new UIImage(this.uiModelMenu, resources.images.red)
+    this.selectedBorderRed.sourceHeight = 20
+    this.selectedBorderRed.sourceWidth = 41      
+    this.selectedBorderRed.height = 10
+    this.selectedBorderRed.width = 25
+    this.selectedBorderRed.positionX = 130
+    this.selectedBorderRed.positionY = -10
+    this.selectedBorderRed.isPointerBlocker = true
+    this.selectedBorderRed.visible = false
+    this.selectedBorderRed.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    this.selectedBorderYellow= new UIImage(this.uiModelMenu, resources.images.yellow)
+    this.selectedBorderYellow.sourceHeight = 20
+    this.selectedBorderYellow.sourceWidth = 41      
+    this.selectedBorderYellow.height = 10
+    this.selectedBorderYellow.width = 25
+    this.selectedBorderYellow.positionX = 130
+    this.selectedBorderYellow.positionY = -10
+    this.selectedBorderYellow.isPointerBlocker = true
+    this.selectedBorderYellow.visible = false
+    this.selectedBorderYellow.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
     })
     
+    this.selectedBorderWhite= new UIImage(this.uiModelMenu, resources.images.white)
+    this.selectedBorderWhite.sourceHeight = 20
+    this.selectedBorderWhite.sourceWidth = 41      
+    this.selectedBorderWhite.height = 10
+    this.selectedBorderWhite.width = 25
+    this.selectedBorderWhite.positionX = 130
+    this.selectedBorderWhite.positionY = -10
+    this.selectedBorderWhite.isPointerBlocker = true
+    this.selectedBorderWhite.visible = false
+    this.selectedBorderWhite.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+    
+    this.selectedBorderNoSelection= new UIImage(this.uiModelMenu, resources.images.noSelection)
+    this.selectedBorderNoSelection.sourceHeight = 20
+    this.selectedBorderNoSelection.sourceWidth = 41      
+    this.selectedBorderNoSelection.height = 10
+    this.selectedBorderNoSelection.width = 25
+    this.selectedBorderNoSelection.positionX = 130
+    this.selectedBorderNoSelection.positionY = -10
+    this.selectedBorderNoSelection.isPointerBlocker = true
+    this.selectedBorderNoSelection.visible = false
+    this.selectedBorderNoSelection.onClick = new OnPointerDown(()=>{
+      this.colourPart = "border"
+      this.menuBodyColour.visible = true
+    })
+
+
+
+
+
+
 
     //  this.colourSwatchs = new UIContainerRect(canvas)
     //  this.colourSwatchs.visible = true
@@ -962,13 +1367,14 @@ export class HUD {
 
 
     this.modelIconContainer = new UIContainerRect(canvas)
-    this.modelIconContainer.width = 620
+    this.modelIconContainer.width = 820
     this.modelIconContainer.height = 120
-    // this.modelIconContainer.positionX = 150
-    this.modelIconContainer.hAlign = "center"
-    this.modelIconContainer.vAlign = "bottom"
+    this.modelIconContainer.positionX = 165
+    this.modelIconContainer.hAlign = "left"
+    this.modelIconContainer.vAlign = "top"
     this.modelIconContainer.color = Color4.Black()
     this.modelIconContainer.opacity = .7
+    this.modelIconContainer.visible = false
   
   
 
@@ -981,6 +1387,16 @@ export class HUD {
     this.fText.vAlign = "top"
     
 
+    this.uiClose = new UIImage(this.modelIconContainer, resources.images.uiClose)
+    this.uiClose.sourceWidth = 62
+    this.uiClose.sourceHeight = 62
+    this.uiClose.width = 20
+    this.uiClose.height = 20 
+    this.uiClose.positionX = 395
+    this.uiClose.positionY = 45
+    this.uiClose.onClick = new OnPointerDown(()=>{
+      this.modelIconContainer.visible = false
+    })
 
     ///////////////////////////////////////////
     //r1c1
@@ -1015,7 +1431,7 @@ export class HUD {
       
       ModelIconManager.setModel(0)
       this.manualSelectIcon(0)
-
+     
     })
 
 
@@ -1050,9 +1466,8 @@ export class HUD {
     this.r1c2_Icon.isPointerBlocker = true
     this.r1c2_Icon.visible = true
     this.r1c2_Icon.onClick = new OnPointerDown(()=>{
-      let modIndex = 1 + (42 * colourIndex) 
-   
-      this.manualSelectIcon(modIndex)
+      ModelIconManager.setModel(1)
+      this.manualSelectIcon(1)
       
     })
 
@@ -1089,10 +1504,8 @@ export class HUD {
       // ModelIconManager.setModel(2)
       // this.manualSelectIcon(2)
 
-      let modIndex = 2 + (42 * colourIndex) 
-      
-      ModelIconManager.setModel(modIndex)
-      this.manualSelectIcon(modIndex)
+      ModelIconManager.setModel(2)
+      this.manualSelectIcon(2)
       
     })
 
@@ -2427,6 +2840,764 @@ export class HUD {
       this.manualSelectIcon(42)
     })
 
+
+
+
+    //////////////////////////////////////////////////
+    /// COLOUR MENU //////////////////////////////////
+
+    this.menuBodyColour = new UIContainerRect(canvas)
+    this.menuBodyColour.visible = true
+    this.menuBodyColour.width = 35
+    this.menuBodyColour.height = 190
+    this.menuBodyColour.positionX = 765
+    this.menuBodyColour.positionY = 0
+    this.menuBodyColour.hAlign = "left"
+    this.menuBodyColour.vAlign = "top"
+    //this.menuBodyColour.color = Color4.Black()
+    this.menuBodyColour.opacity = 1
+    this.menuBodyColour.visible = false
+
+
+    
+    this.uiColourMenu = new UIImage(this.menuBodyColour, resources.images.uiColourMenu)
+    this.uiColourMenu.sourceHeight = 521
+    this.uiColourMenu.sourceWidth = 105      
+    this.uiColourMenu.height = 190 
+    this.uiColourMenu.width = 35
+    this.uiColourMenu.positionX = 0
+    this.uiColourMenu.positionY = -3
+    this.uiColourMenu.isPointerBlocker = true
+
+    this.noSelection = new UIImage(this.menuBodyColour, resources.images.noSelection)
+    this.noSelection.sourceHeight = 20
+    this.noSelection.sourceWidth = 41      
+    this.noSelection.height = 15 
+    this.noSelection.width = 25
+    this.noSelection.positionX = 0
+    this.noSelection.positionY = 80
+    this.noSelection.isPointerBlocker = true
+    this.noSelection.onClick = new OnPointerDown(()=>{
+      
+      
+      
+      this.menuBodyColour.visible = false
+
+      if(this.colourPart=="body"){
+        
+        log('body no select')
+        this.selectedBodyNoSelection.visible = true
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+      }
+      if(this.colourPart=="face"){
+         log('face no select')
+        this.selectedFaceNoSelection.visible = true
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+
+      }
+      if(this.colourPart=="border"){
+        this.selectedBorderNoSelection.visible = true
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+    })
+     
+    this.bodyBlack = new UIImage(this.menuBodyColour, resources.images.black)
+    this.bodyBlack.sourceHeight = 20
+    this.bodyBlack.sourceWidth = 41      
+    this.bodyBlack.height = 15 
+    this.bodyBlack.width = 25
+    this.bodyBlack.positionX = 0
+    this.bodyBlack.positionY = 65
+    this.bodyBlack.isPointerBlocker = true
+    this.bodyBlack.onClick = new OnPointerDown(()=>{
+        if(this.colourPart=="body"){
+          bodyId = 0
+          this.selectedBodyNoSelection.visible = false
+          this.selectedBodyBlack.visible = true
+          this.selectedBodyBlue.visible = false
+          this.selectedBodyBrown.visible = false
+          this.selectedBodyGreen.visible = false
+          this.selectedBodyGrey.visible = false
+          this.selectedBodyLightGrey.visible = false
+          this.selectedBodyOrange.visible = false
+          this.selectedBodyPink.visible = false
+          this.selectedBodyRed.visible = false
+          this.selectedBodyWhite.visible = false
+          this.selectedBodyYellow.visible = false
+        }
+        if(this.colourPart=="face"){
+          faceId = 0
+          this.selectedFaceNoSelection.visible = false
+          this.selectedFaceBlack.visible = true
+          this.selectedFaceBlue.visible = false
+          this.selectedFaceBrown.visible = false
+          this.selectedFaceGreen.visible = false
+          this.selectedFaceGrey.visible = false
+          this.selectedFaceLightGrey.visible = false
+          this.selectedFaceOrange.visible = false
+          this.selectedFacePink.visible = false
+          this.selectedFaceRed.visible = false
+          this.selectedFaceWhite.visible = false
+          this.selectedFaceYellow.visible = false
+        }
+
+        if(this.colourPart=="border"){
+          borderId = 0
+          this.selectedBorderNoSelection.visible = false
+          this.selectedBorderBlack.visible = true
+          this.selectedBorderBlue.visible = false
+          this.selectedBorderBrown.visible = false
+          this.selectedBorderGreen.visible = false
+          this.selectedBorderGrey.visible = false
+          this.selectedBorderLightGrey.visible = false
+          this.selectedBorderOrange.visible = false
+          this.selectedBorderPink.visible = false
+          this.selectedBorderRed.visible = false
+          this.selectedBorderWhite.visible = false
+          this.selectedBorderYellow.visible = false
+        }
+        this.menuBodyColour.visible = false
+    })
+     
+    this.bodyBlue = new UIImage(this.menuBodyColour, resources.images.blue)
+    this.bodyBlue.sourceHeight = 20
+    this.bodyBlue.sourceWidth = 41      
+    this.bodyBlue.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyBlue.width = 25
+    this.bodyBlue.positionX = 0
+    this.bodyBlue.positionY = 50
+    this.bodyBlue.isPointerBlocker = true
+    this.bodyBlue.onClick = new OnPointerDown(()=>{
+      
+      if(this.colourPart=="body"){
+        bodyId = 1
+        log('body '+bodyId)
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = true
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+      }
+      if(this.colourPart=="face"){
+        faceId = 1
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = true
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+      }
+      if(this.colourPart=="border"){
+        borderId = 1
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = true
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+
+      this.menuBodyColour.visible = false
+    })
+
+    
+    this.bodyBrown = new UIImage(this.menuBodyColour, resources.images.brown)
+    this.bodyBrown.sourceHeight = 20
+    this.bodyBrown.sourceWidth = 41      
+    this.bodyBrown.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyBrown.width = 25
+    this.bodyBrown.positionX = 0
+    this.bodyBrown.positionY = 35
+    this.bodyBrown.isPointerBlocker = true
+    this.bodyBrown.onClick = new OnPointerDown(()=>{
+
+      if(this.colourPart=="body"){
+        bodyId = 2
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = true
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+      
+      }
+      if(this.colourPart=="face"){
+        faceId = 2
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = true
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+      
+      }
+      if(this.colourPart=="border"){
+        borderId = 2
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = true
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+
+      this.menuBodyColour.visible = false
+
+    })
+
+
+    this.bodyGreen = new UIImage(this.menuBodyColour, resources.images.green)
+    this.bodyGreen.sourceHeight = 20
+    this.bodyGreen.sourceWidth = 41      
+    this.bodyGreen.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyGreen.width = 25
+    this.bodyGreen.positionX = 0
+    this.bodyGreen.positionY = 20
+    this.bodyGreen.isPointerBlocker = true
+    this.bodyGreen.onClick = new OnPointerDown(()=>{
+      
+      if(this.colourPart=="body"){
+        bodyId = 3
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = true
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+       
+      }
+
+      if(this.colourPart=="face"){
+        faceId = 3
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = true
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+
+      }
+      if(this.colourPart=="border"){
+        borderId = 3
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = true
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+      this.menuBodyColour.visible = false
+    })
+
+
+    this.bodyGrey= new UIImage(this.menuBodyColour, resources.images.grey)
+    this.bodyGrey.sourceHeight = 20
+    this.bodyGrey.sourceWidth = 41      
+    this.bodyGrey.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyGrey.width = 25
+    this.bodyGrey.positionX = 0
+    this.bodyGrey.positionY = 5
+    this.bodyGrey.isPointerBlocker = true
+    this.bodyGrey.onClick = new OnPointerDown(()=>{
+      
+      if(this.colourPart=="body"){
+        bodyId = 4
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = true
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+      }
+
+      if(this.colourPart=="face"){
+        faceId = 4
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = true
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+      }
+      if(this.colourPart=="border"){
+        borderId = 4
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = true
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+      this.menuBodyColour.visible = false
+    })
+
+
+    this.bodyLightGrey= new UIImage(this.menuBodyColour, resources.images.lightGrey)
+    this.bodyLightGrey.sourceHeight = 20
+    this.bodyLightGrey.sourceWidth = 41      
+    this.bodyLightGrey.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyLightGrey.width = 25
+    this.bodyLightGrey.positionX = 0
+    this.bodyLightGrey.positionY = -10
+    this.bodyLightGrey.isPointerBlocker = true
+    this.bodyLightGrey.onClick = new OnPointerDown(()=>{
+      
+      if(this.colourPart=="body"){
+        bodyId = 5
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = true
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+        
+      }
+      if(this.colourPart=="face"){
+        faceId = 5
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = true
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+
+      }
+      if(this.colourPart=="border"){
+        borderId = 5
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = true
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+      this.menuBodyColour.visible = false
+    })
+
+    
+    this.bodyOrange= new UIImage(this.menuBodyColour, resources.images.orange)
+    this.bodyOrange.sourceHeight = 20
+    this.bodyOrange.sourceWidth = 41      
+    this.bodyOrange.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyOrange.width = 25
+    this.bodyOrange.positionX = 0
+    this.bodyOrange.positionY = -25
+    this.bodyOrange.isPointerBlocker = true
+    this.bodyOrange.onClick = new OnPointerDown(()=>{
+      if(this.colourPart=="body"){
+        bodyId = 6
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = true
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+        
+      }
+
+      if(this.colourPart=="face"){
+        faceId = 6
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = true
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+        
+      }
+      if(this.colourPart=="border"){
+        borderId = 6
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = true
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+      this.menuBodyColour.visible = false
+    })
+
+    this.bodyPink= new UIImage(this.menuBodyColour, resources.images.pink)
+    this.bodyPink.sourceHeight = 20
+    this.bodyPink.sourceWidth = 41      
+    this.bodyPink.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyPink.width = 25
+    this.bodyPink.positionX = 0
+    this.bodyPink.positionY = -40
+    this.bodyPink.isPointerBlocker = true
+    this.bodyPink.onClick = new OnPointerDown(()=>{
+      if(this.colourPart=="body"){
+        bodyId = 7
+          this.selectedBodyNoSelection.visible = false
+          this.selectedBodyBlack.visible = false
+          this.selectedBodyBlue.visible = false
+          this.selectedBodyBrown.visible = false
+          this.selectedBodyGreen.visible = false
+          this.selectedBodyGrey.visible = false
+          this.selectedBodyLightGrey.visible = false
+          this.selectedBodyOrange.visible = false
+          this.selectedBodyPink.visible = true
+          this.selectedBodyRed.visible = false
+          this.selectedBodyWhite.visible = false
+          this.selectedBodyYellow.visible = false
+      }
+      if(this.colourPart=="face"){
+        faceId = 7
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = true
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+    }
+    if(this.colourPart=="border"){
+      borderId = 7
+
+      this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = true
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+    }
+      this.menuBodyColour.visible = false
+    })
+    
+
+    this.bodyYellow= new UIImage(this.menuBodyColour, resources.images.yellow)
+    this.bodyYellow.sourceHeight = 20
+    this.bodyYellow.sourceWidth = 41      
+    this.bodyYellow.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyYellow.width = 25
+    this.bodyYellow.positionX = 0
+    this.bodyYellow.positionY = -55
+    this.bodyYellow.isPointerBlocker = true
+    this.bodyYellow.onClick = new OnPointerDown(()=>{
+      if(this.colourPart=="body"){
+        bodyId = 10
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = true
+      }
+      if(this.colourPart=="face"){
+        faceId = 10
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = true
+      }
+      if(this.colourPart=="border"){
+        borderId = 10
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = true
+      }
+        this.menuBodyColour.visible = false
+    })
+    
+    this.bodyRed= new UIImage(this.menuBodyColour, resources.images.red)
+    this.bodyRed.sourceHeight = 20
+    this.bodyRed.sourceWidth = 41      
+    this.bodyRed.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyRed.width = 25
+    this.bodyRed.positionX = 0
+    this.bodyRed.positionY = -70
+    this.bodyRed.isPointerBlocker = true
+    this.bodyRed.onClick = new OnPointerDown(()=>{
+      if(this.colourPart=="body"){
+        bodyId = 8
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = true
+        this.selectedBodyWhite.visible = false
+        this.selectedBodyYellow.visible = false
+      }
+      if(this.colourPart=="face"){
+        faceId = 8
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = true
+        this.selectedFaceWhite.visible = false
+        this.selectedFaceYellow.visible = false
+      }
+      if(this.colourPart=="border"){
+        borderId = 8
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = true
+        this.selectedBorderWhite.visible = false
+        this.selectedBorderYellow.visible = false
+      }
+
+      this.menuBodyColour.visible = false
+    })
+    
+
+    this.bodyWhite= new UIImage(this.menuBodyColour, resources.images.white)
+    this.bodyWhite.sourceHeight = 20
+    this.bodyWhite.sourceWidth = 41      
+    this.bodyWhite.height = 15 // Compensate by 11.1% for aspect ratio issue
+    this.bodyWhite.width = 25
+    this.bodyWhite.positionX = 0
+    this.bodyWhite.positionY = -85
+    this.bodyWhite.isPointerBlocker = true
+    this.bodyWhite.onClick = new OnPointerDown(()=>{
+      if(this.colourPart=="body"){
+        bodyId = 9
+        this.selectedBodyNoSelection.visible = false
+        this.selectedBodyBlack.visible = false
+        this.selectedBodyBlue.visible = false
+        this.selectedBodyBrown.visible = false
+        this.selectedBodyGreen.visible = false
+        this.selectedBodyGrey.visible = false
+        this.selectedBodyLightGrey.visible = false
+        this.selectedBodyOrange.visible = false
+        this.selectedBodyPink.visible = false
+        this.selectedBodyRed.visible = false
+        this.selectedBodyWhite.visible = true
+        this.selectedBodyYellow.visible = false
+      }
+      if(this.colourPart=="face"){
+        faceId = 9
+        this.selectedFaceNoSelection.visible = false
+        this.selectedFaceBlack.visible = false
+        this.selectedFaceBlue.visible = false
+        this.selectedFaceBrown.visible = false
+        this.selectedFaceGreen.visible = false
+        this.selectedFaceGrey.visible = false
+        this.selectedFaceLightGrey.visible = false
+        this.selectedFaceOrange.visible = false
+        this.selectedFacePink.visible = false
+        this.selectedFaceRed.visible = false
+        this.selectedFaceWhite.visible = true
+        this.selectedFaceYellow.visible = false
+      }
+      if(this.colourPart=="border"){
+        borderId = 9
+        this.selectedBorderNoSelection.visible = false
+        this.selectedBorderBlack.visible = false
+        this.selectedBorderBlue.visible = false
+        this.selectedBorderBrown.visible = false
+        this.selectedBorderGreen.visible = false
+        this.selectedBorderGrey.visible = false
+        this.selectedBorderLightGrey.visible = false
+        this.selectedBorderOrange.visible = false
+        this.selectedBorderPink.visible = false
+        this.selectedBorderRed.visible = false
+        this.selectedBorderWhite.visible = true
+        this.selectedBorderYellow.visible = false
+      }
+      this.menuBodyColour.visible = false
+      
+    })
+    
+
+
+
+
+
+
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 this.editIconContainer = new UIContainerRect(canvas)
@@ -2517,8 +3688,8 @@ this.manualSubtractIcon.positionY = -9
 this.manualSubtractIcon.isPointerBlocker = true
 this.manualSubtractIcon.visible = true
 this.manualSubtractIcon.onClick = new OnPointerDown(()=>{
-  Manager.activeMode = Mode.foundationAdd
-  this.switchModeIcon(Mode.foundationAdd)
+  Manager.activeMode = Mode.Subtract
+  this.switchModeIcon(Mode.Subtract)
 })
 
 
@@ -2545,6 +3716,20 @@ this.manualEyeIcon.onClick = new OnPointerDown(()=>{
   Manager.activeMode = Mode.EyeDrop
   this.switchModeIcon(Mode.EyeDrop)
 })
+
+
+///////////////////
+//Model Menu
+
+
+this.addContainer = new UIContainerRect(this.editIconContainer)
+this.addContainer.width = 35
+this.addContainer.height = 35
+this.addContainer.positionX = -100
+this.addContainer.positionY = 0
+this.addContainer.color = Color4.Black()
+this.addContainer.hAlign = 'center'
+this.addContainer.opacity = 0.8
 
 
 
@@ -2794,72 +3979,72 @@ this.save_icon.onClick = new OnPointerDown(()=>{
     
     
   }
-
+ 
   public switchModeIcon(mode: Mode): void {
     switch (mode) {
       case Mode.blockAdd:
-        this.addIcon.visible = true
-        this.subtractIcon.visible = false
-        this.eyeDropIcon.visible = false
-        this.yrotateIcon.visible = false
-        this.xrotateIcon.visible = false
-        this.zrotateIcon.visible = false
-        this.foundationAddIcon.visible = false
+        // this.addIcon.visible = true
+        // this.subtractIcon.visible = false
+        // this.eyeDropIcon.visible = false
+        // this.yrotateIcon.visible = false
+        // this.xrotateIcon.visible = false
+        // this.zrotateIcon.visible = false
+        this.uiEditSelector.positionX = 16
         break
       case Mode.Subtract:
-        this.addIcon.visible = false
-        this.subtractIcon.visible = true
-        this.eyeDropIcon.visible = false
-        this.yrotateIcon.visible = false
-        this.xrotateIcon.visible = false
-        this.zrotateIcon.visible = false
-        this.foundationAddIcon.visible = false
+        //this.addIcon.visible = false
+        // this.subtractIcon.visible = true
+        // this.eyeDropIcon.visible = false
+        // this.yrotateIcon.visible = false
+        // this.xrotateIcon.visible = false
+        // this.zrotateIcon.visible = false
+        this.uiEditSelector.positionX = 42
         break
       case Mode.EyeDrop:
-        this.addIcon.visible = false
-        this.subtractIcon.visible = false
-        this.eyeDropIcon.visible = true
-        this.yrotateIcon.visible = false
-        this.xrotateIcon.visible = false
-        this.zrotateIcon.visible = false
-        this.foundationAddIcon.visible = false
+        // this.addIcon.visible = false
+        // this.subtractIcon.visible = false
+        // this.eyeDropIcon.visible = true
+        // this.yrotateIcon.visible = false
+        // this.xrotateIcon.visible = false
+        // this.zrotateIcon.visible = false
+        this.uiEditSelector.positionX = 67
         break
       case Mode.Yrotate:
-        this.addIcon.visible = false
-        this.subtractIcon.visible = false
-        this.eyeDropIcon.visible = false
-        this.yrotateIcon.visible = true
-        this.xrotateIcon.visible = false
-        this.zrotateIcon.visible = false
-        this.foundationAddIcon.visible = false
+        // this.addIcon.visible = false
+        // this.subtractIcon.visible = false
+        // this.eyeDropIcon.visible = false
+        // this.yrotateIcon.visible = true
+        // this.xrotateIcon.visible = false
+        // this.zrotateIcon.visible = false
+        this.uiEditSelector.positionX = 92
         break
       case Mode.Xrotate:
-        this.addIcon.visible = false
-        this.subtractIcon.visible = false
-        this.eyeDropIcon.visible = false
-        this.yrotateIcon.visible = false
-        this.xrotateIcon.visible = true
-        this.zrotateIcon.visible = false
-        this.foundationAddIcon.visible = false
+        // this.addIcon.visible = false
+        // this.subtractIcon.visible = false
+        // this.eyeDropIcon.visible = false
+        // this.yrotateIcon.visible = false
+        // this.xrotateIcon.visible = true
+        // this.zrotateIcon.visible = false
+        this.uiEditSelector.positionX = 117
         break
       case Mode.Zrotate:
-        this.addIcon.visible = false
-        this.subtractIcon.visible = false
-        this.eyeDropIcon.visible = false
-        this.yrotateIcon.visible = false
-        this.xrotateIcon.visible = false
-        this.zrotateIcon.visible = true
-        this.foundationAddIcon.visible = false
+        // this.addIcon.visible = false
+        // this.subtractIcon.visible = false
+        // this.eyeDropIcon.visible = false
+        // this.yrotateIcon.visible = false
+        // this.xrotateIcon.visible = false
+        // this.zrotateIcon.visible = true
+        this.uiEditSelector.positionX = 141
         break
-      case Mode.foundationAdd:
-        this.addIcon.visible = false
-        this.subtractIcon.visible = false
-        this.eyeDropIcon.visible = false
-        this.yrotateIcon.visible = false
-        this.xrotateIcon.visible = false
-        this.zrotateIcon.visible = false
-        this.foundationAddIcon.visible = true
-        break
+      // case Mode.foundationAdd:
+      //   this.addIcon.visible = false
+      //   this.subtractIcon.visible = false
+      //   this.eyeDropIcon.visible = false
+      //   this.yrotateIcon.visible = false
+      //   this.xrotateIcon.visible = false
+      //   this.zrotateIcon.visible = false
+      //   this.foundationAddIcon.visible = true
+      //   break
       default:
         break
     }
@@ -2887,7 +4072,7 @@ this.save_icon.onClick = new OnPointerDown(()=>{
         foundation.building[index].block_type,
         foundation.building[index].body_colour_id,
         foundation.building[index].face_colour_id,
-        foundation.building[index].highlight_colour_id,
+        foundation.building[index].border_colour_id,
         foundation.building[index].blockData
       )
   }

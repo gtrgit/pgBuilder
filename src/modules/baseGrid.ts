@@ -4,7 +4,7 @@ import resources from '../resources_2'
 //import { Model3D, models, MODEL_SIZE, currentModelId, colourModels} from 'src/model'
 import { ModelManager, modelArray } from 'src/modelManager'
 //import { ModelEnt } from 'src/modelEntity'
-import { colourIndex } from './hud'
+import { colourIndex, bodyId, faceId, borderId } from './hud'
 //import { BlockData } from './oldblockData'
 import { BuildingFoundation } from './buildingFoundation'
 import { BuildingBlocks, modelData } from './buildingBlock'
@@ -57,7 +57,7 @@ export const selectorMessageBus = new MessageBus()
 function addBaseModel(x: number, y: number, z: number, 
                       rx: number,ry:number,rz:number,rw:number,
                       sx:number,sy:number,sz:number,
-                      block_id:number,colour_id:number,) {
+                      block_id:number,body_colour_id:number,face_colour_id:number,border_colour_id:number,block_type: number) {
 
 
                       
@@ -68,7 +68,7 @@ function addBaseModel(x: number, y: number, z: number,
   let modelArrayId:number = modelData.length
   let deleted:boolean = false
 
-  const model = new BuildingBlocks(modelArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,colour_id)
+  const model = new BuildingBlocks(modelArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
   
   
   //engine.addEntity(model)
@@ -99,7 +99,10 @@ baseGrid.addComponent(
           transform.scale.y,
           transform.scale.z,
           ModelManager.modelIndex,
-          colourIndex
+          bodyId,
+          faceId,
+          borderId,
+          0
 
         ) 
       }

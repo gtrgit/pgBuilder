@@ -17,7 +17,7 @@ export class BlockComponentData {
     blockArrayPos: number = 0
     body_colour_id: number = 0
     face_colour_id: number = 0
-    highlight_colour_id: number = 0
+    border_colour_id: number = 0
     block_type: number = 0
 
 }
@@ -40,7 +40,7 @@ export type blockData = {
   block_id: number
   body_colour_id: number
   face_colour_id: number
-  highlight_colour_id: number
+  border_colour_id: number
   block_type: number
 }
 
@@ -90,7 +90,7 @@ export class BuildingBlocks extends Entity {
       block_id: number,
       body_colour_id: number,
       face_colour_id: number,
-      highlight_colour_id: number,
+      border_colour_id: number,
       block_type: number
       
     )
@@ -125,33 +125,42 @@ export class BuildingBlocks extends Entity {
             this.addComponent(blockShape)
             this.addComponent(blockTransform)
 
-            // collider
-            const colliderPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[body_colour_id].collider
-              const colliderEnt = new Entity()
-              const colliderShape = new GLTFShape(colliderPath)
-              colliderEnt.addComponent(colliderShape)
-              colliderEnt.addComponent(blockTransform)
-              engine.addEntity(colliderEnt)
+            // // collider
+            // const colliderPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[body_colour_id].collider
+            //   const colliderEnt = new Entity()
+            //   const colliderShape = new GLTFShape(colliderPath)
+            //   colliderEnt.addComponent(colliderShape)
+            //   colliderEnt.addComponent(blockTransform)
+            //   engine.addEntity(colliderEnt)
             //face
             if (modelTypes.models[block_id].modelTypes[block_type].colour[face_colour_id].faceColour){
               const facePath:string = modelTypes.models[block_id].modelTypes[block_type].colour[face_colour_id].faceColour
               const faceEnt = new Entity()
               const faceShape = new GLTFShape(facePath)
               faceEnt.addComponent(faceShape)
-              faceEnt.addComponent(blockTransform)
+              const faceTransform = new Transform({
+                position: new Vector3(0.001,.001,0)
+                })
+               faceEnt.addComponent(faceTransform)
+              faceEnt.setParent(this)
               engine.addEntity(faceEnt)
             }
             //highlight
-            if (modelTypes.models[block_id].modelTypes[block_type].colour[highlight_colour_id].highlightColour){
-              const highLightPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[highlight_colour_id].highlightColour
-              log(highlight_colour_id)
+            if (modelTypes.models[block_id].modelTypes[block_type].colour[border_colour_id].highlightColour){
+             const highLightPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[border_colour_id].highlightColour
+             log(border_colour_id)
            
+             const borderTransform = new Transform({
+              scale: new Vector3(.99,.99,.99)
+              })
+
               const highLightEnt = new Entity()
               const highlightShape = new GLTFShape(highLightPath)
               highLightEnt.addComponent(highlightShape)
-              highLightEnt.addComponent(blockTransform)
-              
-              engine.addEntity(highLightEnt)
+              //highLightEnt.getComponent(Transform).scale.setAll(.9)
+              highLightEnt.addComponent(borderTransform)
+             highLightEnt.setParent(this)
+             engine.addEntity(highLightEnt)
               
             }
 
@@ -189,7 +198,7 @@ export class BuildingBlocks extends Entity {
     }
 
       // Edit a voxel depending on what mode the user is in
-      editModel(blockArrayId:number,deleted:boolean, block_id: number, body_colour_id: number,face_colour_id: number,highlight_colour_id:number,x: number, y: number, z: number,rx: number,
+      editModel(blockArrayId:number,deleted:boolean, block_id: number, body_colour_id: number,face_colour_id: number,border_colour_id:number,x: number, y: number, z: number,rx: number,
         ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode,block_type: number) 
         {
           
@@ -205,8 +214,8 @@ export class BuildingBlocks extends Entity {
                
                 
                 const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw
-                  ,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type)
-                
+                  ,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
+                  
                 //modelData.push(newBlock)
 
                 // engine.entities[newBlock.uuid].getComponent(BlockId).blockId = modelArrayIndex
@@ -258,9 +267,9 @@ sceneMessageBus.on('editModel', (e) => {
   let sy = e.scale.y
   let sz = e.scale.z
   let block_id = e.modelArrayIndex
-  let body_colour_id = e.colourArrayIndex
-  let face_colour_id = e.colourArrayIndex
-  let highlight_colour_id = e.highlight_colour_id
+  let body_colour_id = e.body_colour_id //e.colourArrayIndex
+  let face_colour_id = e.face_colour_id//e.colourArrayIndex
+  let border_colour_id = e.border_colour_id
   let block_type = e.block_type
 let blockArrayId: number
 
@@ -270,17 +279,22 @@ let blockArrayId: number
    //deleted is initialized to false
    let deleted:boolean = false
 
-  log(' baId '+ blockArrayId+ ' del '+deleted+ ' model uuid '+e.uuid)
+  log(' baId '+ blockArrayId+ ' del '+deleted+ ' model  '+block_id+ ' body '+body_colour_id+ ' face '+face_colour_id+' border '+ border_colour_id)
   
   if (engine.entities[e.model]) {
     
-  engine.entities[e.model].editModel(blockArrayId,deleted,block_id,body_colour_id,face_colour_id,highlight_colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode)
+    
+    const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw
+      ,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
+      
+  // engine.entities[e.model].editModel(blockArrayId,deleted,block_id,body_colour_id,face_colour_id,border_colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode,block_type)
+  //debugger
+   }
   
-  }
+   const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
+   log(md.x+' y'+md.y)
   
-   const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id}
-  log(md.x+' y'+md.y)
-  
-   modelData.push(md)
+    modelData.push(md)
 
-})
+}
+)

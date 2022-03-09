@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -8,13 +8,23 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
     "nodes" : [
         {
             "mesh" : 0,
+            "name" : "r4c1_collider",
+            "translation" : [
+                -1,
+                -1,
+                -1
+            ]
+        },
+        {
+            "mesh" : 1,
             "name" : "r4c1_body_orange",
             "translation" : [
                 -1,
@@ -37,7 +47,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Sphere.023",
+            "name" : "Sphere.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -45,7 +55,20 @@
                         "NORMAL" : 1,
                         "TEXCOORD_0" : 2
                     },
-                    "indices" : 3,
+                    "indices" : 3
+                }
+            ]
+        },
+        {
+            "name" : "Sphere.023",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
                     "material" : 0
                 }
             ]
@@ -68,7 +91,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 278,
+            "count" : 327,
             "max" : [
                 2.000000476837158,
                 2,
@@ -84,42 +107,96 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 278,
+            "count" : 327,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 278,
+            "count" : 327,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 327,
+            "count" : 738,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 398,
+            "max" : [
+                2.000000476837158,
+                2,
+                2.0000007152557373
+            ],
+            "min" : [
+                -0.0006420614081434906,
+                -0.003416418796405196,
+                -0.002287032548338175
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 398,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 398,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 738,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 3336,
+            "byteLength" : 3924,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 3336,
-            "byteOffset" : 3336
+            "byteLength" : 3924,
+            "byteOffset" : 3924
         },
         {
             "buffer" : 0,
-            "byteLength" : 2224,
-            "byteOffset" : 6672
+            "byteLength" : 2616,
+            "byteOffset" : 7848
         },
         {
             "buffer" : 0,
-            "byteLength" : 654,
-            "byteOffset" : 8896
+            "byteLength" : 1476,
+            "byteOffset" : 10464
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4776,
+            "byteOffset" : 11940
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4776,
+            "byteOffset" : 16716
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3184,
+            "byteOffset" : 21492
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1476,
+            "byteOffset" : 24676
         }
     ],
     "samplers" : [
@@ -130,7 +207,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 9552,
+            "byteLength" : 26152,
             "uri" : "r4c1_body_orange.bin"
         }
     ]

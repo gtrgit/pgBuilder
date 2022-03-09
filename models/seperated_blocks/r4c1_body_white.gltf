@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -8,7 +8,8 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
@@ -16,6 +17,15 @@
         {
             "mesh" : 0,
             "name" : "r4c1_body_white",
+            "translation" : [
+                -1,
+                -1,
+                -1
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "r4c1_collider",
             "translation" : [
                 -1,
                 -1,
@@ -49,6 +59,19 @@
                     "material" : 0
                 }
             ]
+        },
+        {
+            "name" : "Sphere.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7
+                }
+            ]
         }
     ],
     "textures" : [
@@ -68,7 +91,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 266,
+            "count" : 388,
             "max" : [
                 2.000000476837158,
                 2,
@@ -84,42 +107,96 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 266,
+            "count" : 388,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 266,
+            "count" : 388,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
+            "count" : 738,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
             "count" : 327,
+            "max" : [
+                2.000000476837158,
+                2,
+                2.0000007152557373
+            ],
+            "min" : [
+                -0.0006420614081434906,
+                -0.003416418796405196,
+                -0.002287032548338175
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 327,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 327,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 738,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 3192,
+            "byteLength" : 4656,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 3192,
-            "byteOffset" : 3192
+            "byteLength" : 4656,
+            "byteOffset" : 4656
         },
         {
             "buffer" : 0,
-            "byteLength" : 2128,
-            "byteOffset" : 6384
+            "byteLength" : 3104,
+            "byteOffset" : 9312
         },
         {
             "buffer" : 0,
-            "byteLength" : 654,
-            "byteOffset" : 8512
+            "byteLength" : 1476,
+            "byteOffset" : 12416
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3924,
+            "byteOffset" : 13892
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3924,
+            "byteOffset" : 17816
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2616,
+            "byteOffset" : 21740
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1476,
+            "byteOffset" : 24356
         }
     ],
     "samplers" : [
@@ -130,7 +207,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 9168,
+            "byteLength" : 25832,
             "uri" : "r4c1_body_white.bin"
         }
     ]

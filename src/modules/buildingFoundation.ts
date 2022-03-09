@@ -60,7 +60,7 @@ export class BuildingFoundation extends Entity {
       block_type: number,
       body_colour_id : number,
       face_colour_id : number,
-      highlight_colour_id : number,
+      border_colour_id : number,
       foundationBlockData:any[]
     )
     {
@@ -119,10 +119,10 @@ export class BuildingFoundation extends Entity {
          let block_id = element.block_id
          let body_colour_id = element.body_colour_id
          let face_colour_id = element.face_colour_id
-         let highlight_colour_id = element.highlight_colour_id
+         let border_colour_id = element.border_colour_id
          let block_type = element.block_type
 
-         const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type}
+         const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
        
        
           modelData.push(md)
@@ -130,7 +130,7 @@ export class BuildingFoundation extends Entity {
         // Dont add deleted blocks// todo write why = true
         if (element.deleted = true){
 
-          const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type)
+          const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
 
           }
 

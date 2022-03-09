@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -8,7 +8,8 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
@@ -16,6 +17,10 @@
         {
             "mesh" : 0,
             "name" : "r5c3_body_light_grey"
+        },
+        {
+            "mesh" : 1,
+            "name" : "r5c3_collider"
         }
     ],
     "materials" : [
@@ -45,6 +50,20 @@
                     "material" : 0
                 }
             ]
+        },
+        {
+            "name" : "Cube.127",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
         }
     ],
     "textures" : [
@@ -64,7 +83,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 29,
+            "count" : 34,
             "max" : [
                 1,
                 1,
@@ -80,42 +99,85 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 29,
+            "count" : 34,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 29,
+            "count" : 34,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 51,
+            "count" : 60,
             "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 34,
+            "max" : [
+                1,
+                1,
+                1
+            ],
+            "min" : [
+                -1,
+                -1,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 34,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 34,
+            "type" : "VEC2"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 348,
+            "byteLength" : 408,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 348,
-            "byteOffset" : 348
+            "byteLength" : 408,
+            "byteOffset" : 408
         },
         {
             "buffer" : 0,
-            "byteLength" : 232,
-            "byteOffset" : 696
+            "byteLength" : 272,
+            "byteOffset" : 816
         },
         {
             "buffer" : 0,
-            "byteLength" : 102,
-            "byteOffset" : 928
+            "byteLength" : 120,
+            "byteOffset" : 1088
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 408,
+            "byteOffset" : 1208
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 408,
+            "byteOffset" : 1616
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 272,
+            "byteOffset" : 2024
         }
     ],
     "samplers" : [
@@ -126,7 +188,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 1032,
+            "byteLength" : 2296,
             "uri" : "r5c3_body_light_grey.bin"
         }
     ]
