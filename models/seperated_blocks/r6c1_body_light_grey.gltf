@@ -20,7 +20,7 @@
         },
         {
             "mesh" : 1,
-            "name" : "r6c1_body_orange"
+            "name" : "r6c1_body_light_grey"
         }
     ],
     "materials" : [
@@ -51,7 +51,7 @@
             ]
         },
         {
-            "name" : "Cube.757",
+            "name" : "Cube.751",
             "primitives" : [
                 {
                     "attributes" : {
@@ -116,7 +116,7 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 24,
+            "count" : 28,
             "max" : [
                 1,
                 1,
@@ -132,19 +132,19 @@
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 24,
+            "count" : 28,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 24,
+            "count" : 28,
             "type" : "VEC2"
         },
         {
             "bufferView" : 7,
             "componentType" : 5123,
-            "count" : 36,
+            "count" : 42,
             "type" : "SCALAR"
         }
     ],
@@ -171,23 +171,23 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 288,
+            "byteLength" : 336,
             "byteOffset" : 840
         },
         {
             "buffer" : 0,
-            "byteLength" : 288,
-            "byteOffset" : 1128
+            "byteLength" : 336,
+            "byteOffset" : 1176
         },
         {
             "buffer" : 0,
-            "byteLength" : 192,
-            "byteOffset" : 1416
+            "byteLength" : 224,
+            "byteOffset" : 1512
         },
         {
             "buffer" : 0,
-            "byteLength" : 72,
-            "byteOffset" : 1608
+            "byteLength" : 84,
+            "byteOffset" : 1736
         }
     ],
     "samplers" : [
@@ -198,7 +198,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 1680,
+            "byteLength" : 1820,
             "uri" : "r6c1_body_light_grey.bin"
         }
     ]

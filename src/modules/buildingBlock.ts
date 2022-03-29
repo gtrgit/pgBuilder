@@ -139,7 +139,7 @@ export class BuildingBlocks extends Entity {
               const faceShape = new GLTFShape(facePath)
               faceEnt.addComponent(faceShape)
               const faceTransform = new Transform({
-                position: new Vector3(0,.003,0)
+                position: new Vector3(-.001,.01,0.001)
                 //scale: new Vector3(1.02,1.02,1.02)
                 })
                faceEnt.addComponent(faceTransform)
