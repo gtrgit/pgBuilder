@@ -1,5 +1,5 @@
 import { colourArray } from "../colourSetArray"
-import {default as modelTypes} from "src/modelTypeColour.json"
+import {default as modelTypes} from "src/modelTypeColour"
 import * as utils from '@dcl/ecs-scene-utils'
 import { BuildingBlocks, blockData, modelData } from "./buildingBlock"
 

@@ -139,7 +139,8 @@ export class BuildingBlocks extends Entity {
               const faceShape = new GLTFShape(facePath)
               faceEnt.addComponent(faceShape)
               const faceTransform = new Transform({
-                position: new Vector3(0.001,.001,0)
+                position: new Vector3(0,.003,0)
+                //scale: new Vector3(1.02,1.02,1.02)
                 })
                faceEnt.addComponent(faceTransform)
               faceEnt.setParent(this)
@@ -233,7 +234,7 @@ export class BuildingBlocks extends Entity {
                 break
               case Mode.EyeDrop:
                 log('case eyedrop')
-                this.eyeDropModel()
+              //  this.eyeDropModel()
                 break
               // case Mode.Swap:
               
@@ -241,11 +242,11 @@ export class BuildingBlocks extends Entity {
               //   break
               case Mode.Yrotate:
                 log('Swapped')
-                this.yRotate()
+           //     this.yRotate()
                 break
               case Mode.Xrotate:
                 log('Swapped')
-                this.xRotate()
+            //    this.xRotate()
                 break
               default:
               break

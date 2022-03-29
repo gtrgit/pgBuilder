@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -33,7 +33,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Cube.250",
+            "name" : "Cube.146",
             "primitives" : [
                 {
                     "attributes" : {
@@ -64,7 +64,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 4,
+            "count" : 8,
             "max" : [
                 1,
                 1,
@@ -80,42 +80,42 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 4,
+            "count" : 8,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 4,
+            "count" : 8,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 6,
+            "count" : 12,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 48,
+            "byteLength" : 96,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 48,
-            "byteOffset" : 48
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 32,
+            "byteLength" : 96,
             "byteOffset" : 96
         },
         {
             "buffer" : 0,
-            "byteLength" : 12,
-            "byteOffset" : 128
+            "byteLength" : 64,
+            "byteOffset" : 192
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24,
+            "byteOffset" : 256
         }
     ],
     "samplers" : [
@@ -126,8 +126,8 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 140,
-            "uri" : "r2c2_face_orange.bin"
+            "byteLength" : 280,
+            "uri" : "r2c3_face_orange.bin"
         }
     ]
 }

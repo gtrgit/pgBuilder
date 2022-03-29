@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -33,7 +33,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Cube.270",
+            "name" : "Cube.131",
             "primitives" : [
                 {
                     "attributes" : {
@@ -127,7 +127,7 @@
     "buffers" : [
         {
             "byteLength" : 140,
-            "uri" : "r2c2_face_brown.bin"
+            "uri" : "r2c3_face_brown.bin"
         }
     ]
 }

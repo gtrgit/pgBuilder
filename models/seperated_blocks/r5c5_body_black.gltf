@@ -8,13 +8,24 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
     "nodes" : [
         {
             "mesh" : 0,
+            "name" : "r5c5_collider",
+            "rotation" : [
+                0,
+                0.7071093916893005,
+                0,
+                -0.7071041464805603
+            ]
+        },
+        {
+            "mesh" : 1,
             "name" : "r5c5_body_black",
             "rotation" : [
                 0,
@@ -39,7 +50,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Cube.669",
+            "name" : "Cube.069",
             "primitives" : [
                 {
                     "attributes" : {
@@ -47,7 +58,20 @@
                         "NORMAL" : 1,
                         "TEXCOORD_0" : 2
                     },
-                    "indices" : 3,
+                    "indices" : 3
+                }
+            ]
+        },
+        {
+            "name" : "Cube.669",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
                     "material" : 0
                 }
             ]
@@ -70,7 +94,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 55,
+            "count" : 72,
             "max" : [
                 1.0000073909759521,
                 1,
@@ -86,17 +110,51 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 55,
+            "count" : 72,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 55,
+            "count" : 72,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 108,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 55,
+            "max" : [
+                1.0000073909759521,
+                1,
+                1.0000073909759521
+            ],
+            "min" : [
+                -1.0000073909759521,
+                -1.0000073909759521,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 55,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 55,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
             "componentType" : 5123,
             "count" : 87,
             "type" : "SCALAR"
@@ -105,23 +163,43 @@
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 660,
+            "byteLength" : 864,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
+            "byteLength" : 864,
+            "byteOffset" : 864
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 576,
+            "byteOffset" : 1728
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 216,
+            "byteOffset" : 2304
+        },
+        {
+            "buffer" : 0,
             "byteLength" : 660,
-            "byteOffset" : 660
+            "byteOffset" : 2520
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 660,
+            "byteOffset" : 3180
         },
         {
             "buffer" : 0,
             "byteLength" : 440,
-            "byteOffset" : 1320
+            "byteOffset" : 3840
         },
         {
             "buffer" : 0,
             "byteLength" : 174,
-            "byteOffset" : 1760
+            "byteOffset" : 4280
         }
     ],
     "samplers" : [
@@ -132,7 +210,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 1936,
+            "byteLength" : 4456,
             "uri" : "r5c5_body_black.bin"
         }
     ]

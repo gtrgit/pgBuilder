@@ -161,7 +161,8 @@ export default {
       foundationAdd: new Texture('images/foundationAdd.png',{samplingMode:0})
     },
     images: {
-      colourMap: new Texture('images/MiniTown_TX.png',{samplingMode:0}), 
+      colourMap: new Texture('images/MiniTown_TX.png',{samplingMode:0}),
+      floor: new Texture('images/newHQFloor.png'), 
       pgHeader: new Texture('images/pgHeader.png'), 
       pgLogo: new Texture('images/pgLogo.png'), 
       uiOnOff: new Texture('images/uiOnOff.png'),

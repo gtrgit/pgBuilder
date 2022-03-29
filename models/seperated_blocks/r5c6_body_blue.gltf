@@ -25,6 +25,7 @@
     ],
     "materials" : [
         {
+            "doubleSided" : true,
             "name" : "Material.001",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
@@ -50,7 +51,7 @@
             ]
         },
         {
-            "name" : "Cube.878",
+            "name" : "Cube.691",
             "primitives" : [
                 {
                     "attributes" : {

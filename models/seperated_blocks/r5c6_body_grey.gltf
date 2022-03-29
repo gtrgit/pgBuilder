@@ -25,6 +25,7 @@
     ],
     "materials" : [
         {
+            "doubleSided" : true,
             "name" : "Material.001",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {

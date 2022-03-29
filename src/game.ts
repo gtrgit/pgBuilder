@@ -29,9 +29,9 @@ const blockArrayId:number = 0
 
 //Initial block
 const deleted: boolean = false
-const x: number = 8
+const x: number = 16
 const y: number = 0
-const z: number = 8
+const z: number = 16
 const rx: number = 0
 const ry: number = 0
 const rz: number = 0
@@ -127,17 +127,20 @@ input.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (): void => {
   switch (Manager.activeMode) {
     
     case Mode.foundationAdd:
-      Manager.activeMode = Mode.blockAdd
-      hud.switchModeIcon(Mode.blockAdd)
+      // Manager.activeMode = Mode.blockAdd
+      Manager.activeMode = Mode.Yrotate
+      hud.switchModeIcon(Mode.Yrotate)
     
     case Mode.blockAdd:
-      Manager.activeMode = Mode.Subtract
-      hud.switchModeIcon(Mode.Subtract)
+      // Manager.activeMode = Mode.Subtract
+      Manager.activeMode = Mode.Xrotate
+      hud.switchModeIcon(Mode.Xrotate)
       
       break
     case Mode.Subtract:
-      Manager.activeMode = Mode.EyeDrop
-      hud.switchModeIcon(Mode.EyeDrop)
+      // Manager.activeMode = Mode.EyeDrop
+      Manager.activeMode = Mode.Zrotate
+      hud.switchModeIcon(Mode.Zrotate)
       
       break
     case Mode.EyeDrop:
@@ -153,8 +156,8 @@ input.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (): void => {
       hud.switchModeIcon(Mode.Zrotate)
       break
     case Mode.Zrotate:
-      Manager.activeMode = Mode.blockAdd
-      hud.switchModeIcon(Mode.blockAdd)
+      Manager.activeMode = Mode.Yrotate
+      hud.switchModeIcon(Mode.Yrotate)
       break
     default:
       break

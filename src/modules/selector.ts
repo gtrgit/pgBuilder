@@ -52,18 +52,19 @@ const selectorShape:GLTFShape = resources_2.models.selector
 
 const transform = new Transform(
     {
-        position: new Vector3(8,2,8),
+        position: new Vector3(16,2,16),
         scale: new Vector3(.1,.1,.1)
 
     }
 )
+
 selectorEntity.addComponent(selectorShape)
 selectorEntity.addComponent(transform)
 //selectorEntity.addComponent(new BlockType())
 selectorEntity.addComponent(new SelectedBlockUUID())
 
 engine.addEntity(selectorEntity)  
-
+//debugger
 
 selectorEntity.addComponent(   
     new OnPointerDown(
@@ -71,7 +72,7 @@ selectorEntity.addComponent(
         
         log('id check bodyId: '+bodyId+' faceId: '+faceId+ ' borderId: '+borderId)
         if (Manager.activeMode == Mode.blockAdd)   {
-    
+  
           selectorEntity.getComponent(GLTFShape).visible = true
           selectorMessageBus.emit('editModel', {
             modelArrayIndex: ModelManager.modelIndex,
@@ -87,6 +88,7 @@ selectorEntity.addComponent(
             border_colour_id: borderId,
             block_type: 0
           })
+          
         }
        
         // TODO: plug in colour id ^^

@@ -3,7 +3,7 @@ import { Manager, Mode } from '../manager'
 import { ModelIconManager, iconAttributesArray, iconBackground} from 'src/modelIconManager'
 import { ModelManager } from 'src/modelManager'
 import {default as foundation} from "./foundations.json"
-import {default as modelTypes} from "src/modelTypeColour.json"
+import {default as modelTypes} from "src/modelTypeColour"
 import { BuildingFoundation } from "./buildingFoundation";
 import { blockData, modelData } from './buildingBlock'
 
@@ -22,6 +22,13 @@ export class HUD {
   private container: UIContainerRect
   private header: UIContainerRect
   private uiOnOffRect: UIContainerRect
+  private uiMessage1: UIContainerRect
+  private uiMessage2: UIContainerRect
+  private uiMessage3: UIContainerRect
+  // private uiMessage4: UIContainerRect
+  // private uiMessage5: UIContainerRect
+
+
   private uiMenuBackgroundRect : UIContainerRect
   private uiModelMenu: UIContainerRect
   // private selectionBodyColour: UIContainerRect
@@ -45,8 +52,13 @@ export class HUD {
   private uiClose: UIImage
   // private bodyColourHeader:UIText
   private uiEditSelector:UIImage
-  private uiText:UIText
+  private uiHeaderText:UIText
+  private uiOnOffText:UIText 
+  private uiOnOffHintText:UIText
+  private uiAddHintText: UIText
+  private uiModelHintText: UIText
   
+
 
   private selectedBodyNoSelection: UIImage
   private selectedBodyBlack: UIImage
@@ -291,35 +303,6 @@ export class HUD {
   private r6c10Text: UIText
   private r6c10_Icon:UIImage
 
-  private editIconContainer: UIContainerRect
-
-  private eText: UIText
-
-  //private manualFoundationAddIcon: UIImage
-  private manualAddIcon: UIImage
-  private manualSubtractIcon: UIImage
-  private manualEyeIcon: UIImage
-  private manualXIcon: UIImage
-  private manualYIcon: UIImage
-  private manualZIcon: UIImage
-
-  private addContainer: UIContainerRect
-  private subtractContainer: UIContainerRect
-  private eyeContainer: UIContainerRect
-  private xContainer: UIContainerRect
-  private yContainer: UIContainerRect
-  private zContainer: UIContainerRect
-  
-  private colourIconContainer: UIContainerRect
-  private col1_Container: UIContainerRect
-  private col2_Container: UIContainerRect
-  private col3_Container: UIContainerRect
- // private col4_Container: UIContainerRect
-  private col1_icon: UIImage
-  private col2_icon: UIImage
-  private col3_icon: UIImage
- // private col4_icon: UIImage
-
   private fileContainer: UIContainerRect
   private foundationContainer: UIContainerRect
   private foundationIcon: UIImage
@@ -335,12 +318,6 @@ export class HUD {
 
   constructor(canvas: UICanvas) {
 
-    // this.container = new UIContainerRect(canvas)
-    // this.container.width = '50%'
-    // this.container.height = '50%'
-    // //this.container.positionX = 200
-    // this.container.visible = true
-      // Container
 
       this.header = new UIContainerRect(canvas)
       this.header.visible = true
@@ -362,6 +339,15 @@ export class HUD {
       this.headerLogo.positionX = 0
       this.headerLogo.positionY = 0
       this.headerLogo.isPointerBlocker = false
+      
+      this.uiHeaderText = new UIText(this.headerLogo)
+      this.uiHeaderText.value = "Discord: gtrfrost#8788"
+      this.uiHeaderText.fontSize = 8
+      this.uiHeaderText.height = 10
+      this.uiHeaderText.positionY = -50
+      this.uiHeaderText.positionX = -40
+      this.uiHeaderText.hAlign = "center"
+      this.uiHeaderText.vAlign = "top"
 
       
       this.uiOnOffRect = new UIContainerRect(canvas)
@@ -377,15 +363,39 @@ export class HUD {
       this.uiOnOffRect.color = Color4.Black()
 
       
-      this.uiText = new UIText(this.uiOnOffRect)
-      this.uiText.value = "UI On/Off"
-      this.uiText.fontSize = 8
-      this.uiText.height = 10
-      this.uiText.positionY = 15
-      this.uiText.positionX = 3
-      this.uiText.hAlign = "center"
-      this.uiText.vAlign = "top"
+      this.uiOnOffText = new UIText(this.uiOnOffRect)
+      this.uiOnOffText.value = "UI On/Off"
+      this.uiOnOffText.fontSize = 8
+      this.uiOnOffText.height = 10
+      this.uiOnOffText.positionY = 15
+      this.uiOnOffText.positionX = 3
+      this.uiOnOffText.hAlign = "center"
+      this.uiOnOffText.vAlign = "top"
       
+      
+      this.uiMessage1 = new UIContainerRect(canvas)
+      this.uiMessage1.visible = true
+      this.uiMessage1.isPointerBlocker = true
+      this.uiMessage1.width = 120
+      this.uiMessage1.height = 20
+      this.uiMessage1.positionX = 415
+      this.uiMessage1.positionY = 0
+      this.uiMessage1.hAlign = "left"
+      this.uiMessage1.vAlign = "top"
+      this.uiMessage1.opacity = .8
+      this.uiMessage1.color = Color4.Red()
+
+
+      this.uiOnOffHintText = new UIText(this.uiMessage1)
+      this.uiOnOffHintText.value = "Click switch to turn UI on/off"
+      this.uiOnOffHintText.fontSize = 8
+      this.uiOnOffHintText.height = 10
+      this.uiOnOffHintText.positionY = -5
+      this.uiOnOffHintText.positionX = -5
+      this.uiOnOffHintText.hAlign = "center"
+      this.uiOnOffHintText.vAlign = "top"
+      
+
       this.uiOnOff = new UIImage(this.uiOnOffRect, resources.images.uiOnOff)
       this.uiOnOff.sourceHeight = 189
       this.uiOnOff.sourceWidth = 150      
@@ -411,7 +421,8 @@ export class HUD {
         this.uiMenuOff.visible = false
         this.uiMenuBackgroundRect.visible = true
         this.uiModelMenu.visible = true
-
+        this.uiMessage1.visible = false
+        this.uiMessage2.visible = true
       })
 
       this.uiMenuOn = new UIImage(this.uiOnOffRect, resources.images.uiMenuOn)
@@ -429,6 +440,7 @@ export class HUD {
         this.uiMenuOn.visible= false
         this.uiMenuOff.visible = true
         this.uiMenuBackgroundRect.visible = false
+        this.uiMessage2.visible = false
         this.uiModelMenu.visible = false
 
       })
@@ -461,6 +473,7 @@ export class HUD {
       this.uiMenuBackground.isPointerBlocker = true
 
 
+
       
 
       this.uiEdit = new UIImage(this.uiMenuBackgroundRect, resources.images.uiEdit)
@@ -483,7 +496,32 @@ export class HUD {
       this.uiEditSelector.positionY = -5
       this.uiEditSelector.isPointerBlocker = true
       this.uiEditSelector.opacity = .8
+      this.uiEditSelector.visible = false
 
+
+      
+      this.uiMessage2 = new UIContainerRect(canvas)
+      this.uiMessage2.visible = true
+      this.uiMessage2.isPointerBlocker = true
+      this.uiMessage2.width = 120
+      this.uiMessage2.height = 20
+      this.uiMessage2.positionX = 480
+      this.uiMessage2.positionY = 1
+      this.uiMessage2.hAlign = "left"
+      this.uiMessage2.vAlign = "top"
+      this.uiMessage2.opacity = .8
+      this.uiMessage2.color = Color4.Red()
+      this.uiMessage2.visible = false
+
+      
+      this.uiAddHintText = new UIText(this.uiMessage2)
+      this.uiAddHintText.value = "Click (+) to add blocks"
+      this.uiAddHintText.fontSize = 8
+      this.uiAddHintText.height = 10
+      this.uiAddHintText.positionY = -5
+      this.uiAddHintText.positionX = 3
+      this.uiAddHintText.hAlign = "center"
+      this.uiAddHintText.vAlign = "top"
 
       //TODO: Change switchModeIcon here
 
@@ -507,8 +545,12 @@ export class HUD {
       log('add clicked')
       Manager.activeMode = Mode.blockAdd
       this.switchModeIcon(Mode.blockAdd)
+      this.uiEditSelector.visible = true
+      this.uiMessage2.visible = false
+      this.uiMessage3.visible = true
     })
-   
+   //TODO HIDE ADDICONS SELECTION AND DISPLAY TEXT TO CLICK ICON
+
     this.subtractIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.subtract)
     this.subtractIcon.sourceWidth = 50
     this.subtractIcon.sourceHeight = 50
@@ -521,6 +563,10 @@ export class HUD {
     this.subtractIcon.onClick = new OnPointerDown(() => {
       Manager.activeMode = Mode.Subtract
       this.switchModeIcon(Mode.Subtract)
+      this.uiEditSelector.visible = true
+      // this.uiAddHintText.visible = false
+      
+
     })
 
 
@@ -536,6 +582,9 @@ export class HUD {
     this.eyeDropIcon.onClick = new OnPointerDown(() => {
       Manager.activeMode = Mode.EyeDrop
       this.switchModeIcon(Mode.EyeDrop)
+      this.uiEditSelector.visible = true
+      // this.uiAddHintText.visible = false
+
     })
 
   
@@ -551,6 +600,9 @@ export class HUD {
     this.yrotateIcon.onClick = new OnPointerDown(()=>{
       Manager.activeMode = Mode.Yrotate
       this.switchModeIcon(Mode.Yrotate)
+      this.uiEditSelector.visible = true
+      // this.uiAddHintText.visible = false
+
     })
   
     this.xrotateIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.xrotate)
@@ -565,6 +617,9 @@ export class HUD {
     this.xrotateIcon.onClick = new OnPointerDown(()=>{
       Manager.activeMode = Mode.Xrotate
       this.switchModeIcon(Mode.Xrotate)
+      this.uiEditSelector.visible = true
+      // this.uiAddHintText.visible = false
+
     })
 
     this.zrotateIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.zrotate)
@@ -579,6 +634,9 @@ export class HUD {
     this.zrotateIcon.onClick = new OnPointerDown(()=>{
       Manager.activeMode = Mode.Zrotate
       this.switchModeIcon(Mode.Zrotate)
+      this.uiEditSelector.visible = true
+      // this.uiAddHintText.visible = false
+
     })
 
     // this.foundationAddIcon = new UIImage(this.container, resources.icons.foundationAdd)
@@ -628,6 +686,32 @@ export class HUD {
       this.uiModelMenuRect.opacity = .8
 
       
+      
+      this.uiMessage3 = new UIContainerRect(canvas)
+      this.uiMessage3.visible = true
+      this.uiMessage3.isPointerBlocker = true
+      this.uiMessage3.width = 120
+      this.uiMessage3.height = 20
+      this.uiMessage3.positionX = 660
+      this.uiMessage3.positionY = 0
+      this.uiMessage3.hAlign = "left"
+      this.uiMessage3.vAlign = "top"
+      this.uiMessage3.opacity = .8
+      this.uiMessage3.color = Color4.Red()
+      this.uiMessage3.visible = false
+      
+
+      
+
+      this.uiModelHintText = new UIText(this.uiMessage3)
+      this.uiModelHintText.value = "Click to change block"
+      this.uiModelHintText.fontSize = 8
+      this.uiModelHintText.height = 10
+      this.uiModelHintText.positionY = -5
+      this.uiModelHintText.positionX = 3
+      this.uiModelHintText.hAlign = "center"
+      this.uiModelHintText.vAlign = "top"
+
     //block icon
     this.blockIcon = new UIImage(this.uiModelMenu, resources.images.r1c1)
     this.blockIcon.sourceWidth = 90
@@ -640,6 +724,7 @@ export class HUD {
     this.blockIcon.visible = true
     this.blockIcon.onClick = new OnPointerDown(()=>{
       this.modelIconContainer.visible = true
+      this.uiMessage3.visible = false
     })
 
       
@@ -3598,294 +3683,7 @@ export class HUD {
 
 
 
-///////////////////////////////////////////////////////////////////////////////////
-
-this.editIconContainer = new UIContainerRect(canvas)
-this.editIconContainer.width = 250
-this.editIconContainer.height = 40
-this.editIconContainer.positionY = 122
-this.editIconContainer.hAlign = "center"
-this.editIconContainer.vAlign = "bottom"
-this.editIconContainer.color = Color4.Black()
-this.editIconContainer.opacity = .7
-
-this.eText = new UIText(this.editIconContainer)
-this.eText.value = "E"
-this.eText.fontSize = 14
-this.eText.height = 10
-this.eText.positionY = 10
-this.eText.hAlign = "left"
-this.eText.vAlign = "top"
-
-
-
-
-// private addContainer: UIContainerRect
-// private subtractContainer: UIContainerRect
-// private eyeContainer: UIContainerRect
-// private xContainer: UIContainerRect
-// private yContainer: UIContainerRect
-// private zContainer: UIContainerRect
-
-this.addContainer = new UIContainerRect(this.editIconContainer)
-this.addContainer.width = 35
-this.addContainer.height = 35
-this.addContainer.positionX = -100
-this.addContainer.positionY = 0
-this.addContainer.color = Color4.Black()
-this.addContainer.hAlign = 'center'
-this.addContainer.opacity = 0.8
-
-
-// this.manualFoundationAddIcon = new UIImage(this.addContainer, resources.icons.add)
-// this.manualFoundationAddIcon.sourceWidth = 90
-// this.manualFoundationAddIcon.sourceHeight = 90
-// this.manualFoundationAddIcon.width = 40
-// this.manualFoundationAddIcon.height = 40
-// this.manualFoundationAddIcon.positionX = 0
-// this.manualFoundationAddIcon.positionY = -9
-// this.manualFoundationAddIcon.isPointerBlocker = true
-// this.manualFoundationAddIcon.visible = true
-// this.manualFoundationAddIcon.onClick = new OnPointerDown(()=>{
-//   Manager.activeMode = Mode.foundationAdd
-//   this.switchModeIcon(Mode.foundationAdd)
-// })
-
-
-
-this.manualAddIcon = new UIImage(this.addContainer, resources.icons.add)
-this.manualAddIcon.sourceWidth = 90
-this.manualAddIcon.sourceHeight = 90
-this.manualAddIcon.width = 40
-this.manualAddIcon.height = 40
-this.manualAddIcon.positionX = 7
-this.manualAddIcon.positionY = -9
-this.manualAddIcon.isPointerBlocker = true
-this.manualAddIcon.visible = true
-this.manualAddIcon.onClick = new OnPointerDown(()=>{
-  Manager.activeMode = Mode.blockAdd
-  this.switchModeIcon(Mode.blockAdd)
-})
-
-
-
-this.subtractContainer = new UIContainerRect(this.editIconContainer)
-this.subtractContainer.width = 35
-this.subtractContainer.height = 35
-this.subtractContainer.positionX = -60
-this.subtractContainer.positionY = 0
-this.subtractContainer.color = Color4.Black()
-this.subtractContainer.hAlign = 'center'
-this.subtractContainer.opacity = 0.8
-
-this.manualSubtractIcon = new UIImage(this.subtractContainer, resources.icons.subtract)
-this.manualSubtractIcon.sourceWidth = 90
-this.manualSubtractIcon.sourceHeight = 90
-this.manualSubtractIcon.width = 40
-this.manualSubtractIcon.height = 40 
-this.manualSubtractIcon.positionX = 7
-this.manualSubtractIcon.positionY = -9
-this.manualSubtractIcon.isPointerBlocker = true
-this.manualSubtractIcon.visible = true
-this.manualSubtractIcon.onClick = new OnPointerDown(()=>{
-  Manager.activeMode = Mode.Subtract
-  this.switchModeIcon(Mode.Subtract)
-})
-
-
-
-this.eyeContainer = new UIContainerRect(this.editIconContainer)
-this.eyeContainer.width = 35
-this.eyeContainer.height = 35
-this.eyeContainer.positionX = -20
-this.eyeContainer.positionY = 0
-this.eyeContainer.color = Color4.Black()
-this.eyeContainer.hAlign = 'center'
-this.eyeContainer.opacity = 0.8
-
-this.manualEyeIcon = new UIImage(this.eyeContainer, resources.icons.eyeDrop)
-this.manualEyeIcon.sourceWidth = 90
-this.manualEyeIcon.sourceHeight = 90
-this.manualEyeIcon.width = 40
-this.manualEyeIcon.height = 40
-this.manualEyeIcon.positionX = 7
-this.manualEyeIcon.positionY = -9 
-this.manualEyeIcon.isPointerBlocker = true
-this.manualEyeIcon.visible = true
-this.manualEyeIcon.onClick = new OnPointerDown(()=>{
-  Manager.activeMode = Mode.EyeDrop
-  this.switchModeIcon(Mode.EyeDrop)
-})
-
-
-///////////////////
-//Model Menu
-
-
-this.addContainer = new UIContainerRect(this.editIconContainer)
-this.addContainer.width = 35
-this.addContainer.height = 35
-this.addContainer.positionX = -100
-this.addContainer.positionY = 0
-this.addContainer.color = Color4.Black()
-this.addContainer.hAlign = 'center'
-this.addContainer.opacity = 0.8
-
-
-
-this.xContainer = new UIContainerRect(this.editIconContainer)
-this.xContainer.width = 35
-this.xContainer.height = 35
-this.xContainer.positionX = 20
-this.xContainer.positionY = 0
-this.xContainer.color = Color4.Black()
-this.xContainer.hAlign = 'center'
-this.xContainer.opacity = 0.8
-
-
-this.manualXIcon = new UIImage(this.xContainer, resources.icons.xrotate)
-this.manualXIcon.sourceWidth = 50
-this.manualXIcon.sourceHeight = 50
-this.manualXIcon.width = 25
-this.manualXIcon.height = 25 
-this.manualXIcon.isPointerBlocker = true
-this.manualXIcon.visible = true
-this.manualXIcon.onClick = new OnPointerDown(()=>{
-  Manager.activeMode = Mode.Xrotate
-  this.switchModeIcon(Mode.Xrotate)
-})
-
-
-this.yContainer = new UIContainerRect(this.editIconContainer)
-this.yContainer.width = 35
-this.yContainer.height = 35
-this.yContainer.positionX = 60
-this.yContainer.positionY = 0
-this.yContainer.color = Color4.Black()
-this.yContainer.hAlign = 'center'
-this.yContainer.opacity = 0.8
-
-
-this.manualYIcon = new UIImage(this.yContainer, resources.icons.yrotate)
-this.manualYIcon.sourceWidth = 50
-this.manualYIcon.sourceHeight = 50
-this.manualYIcon.width = 25
-this.manualYIcon.height = 25 
-this.manualYIcon.isPointerBlocker = true
-this.manualYIcon.visible = true
-this.manualYIcon.onClick = new OnPointerDown(()=>{
-  Manager.activeMode = Mode.Yrotate
-  this.switchModeIcon(Mode.Yrotate)
-})
-
-
-this.zContainer = new UIContainerRect(this.editIconContainer)
-this.zContainer.width = 35
-this.zContainer.height = 35
-this.zContainer.positionX = 100
-this.zContainer.positionY = 0
-this.zContainer.color = Color4.Black()
-this.zContainer.hAlign = 'center'
-this.zContainer.opacity = 0.8
-
-
-this.manualZIcon = new UIImage(this.zContainer, resources.icons.zrotate)
-this.manualZIcon.sourceWidth = 50
-this.manualZIcon.sourceHeight = 50
-this.manualZIcon.width = 25
-this.manualZIcon.height = 25 
-this.manualZIcon.isPointerBlocker = true
-this.manualZIcon.visible = true
-this.manualZIcon.onClick = new OnPointerDown(()=>{
-  Manager.activeMode = Mode.Zrotate
-  this.switchModeIcon(Mode.Zrotate)
-})
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-//Colour menu
-
-
-
-this.colourIconContainer = new UIContainerRect(canvas)
-this.colourIconContainer.width = 85
-this.colourIconContainer.height = 120
-this.colourIconContainer.positionX = 355
-this.colourIconContainer.positionY = 0
-this.colourIconContainer.color = Color4.Black()
-this.colourIconContainer.hAlign = 'center'
-this.colourIconContainer.vAlign = 'bottom'
-this.colourIconContainer.opacity = 0.8
-  
-
-this.col1_Container = new UIContainerRect(this.colourIconContainer)
-this.col1_Container.width = 35
-this.col1_Container.height = 35
-this.col1_Container.positionX = -20
-this.col1_Container.positionY = 40
-this.col1_Container.color = Color4.Black()
-this.col1_Container.hAlign = 'center'
-this.col1_Container.opacity = 0.8
-
-this.col1_icon = new UIImage(this.col1_Container, resources.images.col1_icon)
-this.col1_icon.sourceWidth = 307
-this.col1_icon.sourceHeight = 322
-this.col1_icon.width = 25
-this.col1_icon.height = 27 
-this.col1_icon.isPointerBlocker = true
-this.col1_icon.visible = true
-this.col1_icon.onClick = new OnPointerDown(()=>{
-  //
-  colourIndex = 0
-
-})
-
-
-this.col2_Container = new UIContainerRect(this.colourIconContainer)
-this.col2_Container.width = 35
-this.col2_Container.height = 35
-this.col2_Container.positionX = 20
-this.col2_Container.positionY = 40
-this.col2_Container.color = Color4.Black()
-this.col2_Container.hAlign = 'center'
-this.col2_Container.opacity = 0.8
-
-this.col2_icon = new UIImage(this.col2_Container, resources.images.col2_icon)
-this.col2_icon.sourceWidth = 307
-this.col2_icon.sourceHeight = 322
-this.col2_icon.width = 25
-this.col2_icon.height = 27 
-this.col2_icon.isPointerBlocker = true
-this.col2_icon.visible = true
-this.col2_icon.onClick = new OnPointerDown(()=>{
-  //
-  colourIndex = 1
-
-})
-
-
-this.col3_Container = new UIContainerRect(this.colourIconContainer)
-this.col3_Container.width = 35
-this.col3_Container.height = 35
-this.col3_Container.positionX = -20
-this.col3_Container.positionY = 0
-this.col3_Container.color = Color4.Black()
-this.col3_Container.hAlign = 'center'
-this.col3_Container.opacity = 0.8
-
-this.col3_icon = new UIImage(this.col3_Container, resources.images.col3_icon)
-this.col3_icon.sourceWidth = 307
-this.col3_icon.sourceHeight = 322
-this.col3_icon.width = 25
-this.col3_icon.height = 27 
-this.col3_icon.isPointerBlocker = true
-this.col3_icon.visible = true
-this.col3_icon.onClick = new OnPointerDown(()=>{
-  //
-  colourIndex = 2
-
-})
+// /////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////
 //Save json btn
@@ -3893,11 +3691,11 @@ this.col3_icon.onClick = new OnPointerDown(()=>{
 this.fileContainer = new UIContainerRect(canvas)
 this.fileContainer.width = 85
 this.fileContainer.height = 120
-this.fileContainer.positionX = 442
+this.fileContainer.positionX = -50
 this.fileContainer.positionY = 0
 this.fileContainer.color = Color4.Black()
-this.fileContainer.vAlign = 'bottom'
-this.fileContainer.hAlign = 'center'
+this.fileContainer.vAlign = 'top'
+this.fileContainer.hAlign = 'right'
 this.fileContainer.opacity = 0.8
 
 
