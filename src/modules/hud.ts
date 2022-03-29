@@ -341,11 +341,11 @@ export class HUD {
       this.headerLogo.isPointerBlocker = false
       
       this.uiHeaderText = new UIText(this.headerLogo)
-      this.uiHeaderText.value = "Discord: gtrfrost#8788"
+      this.uiHeaderText.value = "Discord:     gtrfrost#8788      Sally_Balls#6454"
       this.uiHeaderText.fontSize = 8
       this.uiHeaderText.height = 10
-      this.uiHeaderText.positionY = -50
-      this.uiHeaderText.positionX = -40
+      this.uiHeaderText.positionY = -48
+      this.uiHeaderText.positionX = -82
       this.uiHeaderText.hAlign = "center"
       this.uiHeaderText.vAlign = "top"
 
