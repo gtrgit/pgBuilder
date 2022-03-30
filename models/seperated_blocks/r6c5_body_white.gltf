@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "generator" : "Khronos glTF Blender I/O v1.5.17",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -34,25 +34,6 @@
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
             }
-        },
-        {
-            "doubleSided" : true,
-            "emissiveFactor" : [
-                0.14118441532361636,
-                1,
-                0
-            ],
-            "name" : "Material.006",
-            "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.8000000715255737,
-                    0.8000000715255737,
-                    0.8000000715255737,
-                    1
-                ],
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
-            }
         }
     ],
     "meshes" : [
@@ -71,7 +52,7 @@
             ]
         },
         {
-            "name" : "Cube.077",
+            "name" : "Cube.127",
             "primitives" : [
                 {
                     "attributes" : {
@@ -79,8 +60,8 @@
                         "NORMAL" : 5,
                         "TEXCOORD_0" : 6
                     },
-                    "indices" : 7,
-                    "material" : 1
+                    "indices" : 3,
+                    "material" : 0
                 }
             ]
         }
@@ -136,7 +117,7 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 56,
+            "count" : 24,
             "max" : [
                 1,
                 0,
@@ -152,20 +133,14 @@
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 56,
+            "count" : 24,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 56,
+            "count" : 24,
             "type" : "VEC2"
-        },
-        {
-            "bufferView" : 7,
-            "componentType" : 5123,
-            "count" : 144,
-            "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
@@ -191,23 +166,18 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 672,
+            "byteLength" : 288,
             "byteOffset" : 840
         },
         {
             "buffer" : 0,
-            "byteLength" : 672,
-            "byteOffset" : 1512
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 448,
-            "byteOffset" : 2184
-        },
-        {
-            "buffer" : 0,
             "byteLength" : 288,
-            "byteOffset" : 2632
+            "byteOffset" : 1128
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 1416
         }
     ],
     "samplers" : [
@@ -218,7 +188,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 2920,
+            "byteLength" : 1608,
             "uri" : "r6c5_body_white.bin"
         }
     ]

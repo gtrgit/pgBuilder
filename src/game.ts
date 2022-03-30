@@ -30,7 +30,7 @@ const blockArrayId:number = 0
 //Initial block
 const deleted: boolean = false
 const x: number = 16
-const y: number = 0
+const y: number = 1
 const z: number = 16
 const rx: number = 0
 const ry: number = 0
