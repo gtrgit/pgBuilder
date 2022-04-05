@@ -11,6 +11,7 @@ import { SelectedBlockUUID, selectorUUID } from './selector'
 //import { modelArray, ModelManager } from 'src/modelManager'
 
 
+
 const MODEL_SIZE = 1
 
 // Picker
@@ -26,14 +27,19 @@ picker.addComponent(
   })
 )
 // const addMaterial = new BasicMaterial()
-const addMaterial = new Material()
-let addTexture = resources.images.addImage
-// addMaterial.albedoTexture = addTexture 
-addMaterial.alphaTexture = addTexture
-addMaterial.castShadows = false
-addMaterial.emissiveColor = Color3.Blue()
+export const addMaterial = new Material()
 
-addMaterial.emissiveIntensity = 20
+
+
+
+let currentTexture = resources.images.addImage
+
+// addMaterial.albedoTexture = addTexture 
+addMaterial.alphaTexture = currentTexture
+addMaterial.castShadows = false
+
+
+addMaterial.emissiveIntensity = 5
 
 addMaterial.transparencyMode = 4
 picker.addComponent(addMaterial)

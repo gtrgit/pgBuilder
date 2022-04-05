@@ -6,7 +6,7 @@ import {default as foundation} from "./foundations.json"
 import {default as modelTypes} from "src/modelTypeColour"
 import { BuildingFoundation } from "./buildingFoundation";
 import { blockData, modelData } from './buildingBlock'
-
+import {picker, addMaterial} from './modelPicker'
 //import { BlockId } from './baseGrid'
 
 
@@ -548,6 +548,10 @@ export class HUD {
       this.uiEditSelector.visible = true
       this.uiMessage2.visible = false
       this.uiMessage3.visible = true
+      
+      addMaterial.alphaTexture = resources.images.addImage
+      addMaterial.emissiveColor = Color3.Green()
+      picker.addComponentOrReplace(addMaterial)
     })
    //TODO HIDE ADDICONS SELECTION AND DISPLAY TEXT TO CLICK ICON
 
@@ -566,6 +570,9 @@ export class HUD {
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
       
+      addMaterial.emissiveColor = Color3.Red()
+      addMaterial.alphaTexture = resources.images.subtractImage
+      picker.addComponent(addMaterial)
 
     })
 
@@ -585,6 +592,9 @@ export class HUD {
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
 
+      addMaterial.alphaTexture = resources.images.eyeImage
+      addMaterial.emissiveColor = Color3.Yellow()
+      picker.addComponentOrReplace(addMaterial)
     })
 
   
@@ -602,6 +612,10 @@ export class HUD {
       this.switchModeIcon(Mode.Yrotate)
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
+      
+      addMaterial.alphaTexture = resources.images.yrotate
+      addMaterial.emissiveColor = Color3.Green()
+      picker.addComponentOrReplace(addMaterial)
 
     })
   
@@ -620,6 +634,9 @@ export class HUD {
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
 
+      addMaterial.alphaTexture = resources.images.xrotate
+      addMaterial.emissiveColor = Color3.Red()
+      picker.addComponentOrReplace(addMaterial)
     })
 
     this.zrotateIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.zrotate)
@@ -636,7 +653,9 @@ export class HUD {
       this.switchModeIcon(Mode.Zrotate)
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
-
+      addMaterial.alphaTexture = resources.images.zrotate
+      addMaterial.emissiveColor = Color3.Blue()
+      picker.addComponentOrReplace(addMaterial)
     })
 
     // this.foundationAddIcon = new UIImage(this.container, resources.icons.foundationAdd)

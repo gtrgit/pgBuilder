@@ -9,6 +9,8 @@ import { HUD } from "./modules/hud";
 import { Manager, Mode } from './manager'
 import { ModelManager } from "./modelManager";
 import { ModelIconManager } from "./modelIconManager";
+import resources from "./resources_2";
+import { picker, addMaterial } from './modules/modelPicker'
 // import { getVoxelJSON } from "./modules/serverHandler";
 
 // UI Elements
@@ -117,10 +119,12 @@ for (let buildingIndex = 0; buildingIndex < foundation.building.length; building
 }
 
 
-// Global button events
+// Global button events Currently looping through XYZ only
 const input = Input.instance
 
 Object.keys(Mode).length
+
+let selectedTexture: Texture
 
 input.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (): void => {
   log('E Key Pressed')
@@ -128,36 +132,63 @@ input.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (): void => {
     
     case Mode.foundationAdd:
       // Manager.activeMode = Mode.blockAdd
-      Manager.activeMode = Mode.Yrotate
-      hud.switchModeIcon(Mode.Yrotate)
-    
+      Manager.activeMode = Mode.blockAdd
+      hud.switchModeIcon(Mode.blockAdd)
+
+      addMaterial.alphaTexture = resources.images.addImage
+      addMaterial.emissiveColor = Color3.Green()
+      picker.addComponentOrReplace(addMaterial)
+
+
     case Mode.blockAdd:
       // Manager.activeMode = Mode.Subtract
-      Manager.activeMode = Mode.Xrotate
-      hud.switchModeIcon(Mode.Xrotate)
-      
+      Manager.activeMode = Mode.Subtract
+      hud.switchModeIcon(Mode.Subtract)
+      addMaterial.emissiveColor = Color3.Red()
+      addMaterial.alphaTexture = resources.images.subtractImage
+      picker.addComponentOrReplace(addMaterial)
+
       break
     case Mode.Subtract:
-      // Manager.activeMode = Mode.EyeDrop
-      Manager.activeMode = Mode.Zrotate
-      hud.switchModeIcon(Mode.Zrotate)
-      
+      Manager.activeMode = Mode.EyeDrop
+      hud.switchModeIcon(Mode.EyeDrop)
+
+      addMaterial.alphaTexture = resources.images.eyeImage
+      addMaterial.emissiveColor = Color3.Yellow()
+      picker.addComponentOrReplace(addMaterial)
       break
     case Mode.EyeDrop:
       Manager.activeMode = Mode.Yrotate
       hud.switchModeIcon(Mode.Yrotate)
+
+      addMaterial.alphaTexture = resources.images.yrotate
+      addMaterial.emissiveColor = Color3.Green()
+      picker.addComponentOrReplace(addMaterial)
       break
     case Mode.Yrotate:
       Manager.activeMode = Mode.Xrotate
       hud.switchModeIcon(Mode.Xrotate)
+
+      addMaterial.alphaTexture = resources.images.xrotate
+      addMaterial.emissiveColor = Color3.Red()
+      picker.addComponentOrReplace(addMaterial)
       break
     case Mode.Xrotate:
       Manager.activeMode = Mode.Zrotate
       hud.switchModeIcon(Mode.Zrotate)
+     // hud.switchModeIcon(Mode.Xrotate)
+      
+      addMaterial.alphaTexture = resources.images.zrotate
+      addMaterial.emissiveColor = Color3.Blue()
+      picker.addComponentOrReplace(addMaterial)
       break
     case Mode.Zrotate:
-      Manager.activeMode = Mode.Yrotate
-      hud.switchModeIcon(Mode.Yrotate)
+      Manager.activeMode = Mode.blockAdd
+      hud.switchModeIcon(Mode.blockAdd)
+
+      addMaterial.alphaTexture = resources.images.addImage
+      addMaterial.emissiveColor = Color3.Green()
+      picker.addComponentOrReplace(addMaterial)
       break
     default:
       break

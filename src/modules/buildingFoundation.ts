@@ -131,7 +131,7 @@ export class BuildingFoundation extends Entity {
         if (element.deleted = true){
 
           const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
-
+         newBlock.setParent(foundationEnt)
           }
 
 

@@ -43,13 +43,13 @@ export const selectorMessageBus = new MessageBus()
 
 // // Base grid
  const baseGrid = new Entity()
-// baseGrid.addComponent(resources.models.colours.colour_1.r6c1)
-// baseGrid.addComponent(
-//     new Transform({
-//     position: new Vector3(7, 0, 7)
-//     //scale: new Vector3(baseGridScale,baseGridScale,baseGridScale)
-//   })
-// )
+baseGrid.addComponent(resources.models.baseGrid)
+baseGrid.addComponent(
+    new Transform({
+    position: new Vector3(0, 0, 0),
+    scale: new Vector3(1,1,1)
+  })
+)
 
 
 //TODO seperate the selector function into a new class and pass the uuid to that new class.
@@ -95,9 +95,9 @@ baseGrid.addComponent(
           transform.rotation.y,
           transform.rotation.z,
           transform.rotation.w,
-          transform.scale.x,
-          transform.scale.y,
-          transform.scale.z,
+          transform.scale.x/2,
+          transform.scale.y/2,
+          transform.scale.z/2,
           ModelManager.modelIndex,
           bodyId,
           faceId,
