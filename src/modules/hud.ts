@@ -6,7 +6,8 @@ import {default as foundation} from "./foundations.json"
 import {default as modelTypes} from "src/modelTypeColour"
 import { BuildingFoundation } from "./buildingFoundation";
 import { blockData, modelData } from './buildingBlock'
-import {picker, addMaterial} from './modelPicker'
+import { changeMaterial} from './modelPicker'
+//import {selectorEntity} from './selector'
 //import { BlockId } from './baseGrid'
 
 
@@ -14,7 +15,7 @@ export let colourIndex: number = 0
 export let bodyId: number = 0
 export let faceId: number = 0
 export let borderId: number = 0
-
+export let uiActiveStatus: boolean = true
 //TODO add COLOUR IDENTIFIER
 
 export class HUD {
@@ -417,12 +418,14 @@ export class HUD {
       this.uiMenuOff.isPointerBlocker = true
       this.uiMenuOff.onClick = new OnPointerDown(()=>{
         // log('off>on')
+        uiActiveStatus = true
         this.uiMenuOn.visible= true
         this.uiMenuOff.visible = false
         this.uiMenuBackgroundRect.visible = true
         this.uiModelMenu.visible = true
         this.uiMessage1.visible = false
         this.uiMessage2.visible = true
+       // selectorEntity.getComponent(GLTFShape).visible = true
       })
 
       this.uiMenuOn = new UIImage(this.uiOnOffRect, resources.images.uiMenuOn)
@@ -436,13 +439,13 @@ export class HUD {
       this.uiMenuOn.visible = false
       this.uiMenuOn.onClick = new OnPointerDown(()=>{
         // log('on>off')
-
+        uiActiveStatus = false
         this.uiMenuOn.visible= false
         this.uiMenuOff.visible = true
         this.uiMenuBackgroundRect.visible = false
         this.uiMessage2.visible = false
         this.uiModelMenu.visible = false
-
+       // selectorEntity.getComponent(GLTFShape).visible = false
       })
 
 
@@ -549,9 +552,10 @@ export class HUD {
       this.uiMessage2.visible = false
       this.uiMessage3.visible = true
       
-      addMaterial.alphaTexture = resources.images.addImage
-      addMaterial.emissiveColor = Color3.Green()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.addImage
+      // addMaterial.emissiveColor = Color3.Green()
+      //picker.addComponentOrReplace(addMaterial)
+      changeMaterial(resources.images.addImage,Color3.Green())
     })
    //TODO HIDE ADDICONS SELECTION AND DISPLAY TEXT TO CLICK ICON
 
@@ -570,10 +574,10 @@ export class HUD {
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
       
-      addMaterial.emissiveColor = Color3.Red()
-      addMaterial.alphaTexture = resources.images.subtractImage
-      picker.addComponent(addMaterial)
-
+      // addMaterial.emissiveColor = Color3.Red()
+      // addMaterial.alphaTexture = resources.images.subtractImage
+     // picker.addComponent(addMaterial)
+     changeMaterial(resources.images.subtractImage,Color3.Red())
     })
 
 
@@ -592,9 +596,10 @@ export class HUD {
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
 
-      addMaterial.alphaTexture = resources.images.eyeImage
-      addMaterial.emissiveColor = Color3.Yellow()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.eyeImage
+      // addMaterial.emissiveColor = Color3.Yellow()
+      //picker.addComponentOrReplace(addMaterial)
+      changeMaterial(resources.images.eyeImage,Color3.Yellow())
     })
 
   
@@ -613,9 +618,11 @@ export class HUD {
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
       
-      addMaterial.alphaTexture = resources.images.yrotate
-      addMaterial.emissiveColor = Color3.Green()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.yrotate
+      // addMaterial.emissiveColor = Color3.Green()
+     // picker.addComponentOrReplace(addMaterial)
+     
+     changeMaterial(resources.images.yrotate,Color3.Green())
 
     })
   
@@ -634,9 +641,11 @@ export class HUD {
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
 
-      addMaterial.alphaTexture = resources.images.xrotate
-      addMaterial.emissiveColor = Color3.Red()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.xrotate
+      // addMaterial.emissiveColor = Color3.Red()
+     // picker.addComponentOrReplace(addMaterial)
+     changeMaterial(resources.images.xrotate,Color3.Red())
+
     })
 
     this.zrotateIcon = new UIImage(this.uiMenuBackgroundRect, resources.icons.zrotate)
@@ -653,9 +662,11 @@ export class HUD {
       this.switchModeIcon(Mode.Zrotate)
       this.uiEditSelector.visible = true
       // this.uiAddHintText.visible = false
-      addMaterial.alphaTexture = resources.images.zrotate
-      addMaterial.emissiveColor = Color3.Blue()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.zrotate
+      // addMaterial.emissiveColor = Color3.Blue()
+     // picker.addComponentOrReplace(addMaterial).
+     changeMaterial(resources.images.zrotate,Color3.Blue())
+
     })
 
     // this.foundationAddIcon = new UIImage(this.container, resources.icons.foundationAdd)

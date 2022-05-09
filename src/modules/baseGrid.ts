@@ -10,10 +10,17 @@ import { BuildingFoundation } from './buildingFoundation'
 import { BuildingBlocks, modelData } from './buildingBlock'
 //import { BlockSelector } from './selector'
 
-// @Component("selectBlockName")
-// export class SelectedBlockName {
-//   selectedBlockName: string
-// }
+@Component("blockComponentData")
+export class BlockComponentData {
+    blockArrayPos: number = 0
+    body_colour_id: number = 0
+    face_colour_id: number = 0
+    border_colour_id: number = 0
+    block_type: number = 0
+
+}
+
+
 
 const MODEL_SIZE = 1
 
@@ -89,10 +96,10 @@ baseGrid.addComponent(
         addBaseModel(
           transform.position.x,
           // MODEL_SIZE / 2 + 0.7 + transform.position.y, // Offset voxel based on grid thickness (0.1m) and height 
-          MODEL_SIZE  / 2 - transform.position.y, // Offset voxel based on grid thickness (0.1m) and height 
+          MODEL_SIZE  / 1 - transform.position.y, // Offset voxel based on grid thickness (0.1m) and height 
           transform.position.z,
           transform.rotation.x,
-          transform.rotation.y,
+          transform.rotation.y+90,
           transform.rotation.z,
           transform.rotation.w,
           transform.scale.x/2,

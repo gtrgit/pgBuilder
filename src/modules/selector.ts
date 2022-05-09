@@ -47,7 +47,7 @@ export const selectorMessageBus = new MessageBus()
 
 // } 
 
-const selectorEntity = new Entity()
+export const selectorEntity = new Entity()
 const selectorShape:GLTFShape = resources_2.models.selector
 
 const transform = new Transform(
@@ -66,10 +66,18 @@ selectorEntity.addComponent(new SelectedBlockUUID())
 engine.addEntity(selectorEntity)  
 //debugger
 
+
+//new transform need to correct new blocks getting larger as the selector = .1 larger than a block but it is used
+// determine the scale. new transform will subtract -.1 from the scale to ensure the blocks do not get larger.
+
+
 selectorEntity.addComponent(   
     new OnPointerDown(
       (e) => {
-        
+        let reducedScale = new Transform({
+          scale: new Vector3(selectorEntity.getComponent(Transform).scale.x-.001,selectorEntity.getComponent(Transform).scale.y-.001,selectorEntity.getComponent(Transform).scale.z-.001)
+        })
+        log(reducedScale.scale)
         log('id check bodyId: '+bodyId+' faceId: '+faceId+ ' borderId: '+borderId)
         if (Manager.activeMode == Mode.blockAdd)   {
   
@@ -79,7 +87,7 @@ selectorEntity.addComponent(
             colourArrayIndex: colourIndex,
             position: selectorEntity.getComponent(Transform).position,//position,
             rotation: selectorEntity.getComponent(Transform).rotation,
-            scale: new Vector3(1,1,1),//selectorEntity.getComponent(Transform).scale,
+            scale: reducedScale.scale,//new Vector3(1,1,1),//selectorEntity.getComponent(Transform).scale,
             normal: e.hit?.normal,//e.hit.normal,
             model: selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID,//thisModel.uuid, r1c2Id
             mode: Manager.activeMode,

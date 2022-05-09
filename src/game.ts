@@ -10,8 +10,9 @@ import { Manager, Mode } from './manager'
 import { ModelManager } from "./modelManager";
 import { ModelIconManager } from "./modelIconManager";
 import resources from "./resources_2";
-import { picker, addMaterial } from './modules/modelPicker'
+import { changeMaterial } from './modules/modelPicker'
 // import { getVoxelJSON } from "./modules/serverHandler";
+import  {loadAnchor } from "./anchorPoint";
 
 // UI Elements
 const canvas = new UICanvas()
@@ -28,12 +29,13 @@ const blockArrayId:number = 0
 // log(tmpJson)
 // log('----')
 
+loadAnchor()
 
 //Initial block
 const deleted: boolean = false
-const x: number = 16
+const x: number = 8
 const y: number = 1
-const z: number = 16
+const z: number = 8
 const rx: number = 0
 const ry: number = 0
 const rz: number = 0
@@ -135,60 +137,70 @@ input.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (): void => {
       Manager.activeMode = Mode.blockAdd
       hud.switchModeIcon(Mode.blockAdd)
 
-      addMaterial.alphaTexture = resources.images.addImage
-      addMaterial.emissiveColor = Color3.Green()
-      picker.addComponentOrReplace(addMaterial)
-
+      // addMaterial.alphaTexture = resources.images.addImage
+      // addMaterial.emissiveColor = Color3.Green()
+      //picker.addComponentOrReplace(addMaterial)
+      changeMaterial(resources.images.addImage,Color3.Green())
 
     case Mode.blockAdd:
       // Manager.activeMode = Mode.Subtract
       Manager.activeMode = Mode.Subtract
       hud.switchModeIcon(Mode.Subtract)
-      addMaterial.emissiveColor = Color3.Red()
-      addMaterial.alphaTexture = resources.images.subtractImage
-      picker.addComponentOrReplace(addMaterial)
-
+      // addMaterial.emissiveColor = Color3.Red()
+      // addMaterial.alphaTexture = resources.images.subtractImage
+      //picker.addComponentOrReplace(addMaterial)
+      changeMaterial(resources.images.subtractImage,Color3.Red())
       break
     case Mode.Subtract:
       Manager.activeMode = Mode.EyeDrop
       hud.switchModeIcon(Mode.EyeDrop)
 
-      addMaterial.alphaTexture = resources.images.eyeImage
-      addMaterial.emissiveColor = Color3.Yellow()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.eyeImage
+      // addMaterial.emissiveColor = Color3.Yellow()
+     // picker.addComponentOrReplace(addMaterial)
+     changeMaterial(resources.images.eyeImage,Color3.Yellow())
+     
       break
     case Mode.EyeDrop:
       Manager.activeMode = Mode.Yrotate
       hud.switchModeIcon(Mode.Yrotate)
 
-      addMaterial.alphaTexture = resources.images.yrotate
-      addMaterial.emissiveColor = Color3.Green()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.yrotate
+      // addMaterial.emissiveColor = Color3.Green()
+     // picker.addComponentOrReplace(addMaterial)
+     changeMaterial(resources.images.yrotate,Color3.Green())
+
       break
     case Mode.Yrotate:
       Manager.activeMode = Mode.Xrotate
       hud.switchModeIcon(Mode.Xrotate)
 
-      addMaterial.alphaTexture = resources.images.xrotate
-      addMaterial.emissiveColor = Color3.Red()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.xrotate
+      // addMaterial.emissiveColor = Color3.Red()
+     // picker.addComponentOrReplace(addMaterial)
+     changeMaterial(resources.images.xrotate,Color3.Red())
+
       break
     case Mode.Xrotate:
       Manager.activeMode = Mode.Zrotate
       hud.switchModeIcon(Mode.Zrotate)
      // hud.switchModeIcon(Mode.Xrotate)
       
-      addMaterial.alphaTexture = resources.images.zrotate
-      addMaterial.emissiveColor = Color3.Blue()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.zrotate
+      // addMaterial.emissiveColor = Color3.Blue()
+     // picker.addComponentOrReplace(addMaterial)
+     changeMaterial(resources.images.zrotate,Color3.Blue())
+
       break
     case Mode.Zrotate:
       Manager.activeMode = Mode.blockAdd
       hud.switchModeIcon(Mode.blockAdd)
 
-      addMaterial.alphaTexture = resources.images.addImage
-      addMaterial.emissiveColor = Color3.Green()
-      picker.addComponentOrReplace(addMaterial)
+      // addMaterial.alphaTexture = resources.images.addImage
+      // addMaterial.emissiveColor = Color3.Green()
+     // picker.addComponentOrReplace(addMaterial)
+     changeMaterial(resources.images.addImage,Color3.Green())
+
       break
     default:
       break
