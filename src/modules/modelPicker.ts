@@ -10,10 +10,11 @@ import { SelectedBlockUUID, selectorUUID } from './selector'
 //import { ModelEnt } from 'src/modelEntity'
 //import { modelArray, ModelManager } from 'src/modelManager'
 import {  AnchorComponent } from '../anchorPoint'
-import { LandUiComponent } from './landUI'
+import { LandUiComponent, LandUI } from './landUI'
 
 
 const MODEL_SIZE = 1
+
 
 // Picker
 export const picker = new Entity()
@@ -74,32 +75,15 @@ let marketId: string
 let buildId: string
 let rentId: string
 let mapId: string
+let rentSelectorId: string 
 let landRentalId: string
-let selected1x1RentId: string
-let selected2x1EastId: string
-let selected2x1NorthId: string
-let selected2x1SouthId: string
-let selected2x1westId: string
-let selected2x2NorthEastId: string
-let selected2x2NorthWestId: string
-let selected2x2SouthEastId: string
-let selected2x2SouthWestId: string
-
-
-
+let mapDCLBgId: string = ''
+let mapAetheriaBgId: string = ''
 let firstPickedID: string
 let prevVoxelId: string
 // System that casts the rays to generate picker
 export class ModelSystem implements ISystem {
   update(dt: number) {
-
-          
-      // if (uiActiveStatus) {
-
-      //   selectorEntity.getComponent(GLTFShape).visible = true
-      //   } else { 
-      //     selectorEntity.getComponent(GLTFShape).visible = false
-      //   }
 
     // Ray from camera
     const rayFromCamera: Ray = PhysicsCast.instance.getRayFromCamera(1000)
@@ -108,712 +92,324 @@ export class ModelSystem implements ISystem {
     PhysicsCast.instance.hitFirst(rayFromCamera, (raycastHitEntity) => {
 
       if (raycastHitEntity.didHit) {
-        
-        
+    
         // Check entity exists i.e. not been deleted
         if (engine.entities[raycastHitEntity.entity.entityId]) {
          
-          log(raycastHitEntity.entity.meshName)
-          //MENU 
-          if (raycastHitEntity.entity.meshName == 'marketBtn_collider') {
-
-            menuSelected = 'market'
-
-            parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-            marketId = engine.entities[parentID].getComponent(LandUiComponent).marketUiId 
-            landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-            
-            engine.entities[marketId].getComponent(GLTFShape).visible = true
-            if (buildId){
-              engine.entities[buildId].getComponent(GLTFShape).visible = false
+          if(mapDCLBgId){
+            //log('this is the dcl btn set as '+mapDCLBgId)
+            if (raycastHitEntity.entity.entityId == mapDCLBgId) {
+              let mapItemUid:string = engine.entities[mapDCLBgId].getParent()!.uuid
+              let menuUid:string = engine.entities[mapItemUid].getParent()!.uuid
+              let pUid:string = engine.entities[menuUid].getParent()!.uuid
+              let parcelUid:string = engine.entities[pUid].getParent()!.uuid
+              let parcelPos = engine.entities[parcelUid].getComponent(Transform).position
+              //log('parecel '+parcelPos)
+              let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+        // why does btnPos have global??
+            //   let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
+  
+               let menuSelectorId = engine.entities[pUid].getComponent(LandUiComponent).menuSelectorID 
+            //debugger
+               engine.entities[menuSelectorId].getComponent(Transform).position = btnPos//aggPos
             }
-            if (rentId){
-              engine.entities[rentId].getComponent(GLTFShape).visible = false
-            }
-            if (mapId){
-              engine.entities[mapId].getComponent(GLTFShape).visible = false
-            }
-            if (landRentalId) {
-              engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-              }
-              ///////////////////
-              if (selected1x1RentId) {
-                engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-               }
-               if (selected2x1NorthId) {
-               engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-               }
-               
-               if (selected2x1EastId) {
-                 engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-               }
-                 
-             if (selected2x1SouthId) {
-               engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-             }
-             if (selected2x2NorthWestId) {
-               engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-             }
-             if (selected2x2NorthEastId) {
-               engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-             }
-             
-             if (selected2x2SouthWestId) {
-               engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-             }
-             if (selected2x2SouthEastId) {
-               engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-             }
+            if(mapAetheriaBgId){
+              //log('this is the dcl btn set as '+mapDCLBgId)
+              if (raycastHitEntity.entity.entityId == mapAetheriaBgId) {
               
+                let mapItemUid:string = engine.entities[mapAetheriaBgId].getParent()!.uuid
+                let menuUid:string = engine.entities[mapItemUid].getParent()!.uuid
+                let pUid:string = engine.entities[menuUid].getParent()!.uuid
+                let parcelUid:string = engine.entities[pUid].getParent()!.uuid
+              //  let parcelPos = engine.entities[parcelUid].getComponent(Transform).position
+                //log('parecel '+parcelPos)
+                let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+          // why does btnPos have global??
+             //    let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
+    
+                 let menuSelectorId = engine.entities[pUid].getComponent(LandUiComponent).menuSelectorID 
+              //debugger
+                 engine.entities[menuSelectorId].getComponent(Transform).position = btnPos//aggPos
+              }
+          }
+        }
+          // if (engine.entities[raycastHitEntity.entity.entityId] == )
+         // log(raycastHitEntity.entity.meshName)
+         //MENU 
+          if (raycastHitEntity.entity.meshName == 'marketBtn_collider') {
+            menuSelected = ''
+            let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+            let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+            let parcelPos = engine.entities[uiUid].getComponent(Transform).position
+            let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+      
+            let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
 
+            let menuSelectorId = engine.entities[uiUid].getComponent(LandUiComponent).menuSelectorID
+
+            let rentContainerID = engine.entities[uiUid].getComponent(LandUiComponent).rentContainerID
+            engine.entities[rentContainerID].getComponent(Transform).scale.setAll(0)
+           
+            let mapUiContainerId = engine.entities[uiUid].getComponent(LandUiComponent).mapUiContainerId
+            engine.entities[mapUiContainerId].getComponent(Transform).scale.setAll(0)
+           
+           
+            engine.entities[menuSelectorId].getComponent(Transform).position = aggPos
+            
           } 
 
+          
           if (raycastHitEntity.entity.meshName == 'buildBtn_collider') {
-            menuSelected = 'build'
+            menuSelected = ''
+              
+            let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+            let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+            let parcelPos = engine.entities[uiUid].getComponent(Transform).position
+          
+            let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+      
+            let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
 
-            parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-            landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-            buildId = engine.entities[parentID].getComponent(LandUiComponent).buildUiId 
-            engine.entities[buildId].getComponent(GLTFShape).visible = true
-            if (marketId){
-              engine.entities[marketId].getComponent(GLTFShape).visible = false
-            }
-            if (rentId){
-              engine.entities[rentId].getComponent(GLTFShape).visible = false
-            }
-            if (mapId){
-              engine.entities[mapId].getComponent(GLTFShape).visible = false
-            }
-            if (landRentalId) {
-              engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-              }
-              //
-              if (selected1x1RentId) {
-                engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-               }
-               if (selected2x1NorthId) {
-               engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-               }
-               
-               if (selected2x1EastId) {
-                 engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-               }
-                 
-             if (selected2x1SouthId) {
-               engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-             }
-             if (selected2x2NorthWestId) {
-               engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-             }
-             if (selected2x2NorthEastId) {
-               engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-             }
-             
-             if (selected2x2SouthWestId) {
-               engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-             }
-             if (selected2x2SouthEastId) {
-               engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-             }
+            let rentContainerID = engine.entities[uiUid].getComponent(LandUiComponent).rentContainerID
+            engine.entities[rentContainerID].getComponent(Transform).scale.setAll(0)
+           
+            let mapUiContainerId = engine.entities[uiUid].getComponent(LandUiComponent).mapUiContainerId
+            engine.entities[mapUiContainerId].getComponent(Transform).scale.setAll(0)
+           
+
+            let menuSelectorId = engine.entities[uiUid].getComponent(LandUiComponent).menuSelectorID 
+            
+            engine.entities[menuSelectorId].getComponent(Transform).position = aggPos
           } 
 
           if (raycastHitEntity.entity.meshName == 'rentBtn_Collider') {
             menuSelected = 'rent'
+           
+            let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+            let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+            let parcelPos = engine.entities[uiUid].getComponent(Transform).position
+            let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+      
+            let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
 
-            parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-            rentId = engine.entities[parentID].getComponent(LandUiComponent).rentUiId 
-            marketId = engine.entities[parentID].getComponent(LandUiComponent).marketUiId
-            buildId = engine.entities[parentID].getComponent(LandUiComponent).buildUiId
-            mapId = engine.entities[parentID].getComponent(LandUiComponent).mapUiId
-
-            engine.entities[rentId].getComponent(GLTFShape).visible = true
-
-            landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-            engine.entities[landRentalId].getComponent(GLTFShape).visible = true
-
-            if (marketId){
-              engine.entities[marketId].getComponent(GLTFShape).visible = false
-            } 
-            if (buildId){
-              engine.entities[buildId].getComponent(GLTFShape).visible = false
-            }
-            if (mapId){
-              engine.entities[mapId].getComponent(GLTFShape).visible = false
-            }
-
+            let menuSelectorId = engine.entities[uiUid].getComponent(LandUiComponent).menuSelectorID 
           
-
+            let rentContainerID = engine.entities[uiUid].getComponent(LandUiComponent).rentContainerID
+            engine.entities[rentContainerID].getComponent(Transform).scale.setAll(1)
+    
+            let mapUiContainerId = engine.entities[uiUid].getComponent(LandUiComponent).mapUiContainerId
+            engine.entities[mapUiContainerId].getComponent(Transform).scale.setAll(0)
+           
+             engine.entities[menuSelectorId].getComponent(Transform).position = aggPos
+       
           } 
 
           if (raycastHitEntity.entity.meshName == 'mapBtn_collider') {
-            menuSelected = 'map'
+            menuSelected = ''
+           
+            let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+            let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+            let parcelPos = engine.entities[uiUid].getComponent(Transform).position
+            let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+      
+            let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
 
-            parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-            mapId = engine.entities[parentID].getComponent(LandUiComponent).mapUiId 
-            landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
+            let menuSelectorId = engine.entities[uiUid].getComponent(LandUiComponent).menuSelectorID 
+          
+            let rentContainerID = engine.entities[uiUid].getComponent(LandUiComponent).rentContainerID
+            engine.entities[rentContainerID].getComponent(Transform).scale.setAll(0)
            
-            engine.entities[mapId].getComponent(GLTFShape).visible = true
-            if (marketId){
-              engine.entities[marketId].getComponent(GLTFShape).visible = false
-            } 
-            if (buildId){
-              engine.entities[buildId].getComponent(GLTFShape).visible = false
-            }
-            if (rentId){
-              engine.entities[rentId].getComponent(GLTFShape).visible = false
-            }
-            if (landRentalId) {
-            engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-            }
-           
-            if (selected1x1RentId) {
-              engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-            }
-            if (selected2x1NorthId) {
-            engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-            }
-            if (selected2x1westId) {
-            engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-            }
-            
-            if (selected2x1EastId) {
-              engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-            }
-              
-            if (selected2x1SouthId) {
-              engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-            }
-            if (selected2x2NorthWestId) {
-              engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-            }
-            if (selected2x2NorthEastId) {
-              engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-            }
-            
-            if (selected2x2SouthWestId) {
-              engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-            }
-            if (selected2x2SouthEastId) {
-              engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-            }
+            let mapUiContainerId = engine.entities[uiUid].getComponent(LandUiComponent).mapUiContainerId
+            engine.entities[mapUiContainerId].getComponent(Transform).scale.setAll(1)
+
+            mapDCLBgId = engine.entities[uiUid].getComponent(LandUiComponent).mapDCLbgID
+            mapAetheriaBgId = engine.entities[uiUid].getComponent(LandUiComponent).mapUIAetheriaId
+
+            engine.entities[menuSelectorId].getComponent(Transform).position = aggPos
+
           } 
 
 
-          //Rental Options
-          if (menuSelected == 'rent') {
+      //Rental Options
+      if (menuSelected == 'rent') {
+        
+                        if (raycastHitEntity.entity.meshName == '1x1_Collider') {
+                        
+                            log('1x1')
+                                  
+                            let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                            let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                            let uiParent:string = engine.entities[uiUid].getParent()!.uuid
+   
+                            let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                            rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+    
 
-                if (raycastHitEntity.entity.meshName == '1x1_Collider.001') {
-                    parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-                    landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-                  
-                    selected1x1RentId = engine.entities[parentID].getComponent(LandUiComponent).selected1x1RentId 
-                    engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = true
-                    if (marketId){
-                      engine.entities[marketId].getComponent(GLTFShape).visible = false
-                    } 
-                    if (buildId){
-                      engine.entities[buildId].getComponent(GLTFShape).visible = false
-                    }
-                    if (rentId){
-                      engine.entities[rentId].getComponent(GLTFShape).visible = false
-                    }
-                    if (selected2x1westId) {
-                      engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
+                            engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+                        // debugger
+                          } 
+
+                      //Rental Options
+                      if (raycastHitEntity.entity.meshName == '2x1_west_Collider') {
+                                  
+                        let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                        let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                        let uiParent:string = engine.entities[uiUid].getParent()!.uuid
+
+                        let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+
+                        engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+                
+                      } 
+                    
+                    //Rental Options
+                    if (raycastHitEntity.entity.meshName == '2x1_north_Collider') {
+                                    
+                        let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                        let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                        let uiParent:string = engine.entities[uiUid].getParent()!.uuid
+                        
+                        let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+
+                        engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
                       }
-                    if (selected2x1NorthId) {
-                      engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-                    } 
-                    
-                    if (selected2x1EastId) {
-                      engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
+
+                      if (raycastHitEntity.entity.meshName == '2x1_east_Collider') {
+
+                        let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                        let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                        let uiParent:string = engine.entities[uiUid].getParent()!.uuid
+
+                        let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+
+                        engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
                     }
-                      
-                if (selected2x1SouthId) {
-                  engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthWestId) {
-                  engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthEastId) {
-                  engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
+
+                  if (raycastHitEntity.entity.meshName == '2x1_south_Collider') { //south
+                    let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                    let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                    let uiParent:string = engine.entities[uiUid].getParent()!.uuid
+
+                    let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                    rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+
+                    engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+                  }
+
+
+                  if (raycastHitEntity.entity.meshName == '2x2_NW_Collider') { //south
+                    let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                    let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                    let uiParent:string = engine.entities[uiUid].getParent()!.uuid
+
+                    let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+
+                        engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
                 }
                 
-                if (selected2x2SouthWestId) {
-                  engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2SouthEastId) {
-                  engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-                }
-                } 
 
-              //Rental Options
-              if (raycastHitEntity.entity.meshName == '2x1_west_Collider') {
-                  
-                  parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-                  landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-                  
-                  selected2x1westId = engine.entities[parentID].getComponent(LandUiComponent).selected2x1westId 
-                  engine.entities[selected2x1westId].getComponent(GLTFShape).visible = true
+                if (raycastHitEntity.entity.meshName == '2x2_NE_Collider') { //south
+                  let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                  let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                  let uiParent:string = engine.entities[uiUid].getParent()!.uuid
 
-                  if (marketId){
-                    engine.entities[marketId].getComponent(GLTFShape).visible = false
-                  } 
-                  if (buildId){
-                    engine.entities[buildId].getComponent(GLTFShape).visible = false
-                  }
-                  if (rentId){
-                    engine.entities[rentId].getComponent(GLTFShape).visible = false
-                  }
-                   if (selected1x1RentId) {
-                   engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-                  }
-                  if (selected2x1NorthId) {
-                  engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-                  }
-                  
-                  if (selected2x1EastId) {
-                    engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-                  }
+                  let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+
+                        engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+                }
+
                     
-                if (selected2x1SouthId) {
-                  engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthWestId) {
-                  engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthEastId) {
-                  engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-                }
-                
-                if (selected2x2SouthWestId) {
-                  engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2SouthEastId) {
-                  engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-                }
-              } 
-            
-            //Rental Options
-            if (raycastHitEntity.entity.meshName == '2x1_north_Collider') {
-                          
-                  parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-                  landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-                  
-                  selected2x1NorthId = engine.entities[parentID].getComponent(LandUiComponent).selected2x1NorthId 
-                  engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = true
-                  if (marketId){
-                    engine.entities[marketId].getComponent(GLTFShape).visible = false
-                  } 
-                  if (buildId){
-                    engine.entities[buildId].getComponent(GLTFShape).visible = false
+                    if (raycastHitEntity.entity.meshName == '2x2_SE_Collider') { //south
+                      let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                      let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                      let uiParent:string = engine.entities[uiUid].getParent()!.uuid
+
+                      let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
+
+                        engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
                   }
-                  if (rentId){
-                    engine.entities[rentId].getComponent(GLTFShape).visible = false
-                  }
-                  // if (landRentalId) {
-                  // engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-                  // }
-                  if (selected1x1RentId) {
-                  engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-                  }
-                  if (selected2x1westId) {
-                  engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-                  }
-                  
-                  if (selected2x1EastId) {
-                    engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-                  }
-                    
-                if (selected2x1SouthId) {
-                  engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthWestId) {
-                  engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthEastId) {
-                  engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-                }
-                
-                if (selected2x2SouthWestId) {
-                  engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2SouthEastId) {
-                  engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-                }
-              }
 
-              if (raycastHitEntity.entity.meshName == '2x1_east_Collider') {
-                          
-                parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-                landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-                
-                selected2x1EastId = engine.entities[parentID].getComponent(LandUiComponent).selected2x1EastId 
-                engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = true
-                if (marketId){
-                  engine.entities[marketId].getComponent(GLTFShape).visible = false
-                } 
-                if (buildId){
-                  engine.entities[buildId].getComponent(GLTFShape).visible = false
-                }
-                if (rentId){
-                  engine.entities[rentId].getComponent(GLTFShape).visible = false
-                }
-                // if (landRentalId) {
-                // engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-                // }
-                if (selected1x1RentId) {
-                engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x1westId) {
-                engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-                }
-                
-                if (selected2x1NorthId) {
-                  engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-                }
-                  
-                if (selected2x1SouthId) {
-                  engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthWestId) {
-                  engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2NorthEastId) {
-                  engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-                }
-                
-                if (selected2x2SouthWestId) {
-                  engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-                }
-                if (selected2x2SouthEastId) {
-                  engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-                }
-            }
+                  if (raycastHitEntity.entity.meshName == '2x2_SW_Collider') { //south
+                    let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+                    let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
+                    let uiParent:string = engine.entities[uiUid].getParent()!.uuid
 
-          if (raycastHitEntity.entity.meshName == '2x1_south_Collider') { //south
-                        
-              parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-              landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-              
-              selected2x1SouthId = engine.entities[parentID].getComponent(LandUiComponent).selected2x1SouthId 
-              engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = true
-              if (marketId){
-                engine.entities[marketId].getComponent(GLTFShape).visible = false
-              } 
-              if (buildId){
-                engine.entities[buildId].getComponent(GLTFShape).visible = false
-              }
-              if (rentId){
-                engine.entities[rentId].getComponent(GLTFShape).visible = false
-              }
-              // if (landRentalId) {
-              // engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-              // }
-              if (selected1x1RentId) {
-              engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-              }
-              if (selected2x1westId) {
-              engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-              }
-              
-              if (selected2x1NorthId) {
-                engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-              }
-                
-              if (selected2x1EastId) {
-                engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-              }
-              
-              if (selected2x2NorthWestId) {
-                engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-              }
-              if (selected2x2NorthEastId) {
-                engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-              }
-              
-              if (selected2x2SouthWestId) {
-                engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-              }
-              if (selected2x2SouthEastId) {
-                engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-              }
+                    let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
-          }
+                        engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+                }
 
 
-          if (raycastHitEntity.entity.meshName == '2x2_Collider') { //south
-                        
-            parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-            landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-            
-            selected2x2NorthWestId = engine.entities[parentID].getComponent(LandUiComponent).selected2x2NorthWestId 
-            engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = true
-            if (marketId){
-              engine.entities[marketId].getComponent(GLTFShape).visible = false
-            } 
-            if (buildId){
-              engine.entities[buildId].getComponent(GLTFShape).visible = false
-            }
-            if (rentId){
-              engine.entities[rentId].getComponent(GLTFShape).visible = false
-            }
-            // if (landRentalId) {
-            // engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-            // }
-            if (selected1x1RentId) {
-            engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-            }
-            if (selected2x1westId) {
-            engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-            }
-            
-            if (selected2x1NorthId) {
-              engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-            }
-              
-            if (selected2x1EastId) {
-              engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-            }
-            
-            if (selected2x1SouthId) {
-              engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-            }
-            
-            if (selected2x2NorthEastId) {
-              engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-            }
-            
-            if (selected2x2SouthWestId) {
-              engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-            }
-            if (selected2x2SouthEastId) {
-              engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-            }
-        }
-        
-
-        if (raycastHitEntity.entity.meshName == '2x2_Collider.002') { //south
-                  
-          parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-          landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-          
-          selected2x2NorthEastId = engine.entities[parentID].getComponent(LandUiComponent).selected2x2NorthEastId 
-          engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = true
-          if (marketId){
-            engine.entities[marketId].getComponent(GLTFShape).visible = false
-          } 
-          if (buildId){
-            engine.entities[buildId].getComponent(GLTFShape).visible = false
-          }
-          if (rentId){
-            engine.entities[rentId].getComponent(GLTFShape).visible = false
-          }
-          // if (landRentalId) {
-          // engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-          // }
-          if (selected1x1RentId) {
-          engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-          }
-          if (selected2x1westId) {
-          engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-          }
-          
-          if (selected2x1NorthId) {
-            engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-          }
-            
-          if (selected2x1EastId) {
-            engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-          }
-          
-          if (selected2x1SouthId) {
-            engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-          }
-          if (selected2x2NorthWestId) {
-            engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-          }
-           
-          if (selected2x2SouthWestId) {
-            engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-          }
-          if (selected2x2SouthEastId) {
-            engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-          }
-      }
-
-      
-      if (raycastHitEntity.entity.meshName == '2x2_Collider.003') { //south
-                  
-        parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-        landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-        
-        selected2x2SouthEastId = engine.entities[parentID].getComponent(LandUiComponent).selected2x2SouthEastId 
-        engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = true
-        if (marketId){
-          engine.entities[marketId].getComponent(GLTFShape).visible = false
-        } 
-        if (buildId){
-          engine.entities[buildId].getComponent(GLTFShape).visible = false
-        }
-        if (rentId){
-          engine.entities[rentId].getComponent(GLTFShape).visible = false
-        }
-        // if (landRentalId) {
-        // engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-        // }
-        if (selected1x1RentId) {
-        engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-        }
-        if (selected2x1westId) {
-        engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-        }
-        
-        if (selected2x1NorthId) {
-          engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-        }
-          
-        if (selected2x1EastId) {
-          engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-        }
-        
-        if (selected2x1SouthId) {
-          engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-        }
-        if (selected2x2NorthWestId) {
-          engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-        }
-        
-        if (selected2x2NorthEastId) {
-          engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-        }
-        
-        if (selected2x2SouthWestId) {
-          engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = false
-        }
-    }
-
-    if (raycastHitEntity.entity.meshName == '2x2_Collider.004') { //south
-                  
-      parentID =  engine.entities[raycastHitEntity.entity.entityId].getParent()?.uuid
-      landRentalId = engine.entities[parentID].getComponent(LandUiComponent).landRentalOptionsId
-      
-      selected2x2SouthWestId = engine.entities[parentID].getComponent(LandUiComponent).selected2x2SouthWestId 
-      engine.entities[selected2x2SouthWestId].getComponent(GLTFShape).visible = true
-      if (marketId){
-        engine.entities[marketId].getComponent(GLTFShape).visible = false
-      } 
-      if (buildId){
-        engine.entities[buildId].getComponent(GLTFShape).visible = false
-      }
-      if (rentId){
-        engine.entities[rentId].getComponent(GLTFShape).visible = false
-      }
-      // if (landRentalId) {
-      // engine.entities[landRentalId].getComponent(GLTFShape).visible = false
-      // }
-      if (selected1x1RentId) {
-      engine.entities[selected1x1RentId].getComponent(GLTFShape).visible = false
-      }
-      if (selected2x1westId) {
-      engine.entities[selected2x1westId].getComponent(GLTFShape).visible = false
-      }
-      
-      if (selected2x1NorthId) {
-        engine.entities[selected2x1NorthId].getComponent(GLTFShape).visible = false
-      }
-        
-      if (selected2x1EastId) {
-        engine.entities[selected2x1EastId].getComponent(GLTFShape).visible = false
-      }
-      
-      if (selected2x1SouthId) {
-        engine.entities[selected2x1SouthId].getComponent(GLTFShape).visible = false
-      }
-      if (selected2x2NorthWestId) {
-        engine.entities[selected2x2NorthWestId].getComponent(GLTFShape).visible = false
-      }
-      
-      if (selected2x2NorthEastId) {
-        engine.entities[selected2x2NorthEastId].getComponent(GLTFShape).visible = false
-      }
-      
-      if (selected2x2SouthEastId) {
-        engine.entities[selected2x2SouthEastId].getComponent(GLTFShape).visible = false
-      }
-  }
+        } //Rent
 
 
-        } //hit
-//TODO on ray hit 16mFloor_collider move the menu to that xy loc
+          //TODO on ray hit 16mFloor_collider move the menu to that xy loc
 
           //if not the base
           
-          if (raycastHitEntity.entity.meshName != '16mFloor_collider') {
-          if (raycastHitEntity.entity.meshName != 'base_collider') {
-            
-                  if (raycastHitEntity.entity.meshName != 'Cube_collider') {
+        if (raycastHitEntity.entity.meshName != '16mFloor_collider') {
 
-                    if (raycastHitEntity.entity.meshName != 'anchor_collider') {
+            if (raycastHitEntity.entity.meshName != 'base_collider') {
+              
+                    if (raycastHitEntity.entity.meshName != 'Cube_collider') {
 
-                      //hide anchorUI
-                      if(engine.entities[childId]) {
-                      //  engine.entities[childPlane].getComponent(PlaneShape).visible = false
-                      // engine.entities[childPlane].getComponent(GLTFShape).visible = false
+                      if (raycastHitEntity.entity.meshName != 'anchor_collider') {
+                            
+                                if (engine.entities[selectorUUID].uuid != raycastHitEntity.entity.entityId){
+                                  
+                                  pickedModelID = raycastHitEntity.entity.entityId
+                                
+                                          if (engine.entities[pickedModelID]){
+                                              // engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
+
+                                              engine.entities[selectorUUID].getComponent(Transform).scale.x = engine.entities[pickedModelID].getComponent(Transform).scale.x+.001
+                                              engine.entities[selectorUUID].getComponent(Transform).scale.y = engine.entities[pickedModelID].getComponent(Transform).scale.y+.001
+                                              engine.entities[selectorUUID].getComponent(Transform).scale.z = engine.entities[pickedModelID].getComponent(Transform).scale.z+.001
+
+                                              engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
+                                          }
+                                }
+ 
                       }
-                    
-
-                    
-                  if (engine.entities[selectorUUID].uuid != raycastHitEntity.entity.entityId){
-                    
-                    pickedModelID = raycastHitEntity.entity.entityId
-                  
-                        if (engine.entities[pickedModelID]){
-                            // engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
-
-                            engine.entities[selectorUUID].getComponent(Transform).scale.x = engine.entities[pickedModelID].getComponent(Transform).scale.x+.001
-                            engine.entities[selectorUUID].getComponent(Transform).scale.y = engine.entities[pickedModelID].getComponent(Transform).scale.y+.001
-                            engine.entities[selectorUUID].getComponent(Transform).scale.z = engine.entities[pickedModelID].getComponent(Transform).scale.z+.001
-
-                            engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
-                        }
                     }
 
-              
-                  
+                  if (engine.entities[pickedModelID]){
+                    engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID = pickedModelID
+          
+                    pickerFace(engine.entities[pickedModelID], raycastHitEntity)  
                   }
-          }
-
-            if (engine.entities[pickedModelID]){
-            engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID = pickedModelID
-  
-              pickerFace(engine.entities[pickedModelID], raycastHitEntity)  
-          }
-      
-          } else {
-            pickerBase(raycastHitEntity)
-          } 
-        }
+        
+            } else {
+              pickerBase(raycastHitEntity)
+            } 
+        } //16mFloor_collider
       }
       } else {
-
-        if (childId) {
-          log('childPlane '+childId)
-          engine.entities[marketId].getComponent(GLTFShape).visible = false
-          engine.entities[buildId].getComponent(GLTFShape).visible = false
-          childId = ''
-        }
-        //Hide Picker
-        picker.getComponent(Transform).scale.setAll(0)
-      }
-      if (prevVoxelId != pickedModelID){
-      }
-    })
+                  if (childId) {
+                    log('childPlane '+childId)
+                    engine.entities[marketId].getComponent(GLTFShape).visible = false
+                    engine.entities[buildId].getComponent(GLTFShape).visible = false
+                    childId = ''
+                  }
+                  //Hide Picker
+                  picker.getComponent(Transform).scale.setAll(0)
+              }
+      
+    }) //phsyics cast
 
     
-  } 
+  } // update dt
 
   
- }
+  
+ } //ModelSystem iSystems
 
 // Adds systems to the engine
 engine.addSystem(new ModelSystem())
@@ -831,9 +427,27 @@ function pickerBase(raycastHitEntity: RaycastHitEntity) {
   picker.getComponent(Transform).rotation = Quaternion.Euler(90, 0, 0)
   let x: number = Math.round(raycastHitEntity.hitPoint.x * 8) / 8
   let z: number = Math.round(raycastHitEntity.hitPoint.z * 8) / 8
+  
   picker.getComponent(Transform).position.set(x, 0.4, z)
   picker.getComponent(Transform).scale.setAll(MODEL_SIZE)
 }
+
+
+// Snaps the picker plane to discrete points on or halfway between the grid lines
+function pickerMenu(entity: IEntity,raycastHitEntity: RaycastHitEntity) {
+  let transform = entity.getComponent(Transform).position.clone()
+
+  //debugger
+
+//log(transform)
+  picker.getComponent(Transform).rotation = Quaternion.Euler(0, 90, 0)
+  let x: number = raycastHitEntity.hitPoint.x  
+  let y: number = raycastHitEntity.hitPoint.y  
+//  log(x +' x y '+y)
+  picker.getComponent(Transform).position.set(x, 1, y)
+  picker.getComponent(Transform).scale.setAll(MODEL_SIZE)
+}
+
 
 function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
   let transform = entity.getComponent(Transform).position.clone() // Clone position of the voxel
@@ -847,6 +461,7 @@ function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
     pickerRotation = Quaternion.Euler(0, 90, 0)
     
     raycastHitEntity.hitNormal.x > 0  
+    
       ? (picker.getComponent(Transform).position.x =
           transform.x + MODEL_SIZE + .1)//1.50) // Offset from voxel center with slight offset
       : (picker.getComponent(Transform).position.x =
@@ -871,5 +486,6 @@ function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
       : (picker.getComponent(Transform).position.z =
           transform.z - MODEL_SIZE - .1)
   }
+  //debugger
   picker.getComponent(Transform).rotation = pickerRotation
 }

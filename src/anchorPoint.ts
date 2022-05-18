@@ -30,6 +30,7 @@ export function loadAnchor(){
         engine.addEntity(ent)
         
          const landUi = new LandUI()
+        log('map uuid '+landUi.getMapDCLId())
         landUi.setParent(ent)
         
         // const anchorUI1 = new Entity()
