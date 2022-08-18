@@ -13,6 +13,8 @@ import resources from "./resources_2";
 import { changeMaterial } from './modules/modelPicker'
 // import { getVoxelJSON } from "./modules/serverHandler";
 import  {loadAnchor } from "./anchorPoint";
+import { loadFloorTiles } from "./floorTile"
+// import { LandUI } from './modules/landUI'
 
 // UI Elements
 const canvas = new UICanvas()
@@ -29,28 +31,30 @@ const blockArrayId:number = 0
 // log(tmpJson)
 // log('----')
 
-loadAnchor()
+//loadAnchor()
+//  const landUi = new LandUI()
+loadFloorTiles() 
 
-//Initial block
-const deleted: boolean = false
-const x: number = 8
-const y: number = 1
-const z: number = 8
-const rx: number = 0
-const ry: number = 0
-const rz: number = 0
-const rw: number = 1
-const sx: number = 1 
-const sy: number = 1
-const sz: number = 1
-const block_id: number = 33
-const colour_id: number = 0
-const block_type: number = 0
-const body_colour_id: number = 0
-const face_colour_id: number = 0
-const highlight_colour_id: number = 0
+// //Initial block
+// const deleted: boolean = false
+// const x: number = 8
+// const y: number = 1
+// const z: number = 8
+// const rx: number = 0
+// const ry: number = 0
+// const rz: number = 0
+// const rw: number = 1
+// const sx: number = 1 
+// const sy: number = 1
+// const sz: number = 1
+// const block_id: number = 33
+// const colour_id: number = 0
+// const block_type: number = 0
+// const body_colour_id: number = 0
+// const face_colour_id: number = 0
+// const highlight_colour_id: number = 0
 
-const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type)
+// const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,highlight_colour_id,block_type)
 
 
 // export let selectorUUID = blkSel.uuid
@@ -132,15 +136,15 @@ input.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (): void => {
   log('E Key Pressed')
   switch (Manager.activeMode) {
     
-    case Mode.foundationAdd:
-      // Manager.activeMode = Mode.blockAdd
-      Manager.activeMode = Mode.blockAdd
-      hud.switchModeIcon(Mode.blockAdd)
+    // case Mode.foundationAdd:
+    //   // Manager.activeMode = Mode.blockAdd
+    //   Manager.activeMode = Mode.blockAdd
+    //   hud.switchModeIcon(Mode.blockAdd)
 
-      // addMaterial.alphaTexture = resources.images.addImage
-      // addMaterial.emissiveColor = Color3.Green()
-      //picker.addComponentOrReplace(addMaterial)
-      changeMaterial(resources.images.addImage,Color3.Green())
+    //   // addMaterial.alphaTexture = resources.images.addImage
+    //   // addMaterial.emissiveColor = Color3.Green()
+    //   //picker.addComponentOrReplace(addMaterial)
+    //   changeMaterial(resources.images.addImage,Color3.Green())
 
     case Mode.blockAdd:
       // Manager.activeMode = Mode.Subtract

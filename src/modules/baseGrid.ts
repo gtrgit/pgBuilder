@@ -8,80 +8,67 @@ import { colourIndex, bodyId, faceId, borderId } from './hud'
 //import { BlockData } from './oldblockData'
 import { BuildingFoundation } from './buildingFoundation'
 import { BuildingBlocks, modelData } from './buildingBlock'
+import { LandUI } from './../modules/landUI'
+
 //import { BlockSelector } from './selector'
 
-@Component("blockComponentData")
-export class BlockComponentData {
-    blockArrayPos: number = 0
-    body_colour_id: number = 0
-    face_colour_id: number = 0
-    border_colour_id: number = 0
-    block_type: number = 0
+// @Component("blockComponentData")
+// export class BlockComponentData {
+//     blockArrayPos: number = 0
+//     body_colour_id: number = 0
+//     face_colour_id: number = 0
+//     border_colour_id: number = 0
+//     block_type: number = 0
 
-}
+// }
+
+ const landUi = new LandUI()
+ export const landUIID:string = landUi.uuid
+ 
 
 
+
+// //TODO Make baseGridUUID component
+// @Component("baseGridData")
+// export class BaseGridData {
+//     baseGridUUID: string = ''
+// }
 
 const MODEL_SIZE = 1
 
 export const selectorMessageBus = new MessageBus()
 
-                      
-//const blkSel = new BlockSelector()
-
-
-
-// const newEntity:Entity = new Entity()
-// const selectorShape:GLTFShape = resources.models.selector
-
-// const transform = new Transform(
-//     {
-//         position: new Vector3(2,2,2)
-
-//     }
-// )
-// newEntity.addComponent(selectorShape)
-// newEntity.addComponent(transform)
-
-// engine.addEntity(newEntity)
-
-
-// let baseGridScale = 1 / 32
+                
 
 // // Base grid
- const baseGrid = new Entity()
+export const baseGrid = new Entity()
 baseGrid.addComponent(resources.models.baseGrid)
 baseGrid.addComponent(
     new Transform({
-    position: new Vector3(0, 0, 0),
+    position: new Vector3(16, 0, 16),
     scale: new Vector3(1,1,1)
   })
 )
 
+log('new bg id '+baseGrid.uuid)
 
-//TODO seperate the selector function into a new class and pass the uuid to that new class.
 
 function addBaseModel(x: number, y: number, z: number, 
                       rx: number,ry:number,rz:number,rw:number,
                       sx:number,sy:number,sz:number,
-                      block_id:number,body_colour_id:number,face_colour_id:number,border_colour_id:number,block_type: number) {
+                      block_id:number,body_colour_id:number,face_colour_id:number,border_colour_id:number,block_type: number,parentId:string) {
+             
+                      Manager.playAddModelSound()
 
-
-                      
-                        Manager.playAddModelSound()
-
-  let modelId = ModelManager.modelIndex
+  //let modelId = ModelManager.modelIndex
 
   let modelArrayId:number = modelData.length
   let deleted:boolean = false
 
-  const model = new BuildingBlocks(modelArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
-  
-  
-  //engine.addEntity(model)
- 
- // models.push(model)
- 
+
+  const block = new BuildingBlocks(modelArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type,parentId)
+  //block.getComponent(BaseGridData).baseGridUUID = baseGrid.getComponent(BaseGridData).baseGridUUID
+  block.setParent(baseGrid)
 }
             
 
@@ -102,15 +89,15 @@ baseGrid.addComponent(
           transform.rotation.y+90,
           transform.rotation.z,
           transform.rotation.w,
-          transform.scale.x/2,
-          transform.scale.y/2,
-          transform.scale.z/2,
+          transform.scale.x,
+          transform.scale.y,
+          transform.scale.z,
           ModelManager.modelIndex,
           bodyId,
           faceId,
           borderId,
-          0
-
+          0,
+          baseGrid.uuid
         ) 
       }
     },
@@ -121,6 +108,12 @@ baseGrid.addComponent(
   )
 )
 
+//TODO add component baseGridUUID
+//   // get uuid
+//  baseGrid.addComponent(new BaseGridData())
+//  baseGrid.getComponent(BaseGridData).baseGridUUID = baseGrid.uuid
+
+ log('baseGrid '+baseGrid.uuid)
  engine.addEntity(baseGrid)
 
 

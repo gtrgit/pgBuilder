@@ -2,7 +2,7 @@ import { colourArray } from "../colourSetArray"
 import {default as modelTypes} from "src/modelTypeColour.json"
 import * as utils from '@dcl/ecs-scene-utils'
 import { BuildingBlocks, blockData, modelData } from "./buildingBlock"
-
+import { baseGrid  } from "../modules/baseGrid"
 //will be used to save and output data in json format
 //export const ModelData = []
 
@@ -68,7 +68,7 @@ export class BuildingFoundation extends Entity {
       
       //log(modelTypes.models[block_id].modelTypes[block_type].colour[0].modelColour)
       //Create 3d object
-      const foundationEnt = new Entity()
+      //const foundationEnt = new Entity()
       //const foundationShape = new GLTFShape(modelTypes.models[block_id].modelTypes[block_type].colour[0].modelColour) //colourArray[colour_id][block_id]
       const newBlock = new Transform({
         position: new Vector3(posX,posY,posZ),
@@ -78,10 +78,11 @@ export class BuildingFoundation extends Entity {
 
       //foundationEnt.addComponent(foundationShape)
       //this.addComponent(foundationShape)
-      foundationEnt.addComponent(newBlock)
+      this.addComponent(newBlock)
 
-      
-      engine.addEntity(foundationEnt)
+    
+      engine.addEntity(this)
+
 
       this.addComponent(
         new OnPointerDown(
@@ -121,8 +122,9 @@ export class BuildingFoundation extends Entity {
          let face_colour_id = element.face_colour_id
          let border_colour_id = element.border_colour_id
          let block_type = element.block_type
-
-         const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
+         let parentId = baseGrid.uuid//element.parentId
+//log('foundation parent '+parentId)
+         const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type,parentId}
        
        
           modelData.push(md)
@@ -130,8 +132,8 @@ export class BuildingFoundation extends Entity {
         // Dont add deleted blocks// todo write why = true
         if (element.deleted = true){
 
-          const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
-          newBlock.setParent(foundationEnt)
+          const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type,parentId)
+          newBlock.setParent(baseGrid)
           }
 
 

@@ -1,10 +1,9 @@
 import { colourArray } from "../colourSetArray"
 import {default as modelTypes} from "src/modelTypeColour.json"
 import * as utils from '@dcl/ecs-scene-utils'
-import { Manager, Mode } from "src/manager"
-import { ModelManager } from "src/modelManager"
-import { test } from "../../models/seperated_blocks/test"
-import { default as models } from "src/modelPath"
+import { Manager, Mode } from "src/manager"// import { ModelManager } from "src/modelManager"
+// import { test } from "../../models/seperated_blocks/test"
+// import { default as models } from "src/modelPath"
 
 //will be used to save and output data in json format
 export const modelData:blockData[] = []
@@ -19,8 +18,9 @@ export class BlockComponentData {
     face_colour_id: number = 0
     border_colour_id: number = 0
     block_type: number = 0
-
+    parentId: string = ''
 }
+
 
 
 //new type to be stored in ModelData array
@@ -42,6 +42,7 @@ export type blockData = {
   face_colour_id: number
   border_colour_id: number
   block_type: number
+  parentId: string
 }
 
 export type planeData = {
@@ -91,8 +92,8 @@ export class BuildingBlocks extends Entity {
       body_colour_id: number,
       face_colour_id: number,
       border_colour_id: number,
-      block_type: number
-      
+      block_type: number,
+      parentId: string
     )
     {
       super()
@@ -102,13 +103,18 @@ export class BuildingBlocks extends Entity {
        
             
             //add component
-            this.addComponent(new BlockComponentData())
+             this.addComponent(new BlockComponentData())
 
             this.getComponent(BlockComponentData).blockArrayPos = blockArrayId
             this.getComponent(BlockComponentData).body_colour_id = body_colour_id
             this.getComponent(BlockComponentData).face_colour_id = face_colour_id
             this.getComponent(BlockComponentData).block_type = block_type
+            this.getComponent(BlockComponentData).parentId = parentId
             
+            // if(this.getComponent(BlockComponentData).parentId) {
+            //   log('parent id '+this.uuid)
+            // this.getComponent(BlockComponentData).parentId = this.uuid
+            // }
         //log('../../models/seperated_blocks/'+modelTypes.models[blockArrayId].modelTypes[block_type].colour[colour_id].modelColour+'.gltf')
         const modelPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[body_colour_id].modelColour
            
@@ -122,8 +128,13 @@ export class BuildingBlocks extends Entity {
                 rotation: new Quaternion(rotX,rotY,rotZ,rotW),
                 scale: new Vector3(scaleX,scaleY,scaleZ)
                 })
+                
+            let foundationVector3:Vector3 = engine.entities[parentId].getComponent(Transform).position
+            
+            //let aggTransform =  Vector3.Add(foundationVector3,blockTransform.position) 
+           //debugger
+            this.addComponent(blockTransform) //blockTransform
             this.addComponent(blockShape)
-            this.addComponent(blockTransform)
 
             // // collider
             // const colliderPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[body_colour_id].collider
@@ -150,9 +161,10 @@ export class BuildingBlocks extends Entity {
             if (modelTypes.models[block_id].modelTypes[block_type].colour[border_colour_id].highlightColour){
              const highLightPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[border_colour_id].highlightColour
              log(border_colour_id)
+            //  scale: new Vector3(.99,.99,.99)
            
              const borderTransform = new Transform({
-              scale: new Vector3(.99,.99,.99)
+              scale: new Vector3(.95,.95,.95)
               })
 
               const highLightEnt = new Entity()
@@ -165,6 +177,7 @@ export class BuildingBlocks extends Entity {
               
             }
 
+         
 
       }
       
@@ -172,7 +185,7 @@ export class BuildingBlocks extends Entity {
       this.addComponent(
         new OnPointerDown(
           (e) => {
-            
+       
             if (blockArrayId){
              
             } else { log('no blockArrayId')}
@@ -198,9 +211,9 @@ export class BuildingBlocks extends Entity {
       log('subtract function '+blockArrayId)
     }
 
-      // Edit a voxel depending on what mode the user is in
+      //DOES NOT GET USED it caused errors now class is called directly below
       editModel(blockArrayId:number,deleted:boolean, block_id: number, body_colour_id: number,face_colour_id: number,border_colour_id:number,x: number, y: number, z: number,rx: number,
-        ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode,block_type: number) 
+        ry: number,rz: number,rw: number,sx: number,sy: number,sz: number, mode: Mode,block_type: number, parentId: string) 
         {
           
           log('editModel')
@@ -214,10 +227,11 @@ export class BuildingBlocks extends Entity {
                 Manager.playAddModelSound()
                
                 
-                const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw
-                  ,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
-                  
-                //modelData.push(newBlock)
+                // const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw
+                //   ,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type,parentId)
+                //   log('parent id '+parentId)
+                // newBlock.setParent(engine.entities[parentId])
+                // //modelData.push(newBlock)
 
                 // engine.entities[newBlock.uuid].getComponent(BlockId).blockId = modelArrayIndex
                 // engine.entities[newBlock.uuid].block_id = modelArrayIndex
@@ -273,7 +287,7 @@ sceneMessageBus.on('editModel', (e) => {
   let border_colour_id = e.border_colour_id
   let block_type = e.block_type
 let blockArrayId: number
-
+let parentId = e.parentId
 
    blockArrayId = modelData.length
 
@@ -286,16 +300,22 @@ let blockArrayId: number
     
     
     const newBlock = new BuildingBlocks(blockArrayId,deleted,x,y,z,rx,ry,rz,rw
-      ,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type)
-      
+      ,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type,parentId)
+      log('parent id '+e.parentId)
+    newBlock.setParent(engine.entities[parentId])
+    
+    
+    //TODO fix the only 2 blocks get added... the parent does not change
+    //need vector3.add ???
+     // newBlock.setParent(baseGrid)
   // engine.entities[e.model].editModel(blockArrayId,deleted,block_id,body_colour_id,face_colour_id,border_colour_id,x, y, z,rx,ry,rx,rw,sx,sy,sz,e.mode,block_type)
   //debugger
    }
   
-   const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type}
-   log(md.x+' y'+md.y)
-  
+   const md:blockData = {blockArrayId,deleted,x,y,z,rx,ry,rz,rw,sx,sy,sz,block_id,body_colour_id,face_colour_id,border_colour_id,block_type,parentId}
+   log(md)
+   
     modelData.push(md)
-
+    //debugger
 }
 )

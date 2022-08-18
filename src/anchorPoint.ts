@@ -21,7 +21,7 @@ export function loadAnchor(){
         const anchorPointModel = resources.models.anchorPoint
         const anchorTransform = new Transform(
             {
-                position: new Vector3(x,.4,y),
+                position: new Vector3(x,.3,y),
                 scale: new Vector3(1,1,1)
             }
         )
@@ -30,7 +30,7 @@ export function loadAnchor(){
         engine.addEntity(ent)
         
          const landUi = new LandUI()
-        log('map uuid '+landUi.getMapDCLId())
+        //log('map uuid '+landUi.getMapDCLId())
         landUi.setParent(ent)
         
         // const anchorUI1 = new Entity()
@@ -105,8 +105,8 @@ export function loadAnchor(){
         
     }
 
-    genAnchor(32,32)
-    genAnchor(16,16)
+    //genAnchor(32,32)
+    genAnchor(32,16)
    
     
 }

@@ -7,6 +7,7 @@ import {default as modelTypes} from "src/modelTypeColour"
 import { BuildingFoundation } from "./buildingFoundation";
 import { blockData, modelData } from './buildingBlock'
 import { changeMaterial} from './modelPicker'
+import { baseGrid  } from "../modules/baseGrid"
 //import {selectorEntity} from './selector'
 //import { BlockId } from './baseGrid'
 
@@ -425,6 +426,7 @@ export class HUD {
         this.uiModelMenu.visible = true
         this.uiMessage1.visible = false
         this.uiMessage2.visible = true
+       
        // selectorEntity.getComponent(GLTFShape).visible = true
       })
 
@@ -445,6 +447,7 @@ export class HUD {
         this.uiMenuBackgroundRect.visible = false
         this.uiMessage2.visible = false
         this.uiModelMenu.visible = false
+        baseGrid.getComponent(Transform).scale.setAll(.1)
        // selectorEntity.getComponent(GLTFShape).visible = false
       })
 

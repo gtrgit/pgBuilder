@@ -16,14 +16,14 @@ import { Audio } from './modules/audio'
 
 // Mode
 export enum Mode {
-  foundationAdd = 0,
-  blockAdd = 1,
-  Subtract = 2,
-  EyeDrop = 3,
-  Yrotate = 4,
-  Xrotate = 5,
-  Zrotate = 6,
-  Off = 7
+
+  blockAdd = 0,
+  Subtract = 1,
+  EyeDrop = 2,
+  Yrotate = 3,
+  Xrotate = 4,
+  Zrotate = 5,
+  Off = 6
 }
 
 //Colour Arrays
@@ -38,7 +38,7 @@ const eyeDropModelSound = new Audio(resources.sounds.eyeDrop)
 export class Manager {
 
   public static colorIndex: number = 0
-  public static activeMode = Mode.foundationAdd
+  public static activeMode = Mode.blockAdd
 
   // Sound
   public static playAddModelSound(): void {

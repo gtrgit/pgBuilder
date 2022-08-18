@@ -10,8 +10,8 @@ import { SelectedBlockUUID, selectorUUID } from './selector'
 //import { ModelEnt } from 'src/modelEntity'
 //import { modelArray, ModelManager } from 'src/modelManager'
 import {  AnchorComponent } from '../anchorPoint'
-import { LandUiComponent, LandUI } from './landUI'
-
+  import { LandUiComponent } from './landUI'
+import {baseGrid, landUIID } from './baseGrid'
 
 const MODEL_SIZE = 1
 
@@ -55,6 +55,8 @@ picker.addComponent(addMaterial)
 
 picker.getComponent(PlaneShape).withCollisions = false
 picker.getComponent(Transform).scale.setAll(0)
+
+picker.setParent(baseGrid)
 engine.addEntity(picker)
 
 
@@ -81,8 +83,13 @@ let mapDCLBgId: string = ''
 let mapAetheriaBgId: string = ''
 let firstPickedID: string
 let prevVoxelId: string
+let parcel1x1Id: string = ''
+let parcel2x1Id: string = ''
+let parcel2x2Id: string = ''
+
 // System that casts the rays to generate picker
 export class ModelSystem implements ISystem {
+
   update(dt: number) {
 
     // Ray from camera
@@ -95,46 +102,44 @@ export class ModelSystem implements ISystem {
     
         // Check entity exists i.e. not been deleted
         if (engine.entities[raycastHitEntity.entity.entityId]) {
+        
+          // log('meshname '+raycastHitEntity.entity.meshName)
+    if (raycastHitEntity.entity.meshName != 'blankFloor_collider') { 
+         
+         if(raycastHitEntity.entity.meshName =='mapBtn_collider') {
          
           if(mapDCLBgId){
-            //log('this is the dcl btn set as '+mapDCLBgId)
+
             if (raycastHitEntity.entity.entityId == mapDCLBgId) {
               let mapItemUid:string = engine.entities[mapDCLBgId].getParent()!.uuid
               let menuUid:string = engine.entities[mapItemUid].getParent()!.uuid
               let pUid:string = engine.entities[menuUid].getParent()!.uuid
               let parcelUid:string = engine.entities[pUid].getParent()!.uuid
               let parcelPos = engine.entities[parcelUid].getComponent(Transform).position
-              //log('parecel '+parcelPos)
               let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
-        // why does btnPos have global??
-            //   let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
-  
+
                let menuSelectorId = engine.entities[pUid].getComponent(LandUiComponent).menuSelectorID 
-            //debugger
+         
                engine.entities[menuSelectorId].getComponent(Transform).position = btnPos//aggPos
             }
+          }
+            
             if(mapAetheriaBgId){
-              //log('this is the dcl btn set as '+mapDCLBgId)
               if (raycastHitEntity.entity.entityId == mapAetheriaBgId) {
               
                 let mapItemUid:string = engine.entities[mapAetheriaBgId].getParent()!.uuid
                 let menuUid:string = engine.entities[mapItemUid].getParent()!.uuid
                 let pUid:string = engine.entities[menuUid].getParent()!.uuid
                 let parcelUid:string = engine.entities[pUid].getParent()!.uuid
-              //  let parcelPos = engine.entities[parcelUid].getComponent(Transform).position
-                //log('parecel '+parcelPos)
                 let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
-          // why does btnPos have global??
-             //    let aggPos:Vector3 = Vector3.Add(parcelPos,btnPos)
-    
+
                  let menuSelectorId = engine.entities[pUid].getComponent(LandUiComponent).menuSelectorID 
-              //debugger
+             
                  engine.entities[menuSelectorId].getComponent(Transform).position = btnPos//aggPos
               }
           }
         }
-          // if (engine.entities[raycastHitEntity.entity.entityId] == )
-         // log(raycastHitEntity.entity.meshName)
+
          //MENU 
           if (raycastHitEntity.entity.meshName == 'marketBtn_collider') {
             menuSelected = ''
@@ -236,22 +241,36 @@ export class ModelSystem implements ISystem {
                         if (raycastHitEntity.entity.meshName == '1x1_Collider') {
                         
                             log('1x1')
-                                  
+                            
                             let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
                             let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
                             let uiParent:string = engine.entities[uiUid].getParent()!.uuid
-   
+                            log('menu pos'+engine.entities[uiParent].getComponent(Transform).position)
+
                             let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                             rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
-    
+                            
+                            //set 1x1 = 1
+                            parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                            engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(1)
+                            //set 2x1 = 0
+                            parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                            engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(0)
+                            //set 2x2 = 0
+                            parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                            engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
 
                             engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
                         // debugger
+
+                          // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                          // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                         
                           } 
 
                       //Rental Options
                       if (raycastHitEntity.entity.meshName == '2x1_west_Collider') {
-                                  
+                     
                         let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
                         let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
                         let uiParent:string = engine.entities[uiUid].getParent()!.uuid
@@ -259,8 +278,23 @@ export class ModelSystem implements ISystem {
                         let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                         let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                        //set 1x1 = 1
+                        parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                        engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x1 = 0
+                        parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                        engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(1)
+                        //set 2x2 = 0
+                        parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+
+
+
                         engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
-                
+
+                        // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                        // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                       
                       } 
                     
                     //Rental Options
@@ -273,7 +307,21 @@ export class ModelSystem implements ISystem {
                         let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                         rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                        //set 1x1 = 1
+                        parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                        engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x1 = 0
+                        parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                        engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(1)
+                        //set 2x2 = 0
+                        parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+
                         engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+
+                        // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                        // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                       
                       }
 
                       if (raycastHitEntity.entity.meshName == '2x1_east_Collider') {
@@ -285,7 +333,21 @@ export class ModelSystem implements ISystem {
                         let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                         rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                         //set 1x1 = 1
+                         parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                         engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                         //set 2x1 = 0
+                         parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                         engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(1)
+                         //set 2x2 = 0
+                         parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                         engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+ 
                         engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+
+                        // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                        // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                        // log('2x1  pos'+engine.entities[uiParent].getComponent(Transform).position)
                     }
 
                   if (raycastHitEntity.entity.meshName == '2x1_south_Collider') { //south
@@ -296,7 +358,22 @@ export class ModelSystem implements ISystem {
                     let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                     rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                     //set 1x1 = 1
+                     parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                     engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                     //set 2x1 = 0
+                     parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                     engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(1)
+                     //set 2x2 = 0
+                     parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                     engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+
+
                     engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+
+                    // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                    // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                   
                   }
 
 
@@ -308,7 +385,24 @@ export class ModelSystem implements ISystem {
                     let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                         rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                        //set 1x1 = 1
+                        parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                        engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x1 = 0
+                        parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                        engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x2 = 0
+                        parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+
+                        engine.entities[parcel2x2Id].getComponent(Transform).rotation = Quaternion.Euler(0,90,0)
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(1)
+
                         engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+
+                        // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                        // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                       
                 }
                 
 
@@ -317,10 +411,26 @@ export class ModelSystem implements ISystem {
                   let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
                   let uiParent:string = engine.entities[uiUid].getParent()!.uuid
 
-                  let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+                        let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                         let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                        //set 1x1 = 1
+                        parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                        engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x1 = 0
+                        parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                        engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x2 = 0
+                        parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+                        engine.entities[parcel2x2Id].getComponent(Transform).rotation = Quaternion.Euler(0,0,0)
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(1)
+
                         engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+
+                        // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                        // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                       
                 }
 
                     
@@ -332,7 +442,23 @@ export class ModelSystem implements ISystem {
                       let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                         let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                        //set 1x1 = 1
+                        parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                        engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x1 = 0
+                        parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                        engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x2 = 0
+                        parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+                        engine.entities[parcel2x2Id].getComponent(Transform).rotation = Quaternion.Euler(0,180,0)
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(1)
+
                         engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+
+                        // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                        // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                       
                   }
 
                   if (raycastHitEntity.entity.meshName == '2x2_SW_Collider') { //south
@@ -343,57 +469,114 @@ export class ModelSystem implements ISystem {
                     let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                         let rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
 
+                        //set 1x1 = 1
+                        parcel1x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel1x1Id
+                        engine.entities[parcel1x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x1 = 0
+                        parcel2x1Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x1Id
+                        engine.entities[parcel2x1Id].getComponent(Transform).scale.setAll(0)
+                        //set 2x2 = 0
+                        parcel2x2Id = engine.entities[uiParent].getComponent(LandUiComponent).parcel2x2Id
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(0)
+                        engine.entities[parcel2x2Id].getComponent(Transform).rotation = Quaternion.Euler(0,270,0)
+                        engine.entities[parcel2x2Id].getComponent(Transform).scale.setAll(1)
+
                         engine.entities[rentSelectorId].getComponent(Transform).position = btnPos
+
+                        // let paId = engine.entities[uiParent].getComponent(LandUiComponent).parcelAnimationId
+                        // engine.entities[paId].getComponent(Transform).position= engine.entities[uiParent].getComponent(Transform).position
+                       
                 }
 
 
         } //Rent
-
-
+      }
+      
           //TODO on ray hit 16mFloor_collider move the menu to that xy loc
 
           //if not the base
+          if (raycastHitEntity.entity.meshName == 'blankFloor_collider') { 
+            log('land ui uuid '+landUIID)
+            
+            let floorEnt: string= raycastHitEntity.entity.entityId
+            
+            // landUi.getComponent(Transform).position = engine.entities[floorEnt].getComponent(Transform).position
+            if (engine.entities[landUIID]) {
+             //let landUiModelId = engine.entities[landUIID].getComponent(LandUiComponent).landMenuId
+            engine.entities[landUIID].getComponent(Transform).position = engine.entities[floorEnt].getComponent(Transform).position
+            
+log('land pos '+ engine.entities[landUIID].getComponent(Transform).position )
+          }
           
-        if (raycastHitEntity.entity.meshName != '16mFloor_collider') {
+          }
+          
+
+
+       
 
             if (raycastHitEntity.entity.meshName != 'base_collider') {
-              
-                    if (raycastHitEntity.entity.meshName != 'Cube_collider') {
 
+             
+              //let parentPos = engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
+              log('base_collider')
+             
+                     
+
+                      if (raycastHitEntity.entity.meshName != 'Cube_collider') {
+                        log('Cube_collider')
                       if (raycastHitEntity.entity.meshName != 'anchor_collider') {
-                            
+                            log('anchor_collider')
                                 if (engine.entities[selectorUUID].uuid != raycastHitEntity.entity.entityId){
                                   
-                                  pickedModelID = raycastHitEntity.entity.entityId
-                                
-                                          if (engine.entities[pickedModelID]){
-                                              // engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
+                                 
+                                  if (raycastHitEntity.entity.meshName != 'blankFloor_collider') {
 
-                                              engine.entities[selectorUUID].getComponent(Transform).scale.x = engine.entities[pickedModelID].getComponent(Transform).scale.x+.001
-                                              engine.entities[selectorUUID].getComponent(Transform).scale.y = engine.entities[pickedModelID].getComponent(Transform).scale.y+.001
-                                              engine.entities[selectorUUID].getComponent(Transform).scale.z = engine.entities[pickedModelID].getComponent(Transform).scale.z+.001
+                                  pickedModelID = raycastHitEntity.entity.entityId
+
+                                  
+                                            if (engine.entities[pickedModelID]){
+                                              // log(engine.entities[pickedModelID].getComponent(Entity).name)
+                                              engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
+                                              // engine.entities[selectorUUID].getComponent(Transform).scale.x = engine.entities[pickedModelID].getComponent(Transform).scale.x+.001
+                                              // engine.entities[selectorUUID].getComponent(Transform).scale.y = engine.entities[pickedModelID].getComponent(Transform).scale.y+.001
+                                              // engine.entities[selectorUUID].getComponent(Transform).scale.z = engine.entities[pickedModelID].getComponent(Transform).scale.z+.001
+
+                                              // engine.entities[selectorUUID].getComponent(Transform).scale.x = engine.entities[pickedModelID].getComponent(Transform).scale.x
+                                              // engine.entities[selectorUUID].getComponent(Transform).scale.y = engine.entities[pickedModelID].getComponent(Transform).scale.y
+                                              // engine.entities[selectorUUID].getComponent(Transform).scale.z = engine.entities[pickedModelID].getComponent(Transform).scale.z
 
                                               engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
+                                            }
                                           }
+                                  }
                                 }
- 
-                      }
-                    }
+                              }
 
-                  if (engine.entities[pickedModelID]){
-                    engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID = pickedModelID
-          
-                    pickerFace(engine.entities[pickedModelID], raycastHitEntity)  
-                  }
+                                          if (engine.entities[pickedModelID]){
+                    
+                                            log('pickedModelID '+ pickedModelID+'   '+raycastHitEntity.entity.meshName)
+                                            engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID = pickedModelID
+                                
+                                           pickerFace(engine.entities[pickedModelID], raycastHitEntity)  
+                                          }
+
+                          
+                    
         
             } else {
-              pickerBase(raycastHitEntity)
+              log('pickerBase')
+             pickerBase(raycastHitEntity)
+
+             
+
             } 
-        } //16mFloor_collider
+         //16mFloor_collider
+
+        
       }
       } else {
                   if (childId) {
-                    log('childPlane '+childId)
+                    //log('childPlane '+childId)
                     engine.entities[marketId].getComponent(GLTFShape).visible = false
                     engine.entities[buildId].getComponent(GLTFShape).visible = false
                     childId = ''
@@ -425,11 +608,21 @@ engine.addEntity(fixedRayEntity)
 // Snaps the picker plane to discrete points on or halfway between the grid lines
 function pickerBase(raycastHitEntity: RaycastHitEntity) {
   picker.getComponent(Transform).rotation = Quaternion.Euler(90, 0, 0)
-  let x: number = Math.round(raycastHitEntity.hitPoint.x * 8) / 8
-  let z: number = Math.round(raycastHitEntity.hitPoint.z * 8) / 8
+
+  let basePos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
+
+  let x: number = Math.round(raycastHitEntity.hitPoint.x * 8) / 8 - basePos.x
+  let z: number = Math.round(raycastHitEntity.hitPoint.z * 8) / 8 - basePos.z
   
-  picker.getComponent(Transform).position.set(x, 0.4, z)
-  picker.getComponent(Transform).scale.setAll(MODEL_SIZE)
+  // // let x: number = Math.round(raycastHitEntity.hitPoint.x * 300) / 300
+  // // let z: number = Math.round(raycastHitEntity.hitPoint.z * 300) / 300
+
+  
+  // let x: number = raycastHitEntity.hitPoint.x
+  // let z: number = raycastHitEntity.hitPoint.z
+
+  picker.getComponent(Transform).position.set(x, 0.4, z)  ///.4
+  picker.getComponent(Transform).scale.setAll(MODEL_SIZE) //.0466
 }
 
 
@@ -437,13 +630,10 @@ function pickerBase(raycastHitEntity: RaycastHitEntity) {
 function pickerMenu(entity: IEntity,raycastHitEntity: RaycastHitEntity) {
   let transform = entity.getComponent(Transform).position.clone()
 
-  //debugger
-
-//log(transform)
   picker.getComponent(Transform).rotation = Quaternion.Euler(0, 90, 0)
   let x: number = raycastHitEntity.hitPoint.x  
   let y: number = raycastHitEntity.hitPoint.y  
-//  log(x +' x y '+y)
+
   picker.getComponent(Transform).position.set(x, 1, y)
   picker.getComponent(Transform).scale.setAll(MODEL_SIZE)
 }
@@ -455,13 +645,13 @@ function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
   picker.getComponent(Transform).position = transform // Set picker transform to match the voxel
   picker.getComponent(Transform).scale.setAll(MODEL_SIZE)
   let pickerRotation = picker.getComponent(Transform).rotation
+  log(raycastHitEntity.hitNormal)
   if (raycastHitEntity.hitNormal.x != 0) {
     
 
     pickerRotation = Quaternion.Euler(0, 90, 0)
     
     raycastHitEntity.hitNormal.x > 0  
-    
       ? (picker.getComponent(Transform).position.x =
           transform.x + MODEL_SIZE + .1)//1.50) // Offset from voxel center with slight offset
       : (picker.getComponent(Transform).position.x =
