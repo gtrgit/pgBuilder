@@ -1,24 +1,23 @@
 
-//import { BlockData } from "./modules/blockData";
-//import {default as building} from "./modules/building.json"
 import {default as foundation} from "./modules/foundations.json"
 import { BuildingFoundation } from "./modules/buildingFoundation";
 import { blockData, BuildingBlocks } from "./modules/buildingBlock";
 import { HUD } from "./modules/hud";
-//import { BlockSelector, SelectedBlockName } from "./modules/selector";
 import { Manager, Mode } from './manager'
 import { ModelManager } from "./modelManager";
 import { ModelIconManager } from "./modelIconManager";
 import resources from "./resources_2";
 import { changeMaterial } from './modules/modelPicker'
-// import { getVoxelJSON } from "./modules/serverHandler";
 import  {loadAnchor } from "./anchorPoint";
 import { loadFloorTiles } from "./floorTile"
-// import { LandUI } from './modules/landUI'
+import {LoadUi} from './builderUI/loadUi'
+
+
+new LoadUi()
 
 // UI Elements
-const canvas = new UICanvas()
-const hud = new HUD(canvas)
+// const canvas = new UICanvas()
+// const hud = new HUD(canvas)
 // const blkSel = new BlockSelector()
 
 //add new baseBlock

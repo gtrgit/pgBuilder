@@ -4,7 +4,9 @@ import resources from '../resources_2'
 //import { Model3D, models, MODEL_SIZE, currentModelId, colourModels} from 'src/model'
 import { ModelManager, modelArray } from 'src/modelManager'
 //import { ModelEnt } from 'src/modelEntity'
-import { colourIndex, bodyId, faceId, borderId } from './hud'
+// import { bodyId, faceId, borderId } from './hud'
+import { modelNumber, bodyId, faceId, borderId } from "./../builderUI/uiMenu"
+
 //import { BlockData } from './oldblockData'
 import { BuildingFoundation } from './buildingFoundation'
 import { BuildingBlocks, modelData } from './buildingBlock'
@@ -92,7 +94,7 @@ baseGrid.addComponent(
           transform.scale.x,
           transform.scale.y,
           transform.scale.z,
-          ModelManager.modelIndex,
+          modelNumber,//ModelManager.modelIndex,
           bodyId,
           faceId,
           borderId,
@@ -113,7 +115,7 @@ baseGrid.addComponent(
 //  baseGrid.addComponent(new BaseGridData())
 //  baseGrid.getComponent(BaseGridData).baseGridUUID = baseGrid.uuid
 
- log('baseGrid '+baseGrid.uuid)
+//  log('baseGrid '+baseGrid.uuid)
  engine.addEntity(baseGrid)
 
 

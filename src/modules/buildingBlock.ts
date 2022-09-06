@@ -115,7 +115,7 @@ export class BuildingBlocks extends Entity {
             //   log('parent id '+this.uuid)
             // this.getComponent(BlockComponentData).parentId = this.uuid
             // }
-        //log('../../models/seperated_blocks/'+modelTypes.models[blockArrayId].modelTypes[block_type].colour[colour_id].modelColour+'.gltf')
+        log('../../models/seperated_blocks/'+modelTypes.models[blockArrayId].modelTypes[block_type].colour[body_colour_id].modelColour)
         const modelPath:string = modelTypes.models[block_id].modelTypes[block_type].colour[body_colour_id].modelColour
            
         //body
@@ -145,6 +145,7 @@ export class BuildingBlocks extends Entity {
             //   engine.addEntity(colliderEnt)
             //face
             if (modelTypes.models[block_id].modelTypes[block_type].colour[face_colour_id].faceColour){
+              log('face picked ---')
               const facePath:string = modelTypes.models[block_id].modelTypes[block_type].colour[face_colour_id].faceColour
               const faceEnt = new Entity()
               const faceShape = new GLTFShape(facePath)
@@ -164,7 +165,7 @@ export class BuildingBlocks extends Entity {
             //  scale: new Vector3(.99,.99,.99)
            
              const borderTransform = new Transform({
-              scale: new Vector3(.95,.95,.95)
+              scale: new Vector3(.99,.99,.99)
               })
 
               const highLightEnt = new Entity()
@@ -285,7 +286,7 @@ sceneMessageBus.on('editModel', (e) => {
   let body_colour_id = e.body_colour_id //e.colourArrayIndex
   let face_colour_id = e.face_colour_id//e.colourArrayIndex
   let border_colour_id = e.border_colour_id
-  let block_type = e.block_type
+  let block_type = 0//e.block_type
 let blockArrayId: number
 let parentId = e.parentId
 

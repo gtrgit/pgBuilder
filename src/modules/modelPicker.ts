@@ -29,8 +29,6 @@ picker.addComponent(
   })
 )
 
-
-
 // const addMaterial = new BasicMaterial()
 export const addMaterial = new Material()
 
@@ -240,12 +238,12 @@ export class ModelSystem implements ISystem {
         
                         if (raycastHitEntity.entity.meshName == '1x1_Collider') {
                         
-                            log('1x1')
+                            // log('1x1')
                             
                             let menuBackGroundUid:string =  engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
                             let uiUid:string = engine.entities[menuBackGroundUid].getParent()!.uuid
                             let uiParent:string = engine.entities[uiUid].getParent()!.uuid
-                            log('menu pos'+engine.entities[uiParent].getComponent(Transform).position)
+                            // log('menu pos'+engine.entities[uiParent].getComponent(Transform).position)
 
                             let btnPos = engine.entities[raycastHitEntity.entity.entityId].getComponent(Transform).position
                             rentSelectorId = engine.entities[uiParent].getComponent(LandUiComponent).rentSelectorID 
@@ -496,7 +494,7 @@ export class ModelSystem implements ISystem {
 
           //if not the base
           if (raycastHitEntity.entity.meshName == 'blankFloor_collider') { 
-            log('land ui uuid '+landUIID)
+            // log('land ui uuid '+landUIID)
             
             let floorEnt: string= raycastHitEntity.entity.entityId
             
@@ -505,7 +503,7 @@ export class ModelSystem implements ISystem {
              //let landUiModelId = engine.entities[landUIID].getComponent(LandUiComponent).landMenuId
             engine.entities[landUIID].getComponent(Transform).position = engine.entities[floorEnt].getComponent(Transform).position
             
-log('land pos '+ engine.entities[landUIID].getComponent(Transform).position )
+// log('land pos '+ engine.entities[landUIID].getComponent(Transform).position )
           }
           
           }
@@ -518,14 +516,14 @@ log('land pos '+ engine.entities[landUIID].getComponent(Transform).position )
 
              
               //let parentPos = engine.entities[raycastHitEntity.entity.entityId].getParent()!.uuid
-              log('base_collider')
+              // log('base_collider')
              
                      
 
                       if (raycastHitEntity.entity.meshName != 'Cube_collider') {
-                        log('Cube_collider')
+                        // log('Cube_collider')
                       if (raycastHitEntity.entity.meshName != 'anchor_collider') {
-                            log('anchor_collider')
+                            // log('anchor_collider')
                                 if (engine.entities[selectorUUID].uuid != raycastHitEntity.entity.entityId){
                                   
                                  
@@ -537,14 +535,7 @@ log('land pos '+ engine.entities[landUIID].getComponent(Transform).position )
                                             if (engine.entities[pickedModelID]){
                                               // log(engine.entities[pickedModelID].getComponent(Entity).name)
                                               engine.entities[selectorUUID].getComponent(Transform).scale.setAll(1.05)
-                                              // engine.entities[selectorUUID].getComponent(Transform).scale.x = engine.entities[pickedModelID].getComponent(Transform).scale.x+.001
-                                              // engine.entities[selectorUUID].getComponent(Transform).scale.y = engine.entities[pickedModelID].getComponent(Transform).scale.y+.001
-                                              // engine.entities[selectorUUID].getComponent(Transform).scale.z = engine.entities[pickedModelID].getComponent(Transform).scale.z+.001
-
-                                              // engine.entities[selectorUUID].getComponent(Transform).scale.x = engine.entities[pickedModelID].getComponent(Transform).scale.x
-                                              // engine.entities[selectorUUID].getComponent(Transform).scale.y = engine.entities[pickedModelID].getComponent(Transform).scale.y
-                                              // engine.entities[selectorUUID].getComponent(Transform).scale.z = engine.entities[pickedModelID].getComponent(Transform).scale.z
-
+                              
                                               engine.entities[selectorUUID].getComponent(Transform).position = engine.entities[pickedModelID].getComponent(Transform).position
                                             }
                                           }
@@ -554,7 +545,7 @@ log('land pos '+ engine.entities[landUIID].getComponent(Transform).position )
 
                                           if (engine.entities[pickedModelID]){
                     
-                                            log('pickedModelID '+ pickedModelID+'   '+raycastHitEntity.entity.meshName)
+                                            // log('pickedModelID '+ pickedModelID+'   '+raycastHitEntity.entity.meshName)
                                             engine.entities[selectorUUID].getComponent(SelectedBlockUUID).selectedBlockUUID = pickedModelID
                                 
                                            pickerFace(engine.entities[pickedModelID], raycastHitEntity)  
@@ -564,7 +555,7 @@ log('land pos '+ engine.entities[landUIID].getComponent(Transform).position )
                     
         
             } else {
-              log('pickerBase')
+              // log('pickerBase')
              pickerBase(raycastHitEntity)
 
              
@@ -645,7 +636,7 @@ function pickerFace(entity: IEntity, raycastHitEntity: RaycastHitEntity) {
   picker.getComponent(Transform).position = transform // Set picker transform to match the voxel
   picker.getComponent(Transform).scale.setAll(MODEL_SIZE)
   let pickerRotation = picker.getComponent(Transform).rotation
-  log(raycastHitEntity.hitNormal)
+  // log(raycastHitEntity.hitNormal)
   if (raycastHitEntity.hitNormal.x != 0) {
     
 

@@ -2,7 +2,7 @@ import resources_2 from "src/resources_2"
 import modelPath from "src/modelPath"
 import { Manager, Mode } from "src/manager"
 import { ModelManager } from "src/modelManager"
-import { colourIndex, bodyId, faceId, borderId } from "./hud"
+import { modelNumber, bodyId, faceId, borderId, loadedSignData2 } from "./../builderUI/uiMenu"
 import { BuildingBlocks, currentModelId, deletedFlag, modelData ,blockData, BlockComponentData} from "./buildingBlock"
 import { baseGrid } from "./baseGrid"
 
@@ -79,18 +79,38 @@ selectorEntity.addComponent(
         let reducedScale = new Transform({    
           scale: new Vector3(selectorEntity.getComponent(Transform).scale.x-.001,selectorEntity.getComponent(Transform).scale.y-.001,selectorEntity.getComponent(Transform).scale.z-.001)
         })
-        log(reducedScale.scale)
+        // log(reducedScale.scale)
         let selectedId =  selectorEntity.getComponent(SelectedBlockUUID).selectedBlockUUID
-        log('baseGrid id '+baseGrid.uuid+ ' selectedID '+selectedId)
+        // log('baseGrid id '+baseGrid.uuid+ ' selectedID '+selectedId)
       
+
+
+        if (Manager.activeMode == Mode.signAdd)   {
+          for (let i = 0; i <loadedSignData2.length;i++){
+            log('layer name: '+loadedSignData2[i].layerName + ' id '+loadedSignData2[i].layerId)
+           
+
+            selectorMessageBus.emit('addSignLayer', {
+              signLayerId:loadedSignData2[i].layerId,
+              position: selectorEntity.getComponent(Transform).position,
+              scale:selectorEntity.getComponent(Transform).scale,
+              rotation:selectorEntity.getComponent(Transform).rotation,
+              normal: e.hit?.normal,
+              parentId: baseGrid.uuid
+            })
+            // debugger
+
+          }
+
+        }
 
 
         if (Manager.activeMode == Mode.blockAdd)   {
   
           selectorEntity.getComponent(GLTFShape).visible = true
           selectorMessageBus.emit('editModel', {
-            modelArrayIndex: ModelManager.modelIndex,
-            colourArrayIndex: colourIndex,
+            modelArrayIndex: modelNumber,//ModelManager.modelIndex,
+            // colourArrayIndex: colourIndex,
             position: selectorEntity.getComponent(Transform).position,//position,
             rotation: selectorEntity.getComponent(Transform).rotation,
             scale: reducedScale.scale,//new Vector3(1,1,1),//selectorEntity.getComponent(Transform).scale,
